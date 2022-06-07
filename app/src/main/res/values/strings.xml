@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">GamEleven</string>
+
+    <string name="onb_header1">Gaming Collection</string>
+    <string name="onb_header2">Home Decerotation</string>
+    <string name="onb_header3">G11 Gaming zone</string>
+    <string name="onb_text">Zak can be customized and used for any niche.
+        The vast possibilities of this template makes it multi purpose.</string>
+
+    <string name="alertDlt_cart">Are you sure you want to delete the selected Products from the cart?</string>
+    <string name="alertDlt_wishlist">Are you sure you want to delete the selected Product from the wishlist?</string>
+    <string name="terms_and"><U><![CDATA[terms &]]></U></string>
+    <string name="conditions"><U>Conditions</U></string>
+
+
+    <string name="pdText1">Strategies de Survie des Populations Africaines dans une Economie Mondialisée - L’expérience Camerounaise.</string>
+
+    <string name="descriptionText">Strategies de Survie des Populations Africaines dans une Economie Mondialisée - L’expérience Camerounaise.Strategies de Survie des Populaions Africaines dans une Economie Mondi-L’expérience Camero</string>
+    <string name="order_thanks">Thank you for placing order at Limarket. We will Start processing your order after payment is Complete- Limarket</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
