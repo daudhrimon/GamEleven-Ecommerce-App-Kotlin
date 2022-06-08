@@ -3,16 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/drawable/selector_deals_item.xml" value="0.1095" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/drawable/shape_deals_ads.xml" value="0.1095" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/drawable/shape_home_deals.xml" value="0.1095" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/activity_splash.xml" value="0.2359375" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_account.xml" value="0.2359375" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_cart.xml" value="0.25" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_category.xml" value="0.25" />
-        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_home.xml" value="0.25" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_home.xml" value="0.2" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_on_boarding.xml" value="0.2359375" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_product.xml" value="0.25" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_product_details.xml" value="0.25" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_sign_in.xml" value="0.25" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_wishlist.xml" value="0.25" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/lay_onboarding.xml" value="0.25" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/vh_ads.xml" value="0.25" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/vh_brands.xml" value="0.25" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/vh_daily_features.xml" value="0.25" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/vh_flash_deals.xml" value="0.25" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/vh_hot_categories.xml" value="0.25" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/vh_text_list.xml" value="0.25" />
       </map>
     </option>
   </component>

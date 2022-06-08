@@ -1,6 +1,5 @@
 package com.daud.gamelevenecommerce.Activity
 
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -15,9 +14,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationBarView
 
 class MainActivity : AppCompatActivity() {
-    lateinit var btmNav: BottomNavigationView
-    lateinit var fab: FloatingActionButton
-    lateinit var btmCard: CardView
+    companion object{
+        lateinit var btmNav: BottomNavigationView
+        lateinit var fab: FloatingActionButton
+        lateinit var btmCard: CardView
+    }
     val sharedPref = SharedPref()
 
 
@@ -78,5 +79,10 @@ class MainActivity : AppCompatActivity() {
         fab = findViewById(R.id.fab)
         btmCard = findViewById(R.id.btmCard)
         sharedPref.init(this)
+        btmNav.getMenu().getItem(2).setEnabled(false)
+        supportFragmentManager.beginTransaction()
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            .replace(R.id.mainFrame, FragHome()).commit()
+        btmNav.selectedItemId = R.id.home
     }
 }

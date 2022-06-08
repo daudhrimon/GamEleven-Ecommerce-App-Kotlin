@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="87dp"
+    android:layout_height="101dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginHorizontal="3.5dp"
+        app:cardCornerRadius="5dp">
+
+        <ImageView
+            android:id="@+id/fdImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/selector_deals_item"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/one" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="2dp"
+        android:layout_marginBottom="3dp"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+            android:id="@+id/fdCard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/selector_clr"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/fdPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_med"
+                android:maxLines="1"
+                android:text="550.00"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

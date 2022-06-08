@@ -251,15 +251,17 @@
             <!-- FLASH DEALS -->
 
             <LinearLayout
+                android:id="@+id/flashDLay"
                 android:layout_width="match_parent"
-                android:layout_height="146dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="12dp"
                 android:layout_marginTop="6dp"
                 android:layout_marginBottom="6dp"
                 android:background="@drawable/shape_home_deals"
                 android:backgroundTint="@color/white"
                 android:orientation="vertical"
-                android:padding="10dp">
+                android:padding="11dp"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -272,7 +274,7 @@
                     android:textSize="13sp" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/flashDeals"
+                    android:id="@+id/flashDRecycler"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -283,15 +285,17 @@
             <!-- DAILY FEATURES -->
 
             <LinearLayout
+                android:id="@+id/dailyFLay"
                 android:layout_width="match_parent"
-                android:layout_height="146dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="12dp"
                 android:layout_marginTop="6dp"
                 android:layout_marginBottom="6dp"
                 android:background="@drawable/shape_home_deals"
                 android:backgroundTint="@color/daily_features_bg"
                 android:orientation="vertical"
-                android:padding="10dp">
+                android:padding="11dp"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -303,27 +307,65 @@
                     android:textColor="@color/home_txt_clr"
                     android:textSize="13sp" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/dailyFeatures"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                    android:layout_marginBottom="3dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/dailyFAds"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/shape_deals_ads"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="16dp"
+                        android:layout_marginEnd="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hot Sales"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/roboto_light_italic"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="50% OFF"
+                            android:textColor="@color/white"
+                            android:textSize="13sp"
+                            android:fontFamily="@font/roboto_med"/>
+
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/dailyFRecycler"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
             <!-- HOT CATEGORIES -->
 
             <LinearLayout
+                android:id="@+id/hotCLay"
                 android:layout_width="match_parent"
-                android:layout_height="146dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="12dp"
                 android:layout_marginTop="6dp"
                 android:layout_marginBottom="6dp"
                 android:background="@drawable/shape_home_deals"
                 android:backgroundTint="@color/hot_categories_bg"
                 android:orientation="vertical"
-                android:padding="10dp">
+                android:padding="10dp"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -336,7 +378,7 @@
                     android:textSize="13sp" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/hotCategories"
+                    android:id="@+id/hotCRecycler"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -347,6 +389,7 @@
             <!-- BRANDS -->
 
             <LinearLayout
+                android:id="@+id/brandsLay"
                 android:layout_width="match_parent"
                 android:layout_height="146dp"
                 android:layout_marginHorizontal="12dp"
@@ -355,7 +398,8 @@
                 android:background="@drawable/shape_home_deals"
                 android:backgroundTint="@color/brands_bg"
                 android:orientation="vertical"
-                android:padding="10dp">
+                android:padding="10dp"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -368,7 +412,7 @@
                     android:textSize="13sp" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/brands"
+                    android:id="@+id/brandsRecycler"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -377,11 +421,12 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/bestSLay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="300dp"
                 android:orientation="vertical"
-                android:padding="5dp">
+                android:padding="5dp"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -395,9 +440,11 @@
                     android:textSize="13sp" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/bestSale"
+                    android:id="@+id/bestSRecycler"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="2"/>
 
             </LinearLayout>
 

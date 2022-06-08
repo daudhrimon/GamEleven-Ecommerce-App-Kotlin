@@ -8,7 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.daud.gamelevenecommerce.R
 
-class OnBoardingAdapter(private val images: IntArray, private val headers: IntArray) : RecyclerView.Adapter<OnBoardingAdapter.OnBoardingVH>() {
+class OnBoardingAdapter(private var images: IntArray, private val headers: IntArray):
+    RecyclerView.Adapter<OnBoardingAdapter.OnBoardingVH>() {
 
     inner class OnBoardingVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val onImage: ImageView = itemView.findViewById(R.id.onImage)
