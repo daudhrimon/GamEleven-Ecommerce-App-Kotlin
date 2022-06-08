@@ -88,14 +88,24 @@ class Data {
 
     fun getCateItem(): MutableList<CateItemModel>?{
         val ciList: MutableList<CateItemModel> = ArrayList()
-        ciList.add(CateItemModel(R.drawable.one,"Electronic\nDevice"))
-        ciList.add(CateItemModel(R.drawable.two,"Furnitures\nDevice"))
-        ciList.add(CateItemModel(R.drawable.three,"Casual\nBag"))
-        ciList.add(CateItemModel(R.drawable.four,"Electronic\nDevice"))
-        ciList.add(CateItemModel(R.drawable.one,"Electronic\nDevice"))
-        ciList.add(CateItemModel(R.drawable.two,"Furnitures\nDevice"))
-        ciList.add(CateItemModel(R.drawable.three,"Casual\nBag"))
-        ciList.add(CateItemModel(R.drawable.four,"Electronic\nDevice"))
+        ciList.add(CateItemModel(R.drawable.one,"Electronic\nDevice",1))
+        ciList.add(CateItemModel(R.drawable.two,"Furnitures\nDevice",2))
+        ciList.add(CateItemModel(R.drawable.three,"Casual\nBag",1))
+        ciList.add(CateItemModel(R.drawable.four,"Electronic\nDevice",2))
+        ciList.add(CateItemModel(R.drawable.one,"Electronic\nDevice",1))
+        ciList.add(CateItemModel(R.drawable.two,"Furnitures\nDevice",2))
+        ciList.add(CateItemModel(R.drawable.three,"Casual\nBag",1))
+        ciList.add(CateItemModel(R.drawable.four,"Electronic\nDevice",2))
         return ciList
+    }
+
+    fun getCateList1(): Array<String>{
+        val list1 = arrayOf("Merchandise", "Retro Gaming Consoles", "Pre Owned (Badel)", "Xbox", "PlayStation 4", "Gaming Setup", "Tv & Audio")
+        return list1
+    }
+
+    fun getCateList2(): Array<String>{
+        val list2 = arrayOf("Xbox", "PlayStation 4", "Gaming Setup", "Tv & Audio", "Merchandise", "Retro Gaming Consoles", "Pre Owned (Badel)")
+        return list2
     }
 }

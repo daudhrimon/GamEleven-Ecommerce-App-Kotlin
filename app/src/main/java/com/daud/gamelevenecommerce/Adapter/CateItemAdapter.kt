@@ -1,7 +1,6 @@
 package com.daud.gamelevenecommerce.Adapter
 
 import android.content.Context
-import android.content.res.Resources
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +9,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.daud.gamelevenecommerce.Fragment.FragCategory
 import com.daud.gamelevenecommerce.Model.CateItemModel
 import com.daud.gamelevenecommerce.R
 
@@ -45,12 +45,20 @@ class CateItemAdapter(private val context: Context, private val list: MutableLis
 
         holder.cateItem.setOnClickListener(View.OnClickListener { view: View? ->
             index = adapterPosition
+            holder.cateItem.setBackgroundColor(Color.parseColor("#E8E8E8"))
+
+            cateItemClickHandler(adapterPosition)
+
             notifyDataSetChanged()
         })
     }
 
-    private fun cateItemClickHandler() {
+    private fun cateItemClickHandler(adapterPosition: Int) {
+        when (list.get(adapterPosition).state){
+            1-> FragCategory.listItemRecycler.adapter = CateListAdapter(context,FragCategory.data.getCateList1())
 
+            2-> FragCategory.listItemRecycler.adapter = CateListAdapter(context,FragCategory.data.getCateList2())
+        }
     }
 
     override fun getItemCount(): Int {

@@ -12,11 +12,15 @@ import com.daud.gamelevenecommerce.R
 import com.daud.gamelevenecommerce.Util.Data
 
 class FragCategory : Fragment() {
-    private val data = Data()
+    companion object{
+        val data = Data()
+        lateinit var listItemRecycler: RecyclerView
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view: View = inflater.inflate(R.layout.frag_category, container, false)
+        listItemRecycler = view.findViewById(R.id.listItemRecycler)
 
         categoryItemsDemo(view)
 
