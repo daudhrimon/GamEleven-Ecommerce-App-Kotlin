@@ -12,10 +12,10 @@ import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import com.daud.gamelevenecommerce.Fragment.FragProductDetails
-import com.daud.gamelevenecommerce.Model.HotCModel
+import com.daud.gamelevenecommerce.Model.HotCateModel
 import com.daud.gamelevenecommerce.R
 
-class HotCategoryAdapter(private val context: Context, private val list: MutableList<HotCModel>):
+class HotCategoryAdapter(private val context: Context, private val list: MutableList<HotCateModel>):
     RecyclerView.Adapter<HotCategoryAdapter.HotCategoryVH>() {
 
     inner class HotCategoryVH(itemView: View): RecyclerView.ViewHolder(itemView) {

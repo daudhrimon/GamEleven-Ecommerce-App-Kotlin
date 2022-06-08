@@ -1,7 +1,7 @@
 package com.daud.gamelevenecommerce.Model
 
-data class HotCModel(
+data class FlashDealsModel(
     val image: Int,
     val price: String,
     val color: String
-)
+    )

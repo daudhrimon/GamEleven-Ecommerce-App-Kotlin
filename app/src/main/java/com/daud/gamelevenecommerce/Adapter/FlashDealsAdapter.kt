@@ -12,10 +12,10 @@ import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import com.daud.gamelevenecommerce.Fragment.FragProductDetails
-import com.daud.gamelevenecommerce.Model.FlashDModel
+import com.daud.gamelevenecommerce.Model.FlashDealsModel
 import com.daud.gamelevenecommerce.R
 
-class FlashDealsAdapter(private val context: Context, private val list: MutableList<FlashDModel>):
+class FlashDealsAdapter(private val context: Context, private val list: MutableList<FlashDealsModel>):
     RecyclerView.Adapter<FlashDealsAdapter.FlashDealsVH>() {
 
     inner class FlashDealsVH(itemView:View):RecyclerView.ViewHolder(itemView) {

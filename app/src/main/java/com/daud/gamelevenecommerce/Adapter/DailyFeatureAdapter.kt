@@ -10,10 +10,10 @@ import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import com.daud.gamelevenecommerce.Fragment.FragProductDetails
-import com.daud.gamelevenecommerce.Model.DailyFModel
+import com.daud.gamelevenecommerce.Model.DailyFlashModel
 import com.daud.gamelevenecommerce.R
 
-class DailyFeatureAdapter(private val context: Context, private val list: MutableList<DailyFModel>):
+class DailyFeatureAdapter(private val context: Context, private val list: MutableList<DailyFlashModel>):
     RecyclerView.Adapter<DailyFeatureAdapter.DailyFeatureVH>(){
 
     inner class DailyFeatureVH(itemView: View):RecyclerView.ViewHolder(itemView) {

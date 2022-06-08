@@ -1,6 +1,6 @@
 package com.daud.gamelevenecommerce.Model
 
-data class DailyFModel(
+data class DailyFlashModel(
     val image: Int,
     val price: String
 )

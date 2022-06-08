@@ -21,42 +21,42 @@ class Data {
         return textList
     }
 
-    fun getFlashD(): MutableList<FlashDModel>?{
-        val flashDList: MutableList<FlashDModel> = ArrayList()
-        flashDList.add(FlashDModel(R.drawable.one,"550.00","#D81D4C"))
-        flashDList.add(FlashDModel(R.drawable.two,"230.00","#68C037"))
-        flashDList.add(FlashDModel(R.drawable.three,"1230.00","#094D82"))
-        flashDList.add(FlashDModel(R.drawable.four,"560.00","#2B2B2B"))
-        flashDList.add(FlashDModel(R.drawable.one,"550.00","#D81D4C"))
-        flashDList.add(FlashDModel(R.drawable.two,"230.00","#68C037"))
-        flashDList.add(FlashDModel(R.drawable.three,"1230.00","#094D82"))
-        flashDList.add(FlashDModel(R.drawable.four,"560.00","#2B2B2B"))
+    fun getFlashD(): MutableList<FlashDealsModel>?{
+        val flashDList: MutableList<FlashDealsModel> = ArrayList()
+        flashDList.add(FlashDealsModel(R.drawable.one,"550.00","#D81D4C"))
+        flashDList.add(FlashDealsModel(R.drawable.two,"230.00","#68C037"))
+        flashDList.add(FlashDealsModel(R.drawable.three,"1230.00","#094D82"))
+        flashDList.add(FlashDealsModel(R.drawable.four,"560.00","#2B2B2B"))
+        flashDList.add(FlashDealsModel(R.drawable.one,"550.00","#D81D4C"))
+        flashDList.add(FlashDealsModel(R.drawable.two,"230.00","#68C037"))
+        flashDList.add(FlashDealsModel(R.drawable.three,"1230.00","#094D82"))
+        flashDList.add(FlashDealsModel(R.drawable.four,"560.00","#2B2B2B"))
         return flashDList
     }
 
-    fun getDailyF(): MutableList<DailyFModel>?{
-        val dailyFList: MutableList<DailyFModel> = ArrayList()
-        dailyFList.add(DailyFModel(R.drawable.one,"550.00"))
-        dailyFList.add(DailyFModel(R.drawable.two,"230.00"))
-        dailyFList.add(DailyFModel(R.drawable.three,"1230.00"))
-        dailyFList.add(DailyFModel(R.drawable.four,"560.00"))
-        dailyFList.add(DailyFModel(R.drawable.one,"550.00"))
-        dailyFList.add(DailyFModel(R.drawable.two,"230.00"))
-        dailyFList.add(DailyFModel(R.drawable.three,"1230.00"))
-        dailyFList.add(DailyFModel(R.drawable.four,"560.00"))
+    fun getDailyF(): MutableList<DailyFlashModel>?{
+        val dailyFList: MutableList<DailyFlashModel> = ArrayList()
+        dailyFList.add(DailyFlashModel(R.drawable.one,"550.00"))
+        dailyFList.add(DailyFlashModel(R.drawable.two,"230.00"))
+        dailyFList.add(DailyFlashModel(R.drawable.three,"1230.00"))
+        dailyFList.add(DailyFlashModel(R.drawable.four,"560.00"))
+        dailyFList.add(DailyFlashModel(R.drawable.one,"550.00"))
+        dailyFList.add(DailyFlashModel(R.drawable.two,"230.00"))
+        dailyFList.add(DailyFlashModel(R.drawable.three,"1230.00"))
+        dailyFList.add(DailyFlashModel(R.drawable.four,"560.00"))
         return dailyFList
     }
 
-    fun getHotC(): MutableList<HotCModel>?{
-        val hotCList: MutableList<HotCModel> = ArrayList()
-        hotCList.add(HotCModel(R.drawable.one,"550.00","#D81D4C"))
-        hotCList.add(HotCModel(R.drawable.two,"230.00","#68C037"))
-        hotCList.add(HotCModel(R.drawable.three,"1230.00","#094D82"))
-        hotCList.add(HotCModel(R.drawable.four,"560.00","#2B2B2B"))
-        hotCList.add(HotCModel(R.drawable.one,"550.00","#D81D4C"))
-        hotCList.add(HotCModel(R.drawable.two,"230.00","#68C037"))
-        hotCList.add(HotCModel(R.drawable.three,"1230.00","#094D82"))
-        hotCList.add(HotCModel(R.drawable.four,"560.00","#2B2B2B"))
+    fun getHotC(): MutableList<HotCateModel>?{
+        val hotCList: MutableList<HotCateModel> = ArrayList()
+        hotCList.add(HotCateModel(R.drawable.one,"550.00","#D81D4C"))
+        hotCList.add(HotCateModel(R.drawable.two,"230.00","#68C037"))
+        hotCList.add(HotCateModel(R.drawable.three,"1230.00","#094D82"))
+        hotCList.add(HotCateModel(R.drawable.four,"560.00","#2B2B2B"))
+        hotCList.add(HotCateModel(R.drawable.one,"550.00","#D81D4C"))
+        hotCList.add(HotCateModel(R.drawable.two,"230.00","#68C037"))
+        hotCList.add(HotCateModel(R.drawable.three,"1230.00","#094D82"))
+        hotCList.add(HotCateModel(R.drawable.four,"560.00","#2B2B2B"))
         return hotCList
     }
 
