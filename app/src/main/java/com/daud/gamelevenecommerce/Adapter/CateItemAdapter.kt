@@ -40,6 +40,10 @@ class CateItemAdapter(private val context: Context, private val list: MutableLis
             holder.cateItem.setBackgroundColor(Color.parseColor("#FFFFFF"))
         }
 
+        if (index==-1){
+            FragCategory.listItemRecycler.adapter = CateListAdapter(context,FragCategory.data.getCateList1())
+        }
+
         holder.ciIamge.setImageResource(list.get(position).image)
         holder.ciName.text = (list.get(position).name)
 

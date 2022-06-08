@@ -70,7 +70,7 @@
         android:background="@color/search_bg_clr" />
 
     <LinearLayout
-        android:id="@+id/superLay"
+        android:id="@+id/listItemLay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/btmView"
