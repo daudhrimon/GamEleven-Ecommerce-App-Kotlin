@@ -17,7 +17,7 @@ import com.daud.gamelevenecommerce.Util.Data
 import com.denzcoskun.imageslider.ImageSlider
 
 class FragHome : Fragment() {
-    val data = Data()
+    private val data = Data()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,19 +27,7 @@ class FragHome : Fragment() {
 
         initial(view)
 
-        textButtonDemo(view)
-
-        imageSliderDemo(view)
-
-        flashDealsDemo(view)
-
-        dailyFeaturesDemo(view)
-
-        hotCategoryDemo(view)
-
-        brandsDemo(view)
-
-        bestSaleDemo(view)
+        setDemoData(view)
 
         val menuBtn: ImageButton = view.findViewById(R.id.menuBtn)
         menuBtn.setOnClickListener(View.OnClickListener { view: View? ->
@@ -67,6 +55,22 @@ class FragHome : Fragment() {
         })
 
         return view
+    }
+
+    private fun setDemoData(view: View) {
+        textButtonDemo(view)
+
+        imageSliderDemo(view)
+
+        flashDealsDemo(view)
+
+        dailyFeaturesDemo(view)
+
+        hotCategoryDemo(view)
+
+        brandsDemo(view)
+
+        bestSaleDemo(view)
     }
 
     private fun clickHandlerDemo() {

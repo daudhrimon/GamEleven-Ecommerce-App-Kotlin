@@ -85,4 +85,17 @@ class Data {
         adsList.add(AdsModel(R.drawable.four,"Power Bank Water Gold","Sound Box","500.00"))
         return adsList
     }
+
+    fun getCateItem(): MutableList<CateItemModel>?{
+        val ciList: MutableList<CateItemModel> = ArrayList()
+        ciList.add(CateItemModel(R.drawable.one,"Electronic\nDevice"))
+        ciList.add(CateItemModel(R.drawable.two,"Furnitures\nDevice"))
+        ciList.add(CateItemModel(R.drawable.three,"Casual\nBag"))
+        ciList.add(CateItemModel(R.drawable.four,"Electronic\nDevice"))
+        ciList.add(CateItemModel(R.drawable.one,"Electronic\nDevice"))
+        ciList.add(CateItemModel(R.drawable.two,"Furnitures\nDevice"))
+        ciList.add(CateItemModel(R.drawable.three,"Casual\nBag"))
+        ciList.add(CateItemModel(R.drawable.four,"Electronic\nDevice"))
+        return ciList
+    }
 }

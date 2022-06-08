@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/drawable/category_item_check.xml" value="0.1095" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/drawable/selector_cate_item.xml" value="0.1095" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/drawable/selector_deals_item.xml" value="0.1095" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/drawable/shape_deals_ads.xml" value="0.1095" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/drawable/shape_home_deals.xml" value="0.1095" />
@@ -20,6 +22,9 @@
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/lay_onboarding.xml" value="0.25" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/vh_ads.xml" value="0.25" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/vh_brands.xml" value="0.25" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/vh_cate_item.xml" value="0.20023148148148148" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/vh_cate_items.xml" value="0.144" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/vh_category_items.xml" value="0.2" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/vh_daily_features.xml" value="0.25" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/vh_flash_deals.xml" value="0.25" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/vh_hot_categories.xml" value="0.25" />
