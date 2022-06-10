@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/main_bg_clr"
     android:orientation="vertical"
-    tools:context=".Fragment.FragProduct">
+    tools:context=".Fragment.FragSearchFilter">
 
     <LinearLayout
         android:id="@+id/toolBar"

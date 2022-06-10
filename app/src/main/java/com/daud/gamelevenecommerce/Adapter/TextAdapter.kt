@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
-import com.daud.gamelevenecommerce.Fragment.FragProduct
+import com.daud.gamelevenecommerce.Fragment.FragSearchFilter
 import com.daud.gamelevenecommerce.R
 
 class TextAdapter(private val context: Context, private var list: Array<String>):
@@ -37,7 +37,7 @@ class TextAdapter(private val context: Context, private var list: Array<String>)
     private fun textBtnClickHandler() {
         (context as FragmentActivity).supportFragmentManager.beginTransaction()
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-            .replace(R.id.mainFrame, FragProduct()).addToBackStack(null).commit()
+            .replace(R.id.mainFrame, FragSearchFilter()).addToBackStack(null).commit()
     }
 
     override fun getItemCount(): Int {

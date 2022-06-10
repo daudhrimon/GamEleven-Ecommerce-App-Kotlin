@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.daud.gamelevenecommerce.R
 
-class FragProduct : Fragment() {
+class FragSearchFilter : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view: View = inflater.inflate(R.layout.frag_product, container, false)
+        val view: View = inflater.inflate(R.layout.frag_search_filter, container, false)
 
         return view
     }

@@ -3,6 +3,7 @@ package com.daud.gamelevenecommerce.Activity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.FragmentTransaction
@@ -73,7 +74,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     private fun initial() {
         btmNav = findViewById(R.id.btmNav)
         fab = findViewById(R.id.fab)
@@ -85,4 +85,15 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.mainFrame, FragHome()).commit()
         btmNav.selectedItemId = R.id.home
     }
+
+    override fun onBackPressed() {
+        if (supportFragmentManager.backStackEntryCount == 0 && btmNav.selectedItemId != R.id.home) {
+            fabClickHandler()
+        } else if (supportFragmentManager.backStackEntryCount == 0 && btmNav.selectedItemId == R.id.home) {
+            Toast.makeText(this, "NO TASK", Toast.LENGTH_SHORT).show()
+        } else {
+            supportFragmentManager.popBackStack()
+        }
+    }
+
 }

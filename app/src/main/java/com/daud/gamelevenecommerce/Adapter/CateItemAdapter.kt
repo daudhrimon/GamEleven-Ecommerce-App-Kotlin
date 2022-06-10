@@ -13,7 +13,7 @@ import com.daud.gamelevenecommerce.Fragment.FragCategory
 import com.daud.gamelevenecommerce.Model.CateItemModel
 import com.daud.gamelevenecommerce.R
 
-class CateItemAdapter(private val context: Context, private val list: MutableList<CateItemModel>):
+class CateItemAdapter(private val context: Context, private var list: MutableList<CateItemModel>):
     RecyclerView.Adapter<CateItemAdapter.CateItemVH>() {
 
     private var index: Int = -1
@@ -34,12 +34,14 @@ class CateItemAdapter(private val context: Context, private val list: MutableLis
 
         val adapterPosition:Int = position
 
+        //this line will set the color of the selected position.
         if (index==adapterPosition){
             holder.cateItem.setBackgroundColor(Color.parseColor("#E8E8E8"))
         }else{
             holder.cateItem.setBackgroundColor(Color.parseColor("#FFFFFF"))
         }
 
+        //this line will set the list items for the first time...
         if (index==-1){
             FragCategory.listItemRecycler.adapter = CateListAdapter(context,FragCategory.data.getCateList1())
         }
@@ -49,10 +51,9 @@ class CateItemAdapter(private val context: Context, private val list: MutableLis
 
         holder.cateItem.setOnClickListener(View.OnClickListener { view: View? ->
             index = adapterPosition
+
             holder.cateItem.setBackgroundColor(Color.parseColor("#E8E8E8"))
-
             cateItemClickHandler(adapterPosition)
-
             notifyDataSetChanged()
         })
     }
