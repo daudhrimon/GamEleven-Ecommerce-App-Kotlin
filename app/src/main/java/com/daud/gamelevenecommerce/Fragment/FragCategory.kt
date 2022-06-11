@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import com.daud.gamelevenecommerce.Activity.MainActivity
 import com.daud.gamelevenecommerce.Adapter.CateItemAdapter
@@ -14,9 +16,10 @@ import com.daud.gamelevenecommerce.Util.Data
 
 class FragCategory : Fragment() {
     companion object{
-        val data = Data()
         lateinit var listItemRecycler: RecyclerView
+        val data = Data()
     }
+    private lateinit var backBtn: ImageButton
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -28,7 +31,17 @@ class FragCategory : Fragment() {
 
         categoryItemsDemo(view)
 
+        backBtn.setOnClickListener(View.OnClickListener { view1: View? ->
+            backBtnClickHandler()
+        })
+
         return view
+    }
+
+    private fun backBtnClickHandler() {
+        parentFragmentManager.beginTransaction()
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
+            .replace(R.id.mainFrame, FragHome()).commit()
     }
 
     private fun categoryItemsDemo(view: View) {
@@ -40,5 +53,6 @@ class FragCategory : Fragment() {
         MainActivity.btmCard.visibility = View.VISIBLE
         MainActivity.fab.visibility = View.VISIBLE
         ///////////////////////////////////////////
+        backBtn = view.findViewById(R.id.cateBack)
     }
 }

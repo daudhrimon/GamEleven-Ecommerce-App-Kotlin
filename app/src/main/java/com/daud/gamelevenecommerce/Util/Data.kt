@@ -122,4 +122,17 @@ class Data {
         list.add(CartModel(R.drawable.four,"Power Bank Water Gold","Sound Box","4500.00XAF","1230.00 SAR",1))
         return list
     }
+
+    fun getWishlist(): MutableList<WishlistModel>?{
+        var list: MutableList<WishlistModel> = ArrayList()
+        list.add(WishlistModel(R.drawable.one,"Power Bank Water Gold","Sound Box","550.00 SAR"))
+        list.add(WishlistModel(R.drawable.two,"Power Bank Water Gold","Sound Box","230.00 SAR"))
+        list.add(WishlistModel(R.drawable.three,"Power Bank Water Gold","Sound Box","1230.00 SAR"))
+        list.add(WishlistModel(R.drawable.four,"Power Bank Water Gold","Sound Box","1230.00 SAR"))
+        list.add(WishlistModel(R.drawable.one,"Power Bank Water Gold","Sound Box","550.00 SAR"))
+        list.add(WishlistModel(R.drawable.two,"Power Bank Water Gold","Sound Box","230.00 SAR"))
+        list.add(WishlistModel(R.drawable.three,"Power Bank Water Gold","Sound Box","1230.00 SAR"))
+        list.add(WishlistModel(R.drawable.four,"Power Bank Water Gold","Sound Box","1230.00 SAR"))
+        return list
+    }
 }

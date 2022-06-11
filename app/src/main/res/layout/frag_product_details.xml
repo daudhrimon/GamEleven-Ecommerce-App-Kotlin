@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="10"
-    tools:context=".Fragment.FragProDetails">
+    tools:context=".Fragment.FragProductDetails">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coLay"
@@ -17,7 +17,7 @@
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/app_bar_layout"
             android:layout_width="match_parent"
-            android:layout_height="222dp"
+            android:layout_height="234dp"
             android:fitsSystemWindows="true"
             android:theme="@style/ThemeOverlay.AppCompat.DayNight.ActionBar">
 

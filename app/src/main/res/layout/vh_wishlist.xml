@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/wishItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="3dp"
+    android:background="@drawable/selector_wishlist"
+    android:clickable="true"
+    android:paddingStart="11dp"
+    android:weightSum="10">
+
+    <ImageView
+        android:id="@+id/wishImage"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:layout_gravity="center"
+        android:layout_weight="3"
+        android:src="@drawable/four" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_weight="5"
+        android:orientation="vertical"
+        android:paddingBottom="6dp">
+
+        <TextView
+            android:id="@+id/wishName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingTop="10dp"
+            android:text="Power Bank Water Gold"
+            android:textColor="#7E7E7E"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/wishCate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingTop="1dp"
+            android:text="Sound Box"
+            android:textColor="#7E7E7E"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/wishPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_med"
+            android:paddingVertical="9dp"
+            android:text="500.00 SAR"
+            android:textColor="@color/selector_clr"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/wishDlt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:background="@drawable/wd_unselect"
+        android:clickable="true"
+        android:gravity="end"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <ImageView
+            android:id="@+id/dltIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:clickable="false"
+            android:src="@drawable/delete" />
+
+    </LinearLayout>
+
+</LinearLayout>

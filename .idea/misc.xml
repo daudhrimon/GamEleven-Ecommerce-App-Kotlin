@@ -10,6 +10,7 @@
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/drawable/shape_home_deals.xml" value="0.1095" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/activity_splash.xml" value="0.2359375" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/aleartdialog_delete.xml" value="0.25" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_account.xml" value="0.2359375" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_cart.xml" value="0.25" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_category.xml" value="0.25" />
@@ -32,6 +33,7 @@
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/vh_flash_deals.xml" value="0.25" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/vh_hot_categories.xml" value="0.25" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/vh_text_list.xml" value="0.25" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/vh_wishlist.xml" value="0.25" />
       </map>
     </option>
   </component>
