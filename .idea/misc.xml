@@ -12,18 +12,25 @@
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/activity_splash.xml" value="0.2359375" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/aleartdialog_delete.xml" value="0.25" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/alertdialog_language.xml" value="0.25" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/btmsheet_address_half.xml" value="0.25" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/btmsheet_contact.xml" value="0.25" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/btmsheet_email.xml" value="0.25" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/btmsheet_no_address.xml" value="0.25" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/btmsheet_payment.xml" value="0.25" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/btmsheet_personalinfo.xml" value="0.25" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/btmsheet_single_product.xml" value="0.25" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_account.xml" value="0.2" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_cart.xml" value="0.25" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_category.xml" value="0.25" />
-        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_checkout_info.xml" value="0.2359375" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_checkout_info.xml" value="0.2" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_filter_search.xml" value="0.2" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_home.xml" value="0.2" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_on_boarding.xml" value="0.2359375" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_order_details.xml" value="0.25" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_order_list.xml" value="0.25" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_product.xml" value="0.25" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_product_details.xml" value="0.2" />
+        <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_profile.xml" value="0.2" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_search_filter.xml" value="0.25" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_sign_in.xml" value="0.25" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/layout/frag_sign_up.xml" value="0.2" />

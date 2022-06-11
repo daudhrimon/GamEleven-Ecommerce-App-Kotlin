@@ -1,14 +1,302 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".Fragment.FragProfile">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <!--TOOLBAR -->
 
-</FrameLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        app:cardBackgroundColor="@color/main_bg_clr">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/profileBack"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:src="@drawable/back"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/roboto_med"
+                android:text="Edit Profile"
+                android:textColor="@color/frag_name_clr"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/profileCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:outlineSpotShadowColor="@color/trans">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="115dp"
+                android:layout_height="85dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/profile_image"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/demo_dp" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:src="@drawable/pencil"
+                    app:backgroundTint="@color/white"
+                    app:borderWidth="0dp"
+                    app:fabCustomSize="30dp"
+                    app:maxImageSize="13dp"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="18dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Jonathan Smith"
+                android:textAlignment="center"
+                android:textColor="#404040"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:orientation="horizontal"
+        android:padding="7dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Personal Information"
+            android:textColor="#404040"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/personalEd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Edit"
+            android:textAlignment="textEnd"
+            android:textColor="#FC6600"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="7dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="9dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Name"
+            android:textColor="#404040"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Jonathan Smith"
+            android:textColor="#404040"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="7dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="9dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Contact Number"
+            android:textColor="#404040"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="01567383855"
+            android:textColor="#404040"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="7dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="9dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Gender"
+            android:textColor="#404040"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Male"
+            android:textColor="#404040"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="7dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="9dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Date of Birth"
+            android:textColor="#404040"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="1/1/1995"
+            android:textColor="#404040"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:background="#FFFFFF"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Email Address"
+            android:textColor="#404040"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/emailEd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Edit"
+            android:textAlignment="textEnd"
+            android:textColor="#FC6600"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="7dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="9dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Email"
+            android:textColor="#404040"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text=" "
+            android:textColor="#404040"
+            android:textSize="16sp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </LinearLayout>
+
+</LinearLayout>

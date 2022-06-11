@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_bg_clr"
-    tools:context=".Fragment.FragCkOutInfo">
+    tools:context=".Fragment.FragOrderDetails">
 
     <!--TOOLBAR -->
 
@@ -13,17 +13,16 @@
         android:id="@+id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        app:cardBackgroundColor="@color/white">
+        app:cardBackgroundColor="@color/main_bg_clr">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/main_bg_clr"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/cOutBack"
+                android:id="@+id/odBack"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="48dp"
                 android:layout_height="wrap_content"
@@ -36,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:fontFamily="@font/roboto_med"
-                android:text="Checkout Information"
+                android:text="Order Details"
                 android:textColor="@color/frag_name_clr"
                 android:textSize="16sp" />
 
@@ -44,15 +43,12 @@
 
     </androidx.cardview.widget.CardView>
 
-    <!-- START FROM HERE -->
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/btmCard"
         android:layout_below="@id/toolBar"
-        android:scrollbars="none"
-        android:scrollingCache="true">
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -63,90 +59,154 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:paddingVertical="2dp"
                 android:background="@color/white"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="11dp"
-                    android:fontFamily="@font/roboto_med"
-                    android:padding="4dp"
-                    android:text="Billing Address"
-                    android:textColor="#707070"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/fullAdd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
-                    android:clickable="true"
-                    android:fontFamily="@font/roboto_med"
-                    android:padding="4dp"
-                    android:text="CHANGE"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/selector_clr"
-                    android:textSize="16sp"
-                    tools:ignore="TouchTargetSizeCheck" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="3dp"
-                android:weightSum="5">
+                android:orientation="vertical"
+                android:paddingVertical="12dp">
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="4"
-                    android:orientation="vertical">
+                    android:layout_marginHorizontal="20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingEnd="5dp"
+                    android:weightSum="9">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/fabSelect"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginBottom="1dp"
-                        android:fontFamily="@font/roboto_regular"
-                        android:text="Ibrahim Khalil"
-                        android:textColor="#525252"
-                        android:textSize="16sp" />
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/selector_clr"
+                        android:src="@drawable/tick"
+                        app:borderWidth="0dp"
+                        app:elevation="0dp"
+                        app:fabCustomSize="25dp"
+                        app:maxImageSize="13dp"
+                        app:tint="@color/white"
+                        tools:ignore="SpeakableTextPresentCheck" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:fontFamily="@font/roboto_regular"
-                        android:text="No address provide"
-                        android:textColor="#525252"
-                        android:textSize="14sp" />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@color/selector_clr" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="7dp"
+                        android:src="@drawable/dot_selected_od" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@color/selector_clr" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:src="@drawable/dot_unselected_od" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@color/selector_clr" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:src="@drawable/dot_unselected_od" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@color/selector_clr" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="1.5dp"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:src="@drawable/dot_unselected_od" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center">
+                    android:layout_marginHorizontal="5dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:weightSum="9">
 
-                    <com.google.android.material.floatingactionbutton.FloatingActionButton
-                        android:id="@+id/halfAdd"
-                        android:layout_width="wrap_content"
+                    <TextView
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="#DBDBDB"
-                        android:src="@drawable/pencil"
-                        app:borderWidth="0dp"
-                        app:elevation="0dp"
-                        app:fabCustomSize="31dp"
-                        app:maxImageSize="13dp"
-                        app:tint="@null"
-                        tools:ignore="SpeakableTextPresentCheck" />
+                        android:layout_weight="1.8"
+                        android:fontFamily="@font/roboto_regular"
+                        android:paddingEnd="1dp"
+                        android:text="Pending"
+                        android:textAlignment="center"
+                        android:textColor="#414141"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:fontFamily="@font/roboto_regular"
+                        android:paddingStart="3dp"
+                        android:text="Confirmed"
+                        android:textAlignment="center"
+                        android:textColor="#414141"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:fontFamily="@font/roboto_regular"
+                        android:paddingEnd="2dp"
+                        android:text="Processing"
+                        android:textAlignment="center"
+                        android:textColor="#414141"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:fontFamily="@font/roboto_regular"
+                        android:paddingEnd="7dp"
+                        android:text="Shipped"
+                        android:textAlignment="center"
+                        android:textColor="#414141"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.6"
+                        android:fontFamily="@font/roboto_regular"
+                        android:paddingEnd="3dp"
+                        android:text="Delivered"
+                        android:textAlignment="center"
+                        android:textColor="#414141"
+                        android:textSize="12sp" />
 
                 </LinearLayout>
 
@@ -174,47 +234,62 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="3dp"
-                android:weightSum="5">
+                android:layout_marginVertical="5dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="4"
-                    android:orientation="vertical">
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingVertical="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
                         android:layout_marginBottom="1dp"
-                        android:fontFamily="@font/roboto_regular"
-                        android:text="+237 758 754 637"
-                        android:textColor="#525252"
+                        android:fontFamily="@font/roboto_med"
+                        android:paddingHorizontal="30dp"
+                        android:text="27 Feb"
+                        android:textColor="#414141"
                         android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:fontFamily="@font/roboto_med"
+                        android:paddingHorizontal="30dp"
+                        android:text="5:00 PM"
+                        android:textColor="#414141"
+                        android:textSize="12sp" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center">
+                    android:orientation="vertical"
+                    android:padding="5dp">
 
-                    <com.google.android.material.floatingactionbutton.FloatingActionButton
-                        android:id="@+id/addContact"
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="#DBDBDB"
-                        android:src="@drawable/pencil"
-                        app:borderWidth="0dp"
-                        app:elevation="0dp"
-                        app:fabCustomSize="31dp"
-                        app:maxImageSize="13dp"
-                        app:tint="@null"
-                        tools:ignore="SpeakableTextPresentCheck" />
+                        android:layout_marginBottom="1dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="@string/order_thanks"
+                        android:textColor="#414141"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:fontFamily="@font/roboto_med"
+                        android:text="Pending"
+                        android:textColor="#414141"
+                        android:textSize="16sp" />
 
                 </LinearLayout>
 
@@ -239,7 +314,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/demo1"
+                android:id="@+id/odDemo1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
@@ -301,7 +376,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/demo2"
+                android:id="@+id/odDemo2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
@@ -503,44 +578,65 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:cardElevation="10dp">
+        app:cardElevation="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:orientation="vertical"
-            android:paddingHorizontal="25dp">
+            android:orientation="horizontal"
+            android:paddingEnd="18dp"
+            android:weightSum="2">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="11dp"
-                android:orientation="horizontal"
-                android:weightSum="2">
+                android:layout_weight="1.2"
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="Items : 02" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/roboto_med"
+                    android:text="Payment Status"
+                    android:textColor="#414141"
+                    android:textSize="16sp" />
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="Total : SAR 500000.00"
-                    android:textAlignment="textEnd" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="11dp"
+                    android:layout_marginStart="12dp"
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_med"
+                        android:text="Account "
+                        android:textColor="#BABABA "
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_med"
+                        android:text=": XAF 50000.00"
+                        android:textColor="#414141"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/orderBtn"
-                android:layout_width="match_parent"
+                android:id="@+id/unpaidBtn"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight=".8"
                 android:background="@drawable/selector_buynow"
                 android:clickable="true"
                 android:gravity="center"
@@ -550,10 +646,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_med"
-                    android:paddingVertical="12dp"
-                    android:text="PLACE ORDER"
+                    android:paddingVertical="9dp"
+                    android:text="Unpaid"
                     android:textColor="@color/white"
-                    android:textSize="15sp" />
+                    android:textSize="16sp" />
 
             </LinearLayout>
 

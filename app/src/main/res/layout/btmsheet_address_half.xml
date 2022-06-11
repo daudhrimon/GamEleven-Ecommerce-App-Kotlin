@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:paddingHorizontal="22dp">
+
+    <View
+        android:layout_width="89dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="23dp"
+        android:background="#EBEAEA" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="2dp"
+        android:layout_marginVertical="7dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Address*"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textColor="@color/rating_txt_clr2"
+            android:textSize="15sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_round_bg_outline"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="Enter road no, block/sector"
+            android:paddingHorizontal="11dp"
+            android:paddingVertical="16dp"
+            android:textColor="@color/rating_txt_clr2"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="2dp"
+        android:layout_marginVertical="7dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Area"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textColor="@color/rating_txt_clr2"
+                android:textSize="15sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_round_bg_outline"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="Enter area"
+                android:paddingHorizontal="11dp"
+                android:paddingVertical="16dp"
+                android:textColor="@color/rating_txt_clr2"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="City*"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textColor="@color/rating_txt_clr2"
+                android:textSize="15sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_round_bg_outline"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="Enter city"
+                android:paddingHorizontal="11dp"
+                android:paddingVertical="16dp"
+                android:textColor="@color/rating_txt_clr2"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="2dp"
+        android:layout_marginTop="7dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Region"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textColor="@color/rating_txt_clr2"
+                android:textSize="15sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_round_bg_outline"
+                android:fontFamily="@font/roboto_regular"
+                android:paddingHorizontal="11dp"
+                android:paddingVertical="16dp"
+                android:text=" "
+                android:textColor="@color/rating_txt_clr2"
+                android:textSize="13sp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Country*"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textColor="@color/rating_txt_clr2"
+                android:textSize="15sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_round_bg_outline"
+                android:fontFamily="@font/roboto_regular"
+                android:paddingHorizontal="11dp"
+                android:paddingVertical="16dp"
+                android:text=" "
+                android:textColor="@color/rating_txt_clr2"
+                android:textSize="13sp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_marginVertical="15dp"
+        android:backgroundTint="@color/selector_clr"
+        android:fontFamily="@font/roboto_med"
+        android:text="SAVE ADDRESS"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+</LinearLayout>

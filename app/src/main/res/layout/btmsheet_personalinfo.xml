@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="89dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="23dp"
+        android:background="#EBEAEA" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="22dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
+            android:layout_marginVertical="7dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="7dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="First Name"
+                    android:textColor="#9A9A9A"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_round_bg_outline"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="Enter First name"
+                    android:paddingHorizontal="11dp"
+                    android:paddingVertical="16dp"
+                    android:textColor="#9A9A9A"
+                    android:textSize="13sp"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="7dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Last Name"
+                    android:textColor="#9A9A9A"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_round_bg_outline"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="Enter Last name"
+                    android:paddingHorizontal="11dp"
+                    android:paddingVertical="16dp"
+                    android:textColor="#9A9A9A"
+                    android:textSize="13sp"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
+            android:layout_marginVertical="7dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Contact Number*"
+                android:textColor="#9A9A9A"
+                android:textSize="15sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_round_bg_outline"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="Enter your contact Number"
+                android:paddingHorizontal="11dp"
+                android:paddingVertical="16dp"
+                android:textColor="#9A9A9A"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
+            android:layout_marginVertical="7dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Date of birth"
+                android:textColor="#9A9A9A"
+                android:textSize="15sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_round_bg_outline"
+                android:drawableEnd="@drawable/calendar"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="Enter your date of birth"
+                android:paddingHorizontal="11dp"
+                android:paddingVertical="16dp"
+                android:textColor="#9A9A9A"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
+            android:layout_marginTop="7dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Gender"
+                android:textColor="#9A9A9A"
+                android:textSize="15sp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Male"
+                    android:textColor="#9A9A9A"
+                    android:textSize="15sp" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Female"
+                    android:textColor="#9A9A9A"
+                    android:textSize="15sp" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:layout_marginVertical="15dp"
+            android:backgroundTint="#E55D2F"
+            android:fontFamily="@font/roboto_med"
+            android:text="SAVE PERSONAL INFORMATION"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+</LinearLayout>
