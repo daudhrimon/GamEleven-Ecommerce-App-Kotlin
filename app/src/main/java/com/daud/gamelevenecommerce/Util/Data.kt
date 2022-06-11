@@ -17,6 +17,15 @@ class Data {
         return imgList
     }
 
+    fun pdSlider(): MutableList<SlideModel>? {
+        val imgList: MutableList<SlideModel> = ArrayList()
+        imgList.add(SlideModel(R.drawable.one, ScaleTypes.CENTER_INSIDE))
+        imgList.add(SlideModel(R.drawable.two, ScaleTypes.CENTER_INSIDE))
+        imgList.add(SlideModel(R.drawable.three, ScaleTypes.CENTER_INSIDE))
+        imgList.add(SlideModel(R.drawable.four, ScaleTypes.CENTER_INSIDE))
+        return imgList
+    }
+
     fun getText(): Array<String>{
         val textList = arrayOf("Hot", "Computer & Office", "Phone Accessories", "Gaming PC", "Toys")
         return textList
