@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Fragment.FragSignUp">
+
+    <!--ToolBar-->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        app:cardBackgroundColor="@color/sign_bg_clr">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/sUpBack"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:src="@drawable/ic_baseline_keyboard_backspace_24"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/roboto_med"
+                android:text="Sign Up"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- DESIGN FROM HERE -->
+
+    <ImageView
+        android:layout_width="187dp"
+        android:layout_height="0dp"
+        android:layout_above="@+id/etLay"
+        android:layout_below="@+id/toolBar"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/sp_img" />
+
+    <LinearLayout
+        android:id="@+id/etLay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="5dp"
+            android:background="#F0F0F0"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="First Name"
+            android:paddingHorizontal="20dp"
+            android:textColor="#9A9A9A"
+            android:textSize="15sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="5dp"
+            android:background="#F0F0F0"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="Email"
+            android:paddingHorizontal="20dp"
+            android:textColor="#9A9A9A"
+            android:textSize="15sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="5dp"
+            android:background="#F0F0F0"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="Password"
+            android:paddingHorizontal="20dp"
+            android:textColor="#9A9A9A"
+            android:textSize="15sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="5dp"
+            android:background="#F0F0F0"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="Phone Number"
+            android:paddingHorizontal="20dp"
+            android:textColor="#9A9A9A"
+            android:textSize="15sp" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="5dp">
+
+            <CheckBox
+                android:id="@+id/agreeBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                android:id="@+id/firstTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@id/agreeBox"
+                android:fontFamily="@font/roboto_regular"
+                android:text="I agree to the "
+                android:textColor="#6E6E6E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/privacyPolicy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/firstTv"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Privacy Policy"
+                android:textColor="#D81D4C"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/and"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/privacyPolicy"
+                android:fontFamily="@font/roboto_regular"
+                android:text=" and "
+                android:textColor="#6E6E6E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/and"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/terms_and"
+                android:textColor="#6E6E6E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/condition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/firstTv"
+                android:layout_toEndOf="@id/agreeBox"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/conditions"
+                android:textColor="#6E6E6E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/privacyPolicy"
+                android:layout_toEndOf="@id/condition"
+                android:fontFamily="@font/roboto_regular"
+                android:text=" of Limarket"
+                android:textColor="#6E6E6E"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/createAcBtn"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/etLay"
+        android:layout_marginHorizontal="28dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/selector_clr"
+        android:fontFamily="@font/roboto_med"
+        android:text="Create Account"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/createAcBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="10dp"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Already Have An Account ?"
+            android:textColor="#6E6E6E"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/upSignInBtn"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Sign In"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="@color/selector_clr"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
