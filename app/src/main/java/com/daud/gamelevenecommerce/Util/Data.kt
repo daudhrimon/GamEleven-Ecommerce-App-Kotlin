@@ -135,4 +135,6 @@ class Data {
         list.add(WishlistModel(R.drawable.four,"Power Bank Water Gold","Sound Box","1230.00 SAR"))
         return list
     }
+
+
 }

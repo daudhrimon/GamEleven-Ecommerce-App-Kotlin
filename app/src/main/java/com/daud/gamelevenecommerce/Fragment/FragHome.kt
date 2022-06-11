@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.FragmentTransaction.TRANSIT_FRAGMENT_OPEN
 import androidx.recyclerview.widget.RecyclerView
 import com.daud.gamelevenecommerce.Activity.MainActivity
 import com.daud.gamelevenecommerce.Adapter.*
@@ -74,7 +75,8 @@ class FragHome : Fragment() {
     }
 
     private fun clickHandlerDemo() {
-        TODO("Not yet implemented")
+        parentFragmentManager.beginTransaction().setTransition(TRANSIT_FRAGMENT_OPEN)
+            .replace(R.id.mainFrame,FragSearchFilter()).addToBackStack(null).commit()
     }
 
     private fun bestSaleDemo(view: View) {
