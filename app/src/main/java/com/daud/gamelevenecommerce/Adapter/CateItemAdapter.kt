@@ -43,7 +43,7 @@ class CateItemAdapter(private val context: Context, private var list: MutableLis
 
         //this line will set the list items for the first time...
         if (index==-1){
-            FragCategory.listItemRecycler.adapter = CateListAdapter(context,FragCategory.data.getCateList1())
+            FragCategory.listItemRecycler.adapter = FragCategory.data.getCateList1()?.let { CateListAdapter(context, it) }
         }
 
         holder.ciIamge.setImageResource(list.get(position).image)
@@ -60,9 +60,9 @@ class CateItemAdapter(private val context: Context, private var list: MutableLis
 
     private fun cateItemClickHandler(adapterPosition: Int) {
         when (list.get(adapterPosition).state){
-            1-> FragCategory.listItemRecycler.adapter = CateListAdapter(context,FragCategory.data.getCateList1())
+            1-> FragCategory.listItemRecycler.adapter = FragCategory.data.getCateList1()?.let { CateListAdapter(context, it) }
 
-            2-> FragCategory.listItemRecycler.adapter = CateListAdapter(context,FragCategory.data.getCateList2())
+            2-> FragCategory.listItemRecycler.adapter = FragCategory.data.getCateList2()?.let { CateListAdapter(context, it) }
         }
     }
 

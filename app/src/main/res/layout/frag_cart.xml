@@ -78,7 +78,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/btmCard"
-        android:layout_below="@id/toolBar" />
+        android:layout_below="@id/toolBar"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
     <RelativeLayout
         android:id="@+id/btmCard"

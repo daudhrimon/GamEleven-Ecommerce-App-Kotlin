@@ -1,5 +1,6 @@
 package com.daud.gamelevenecommerce.Util
 
+import com.daud.gamelevenecommerce.Model.CartModel
 import com.daud.gamelevenecommerce.Model.*
 import com.daud.gamelevenecommerce.R
 import com.denzcoskun.imageslider.constants.ScaleTypes
@@ -99,13 +100,26 @@ class Data {
         return ciList
     }
 
-    fun getCateList1(): Array<String>{
+    fun getCateList1(): Array<String>?{
         val list1 = arrayOf("Merchandise", "Retro Gaming Consoles", "Pre Owned (Badel)", "Xbox", "PlayStation 4", "Gaming Setup", "Tv & Audio")
         return list1
     }
 
-    fun getCateList2(): Array<String>{
+    fun getCateList2(): Array<String>?{
         val list2 = arrayOf("Xbox", "PlayStation 4", "Gaming Setup", "Tv & Audio", "Merchandise", "Retro Gaming Consoles", "Pre Owned (Badel)")
         return list2
+    }
+
+    fun getCart(): MutableList<CartModel>?{
+        var list: MutableList<CartModel> = ArrayList()
+        list.add(CartModel(R.drawable.one,"Power Bank Water Gold","Sound Box","4500.00XAF","550.00 SAR",1))
+        list.add(CartModel(R.drawable.two,"Power Bank Water Gold","Sound Box","4500.00XAF","230.00 SAR",2))
+        list.add(CartModel(R.drawable.three,"Power Bank Water Gold","Sound Box","4500.00XAF","1230.00 SAR",3))
+        list.add(CartModel(R.drawable.four,"Power Bank Water Gold","Sound Box","4500.00XAF","1230.00 SAR",4))
+        list.add(CartModel(R.drawable.one,"Power Bank Water Gold","Sound Box","4500.00XAF","550.00 SAR",4))
+        list.add(CartModel(R.drawable.two,"Power Bank Water Gold","Sound Box","4500.00XAF","230.00 SAR",3))
+        list.add(CartModel(R.drawable.three,"Power Bank Water Gold","Sound Box","4500.00XAF","1230.00 SAR",2))
+        list.add(CartModel(R.drawable.four,"Power Bank Water Gold","Sound Box","4500.00XAF","1230.00 SAR",1))
+        return list
     }
 }
