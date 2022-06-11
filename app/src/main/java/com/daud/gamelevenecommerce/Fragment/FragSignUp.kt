@@ -4,13 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import com.daud.gamelevenecommerce.R
 
 class FragSignUp : Fragment() {
     private lateinit var backBtn: ImageButton
-    private lateinit var signInBtn: ImageButton
+    private lateinit var signInBtn: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
