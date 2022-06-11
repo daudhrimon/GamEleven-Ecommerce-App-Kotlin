@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
+import com.daud.gamelevenecommerce.Activity.MainActivity
 import com.daud.gamelevenecommerce.R
 
 class FragSignUp : Fragment() {
@@ -37,6 +38,9 @@ class FragSignUp : Fragment() {
     }
 
     private fun initial(view: View) {
+        MainActivity.btmCard.visibility = View.GONE
+        MainActivity.fab.visibility = View.GONE
+        ////////////////////////////////////////
         backBtn = view.findViewById(R.id.sUpBack)
         signInBtn = view.findViewById(R.id.upSignInBtn)
     }
