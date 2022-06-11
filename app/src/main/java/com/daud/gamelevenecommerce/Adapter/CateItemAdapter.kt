@@ -43,6 +43,9 @@ class CateItemAdapter(private val context: Context, private var list: MutableLis
 
         //this line will set the list items for the first time...
         if (index==-1){
+            when (adapterPosition){
+                0 -> holder.cateItem.setBackgroundColor(Color.parseColor("#E8E8E8"))
+            }
             FragCategory.listItemRecycler.adapter = FragCategory.data.getCateList1()?.let { CateListAdapter(context, it) }
         }
 

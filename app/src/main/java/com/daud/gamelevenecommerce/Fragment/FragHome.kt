@@ -76,7 +76,7 @@ class FragHome : Fragment() {
 
     private fun clickHandlerDemo() {
         parentFragmentManager.beginTransaction().setTransition(TRANSIT_FRAGMENT_OPEN)
-            .replace(R.id.mainFrame,FragSearchFilter()).addToBackStack(null).commit()
+            .replace(R.id.mainFrame,FragFilterSearch()).addToBackStack(null).commit()
     }
 
     private fun bestSaleDemo(view: View) {

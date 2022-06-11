@@ -11,7 +11,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction.TRANSIT_FRAGMENT_OPEN
 import androidx.recyclerview.widget.RecyclerView
 import com.daud.gamelevenecommerce.Fragment.FragProductDetails
-import com.daud.gamelevenecommerce.Fragment.FragSearchFilter
+import com.daud.gamelevenecommerce.Fragment.FragFilterSearch
 import com.daud.gamelevenecommerce.R
 
 class CateListAdapter(private val context: Context, private val list: Array<String>):
@@ -79,7 +79,7 @@ class CateListAdapter(private val context: Context, private val list: Array<Stri
 
     private fun listItemClickHandler() {
         (context as FragmentActivity).supportFragmentManager.beginTransaction()
-            .setTransition(TRANSIT_FRAGMENT_OPEN).replace(R.id.mainFrame, FragSearchFilter())
+            .setTransition(TRANSIT_FRAGMENT_OPEN).replace(R.id.mainFrame, FragFilterSearch())
             .addToBackStack(null).commit()
     }
 

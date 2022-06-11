@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/main_bg_clr"
     android:orientation="vertical"
-    tools:context=".Fragment.FragProduct">
+    tools:context=".Fragment.FragFilterSearch">
 
     <LinearLayout
         android:id="@+id/toolBar"
@@ -115,9 +115,11 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/productRv"
+        android:id="@+id/filterRecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingHorizontal="4.5dp" />
+        android:paddingHorizontal="4.5dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"/>
 
 </LinearLayout>
