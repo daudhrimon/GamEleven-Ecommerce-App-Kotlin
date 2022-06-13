@@ -74,7 +74,8 @@ class FragSignIn : Fragment() {
 
     private fun signUpBtnClickHandler() {
         parentFragmentManager.beginTransaction()
-            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            .setCustomAnimations(R.anim.slidein_right_to_left, R.anim.fade_out,
+                R.anim.fade_in, R.anim.slideout_left_to_right)
             .replace(R.id.mainFrame, FragSignUp()).addToBackStack(null).commit()
     }
 

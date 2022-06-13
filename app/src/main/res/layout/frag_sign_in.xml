@@ -12,7 +12,7 @@
         android:id="@+id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        app:cardBackgroundColor="@color/sign_bg_clr">
+        app:cardBackgroundColor="@color/selector_clr">
 
         <LinearLayout
             android:layout_width="match_parent"

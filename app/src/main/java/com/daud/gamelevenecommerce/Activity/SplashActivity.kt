@@ -1,7 +1,6 @@
 package com.daud.gamelevenecommerce.Activity
 
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -31,11 +30,11 @@ class SplashActivity : AppCompatActivity() {
                 startActivity(Intent(this@SplashActivity, MainActivity::class.java))
                 finish()
             } else {
-                val fadeoutAnim = AnimationUtils.loadAnimation(this@SplashActivity, R.anim.fade_out)
+                val fadeoutAnim = AnimationUtils.loadAnimation(this@SplashActivity, R.anim.fade_out_long)
                 spImg.startAnimation(fadeoutAnim)
                 spFrame.visibility = View.VISIBLE
                 supportFragmentManager.beginTransaction()
-                    .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+                    .setCustomAnimations(R.anim.fade_in, R.anim.fade_out_long)
                     .replace(R.id.spFrame, FragOnBoarding()).commit()
                 spImg.visibility = View.GONE
             }
