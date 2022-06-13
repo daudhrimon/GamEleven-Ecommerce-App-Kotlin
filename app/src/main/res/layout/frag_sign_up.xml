@@ -246,7 +246,8 @@
             android:textAlignment="textStart"
             android:textAllCaps="false"
             android:textColor="@color/selector_clr"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:ignore="TouchTargetSizeCheck" />
 
     </LinearLayout>
 
