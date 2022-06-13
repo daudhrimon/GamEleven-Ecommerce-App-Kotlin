@@ -3,11 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/frag_order_all.xml" value="0.371875" />
         <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/frag_order_cancel.xml" value="0.371875" />
         <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/frag_order_delivered.xml" value="0.371875" />
         <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/frag_order_list.xml" value="0.33" />
         <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/frag_order_pending.xml" value="0.371875" />
         <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/vh_order.xml" value="0.371875" />
+        <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/vh_order_cancel.xml" value="0.371875" />
+        <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/vh_order_delivered.xml" value="0.371875" />
+        <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/vh_order_pending.xml" value="0.371875" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/drawable/category_item_check.xml" value="0.1095" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/drawable/selector_cate_item.xml" value="0.1095" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/drawable/selector_deals_item.xml" value="0.1095" />

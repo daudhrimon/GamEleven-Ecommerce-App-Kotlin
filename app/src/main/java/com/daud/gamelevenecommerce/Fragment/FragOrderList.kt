@@ -40,7 +40,7 @@ class FragOrderList : Fragment() {
                 2-> tab.text = "DELIVERED"
                 3-> tab.text = "CANCEL"
             }
-        }
+        }.attach()
 
 
 
