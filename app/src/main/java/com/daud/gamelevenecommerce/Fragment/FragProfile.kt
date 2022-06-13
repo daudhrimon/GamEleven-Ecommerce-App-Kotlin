@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.daud.gamelevenecommerce.Activity.MainActivity
 import com.daud.gamelevenecommerce.R
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
@@ -17,6 +18,8 @@ class FragProfile : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.frag_profile, container, false)
+
+        initial(view)
 
         val backBtn: ImageButton = view.findViewById(R.id.profileBack)
         backBtn.setOnClickListener(View.OnClickListener { view1: View? ->
@@ -50,5 +53,11 @@ class FragProfile : Fragment() {
 
     private fun backBtnClickHandler() {
         parentFragmentManager.popBackStack()
+    }
+
+    private fun initial(view: View?) {
+        MainActivity.fab.visibility = View.GONE
+        MainActivity.btmCard.visibility = View.GONE
+        ///////////////////////////////////////////
     }
 }

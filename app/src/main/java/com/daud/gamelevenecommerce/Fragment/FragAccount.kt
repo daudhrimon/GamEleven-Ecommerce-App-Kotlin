@@ -55,9 +55,8 @@ class FragAccount : Fragment() {
     }
 
     private fun cngLanLayClickHandler() {
-        val builder: AlertDialog.Builder = AlertDialog.Builder(context)
-        val view: View =
-            LayoutInflater.from(context).inflate(R.layout.alertdialog_language, null, false)
+        val builder = AlertDialog.Builder(context)
+        val view = LayoutInflater.from(context).inflate(R.layout.alertdialog_language, null, false)
         val cancelBtn = view.findViewById<TextView>(R.id.cancelBtn)
         builder.setView(view)
         val dialog: Dialog = builder.create()
@@ -66,11 +65,11 @@ class FragAccount : Fragment() {
     }
 
     private fun addressNullBtmSheet() {
-        val btmSheet: BottomSheetDialog = context?.let { BottomSheetDialog(it, R.style.AppBottomSheetDialogTheme) }!!
-        btmSheet.setContentView(R.layout.btmsheet_no_address)
-        val backBtn = btmSheet.findViewById<ImageButton>(R.id.addressBack)
-        val plusBtn = btmSheet.findViewById<ImageButton>(R.id.addressPlus)
-        btmSheet.show()
+        val btmSheet = context?.let { BottomSheetDialog(it, R.style.AppBottomSheetDialogTheme) }
+        btmSheet?.setContentView(R.layout.btmsheet_no_address)
+        val backBtn = btmSheet?.findViewById<ImageButton>(R.id.addressBack)
+        val plusBtn = btmSheet?.findViewById<ImageButton>(R.id.addressPlus)
+        btmSheet?.show()
         backBtn!!.setOnClickListener { view: View? -> btmSheet.dismiss() }
         plusBtn!!.setOnClickListener { view: View? ->
             addressAddingBtmSheet()
@@ -79,9 +78,9 @@ class FragAccount : Fragment() {
     }
 
     private fun addressAddingBtmSheet() {
-        val btmDialog: BottomSheetDialog = context?.let { BottomSheetDialog(it, R.style.AppBottomSheetDialogTheme) }!!
-        btmDialog.setContentView(R.layout.btmsheet_address_full)
-        btmDialog.show()
+        val btmDialog = context?.let { BottomSheetDialog(it, R.style.AppBottomSheetDialogTheme) }
+        btmDialog?.setContentView(R.layout.btmsheet_address_full)
+        btmDialog?.show()
     }
 
     private fun profileLayClickHandler() {
