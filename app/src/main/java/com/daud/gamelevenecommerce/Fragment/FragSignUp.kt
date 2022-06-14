@@ -44,7 +44,7 @@ class FragSignUp : Fragment() {
     }
 
     private fun agreeBoxClickHandler() {
-
+        agreeBox.setBackgroundColor(Color.parseColor("#00000000"))
     }
 
     private fun createAcBtnClickhandler(view: View?) {
