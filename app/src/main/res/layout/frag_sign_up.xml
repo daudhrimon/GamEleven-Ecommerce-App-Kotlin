@@ -71,6 +71,7 @@
             android:background="#F0F0F0"
             android:fontFamily="@font/roboto_regular"
             android:hint="First Name"
+            android:inputType="textPersonName"
             android:paddingHorizontal="20dp"
             android:textColor="#9A9A9A"
             android:textSize="15sp" />
@@ -84,6 +85,7 @@
             android:background="#F0F0F0"
             android:fontFamily="@font/roboto_regular"
             android:hint="Last Name"
+            android:inputType="textPersonName"
             android:paddingHorizontal="20dp"
             android:textColor="#9A9A9A"
             android:textSize="15sp" />
@@ -97,6 +99,7 @@
             android:background="#F0F0F0"
             android:fontFamily="@font/roboto_regular"
             android:hint="Email"
+            android:inputType="textEmailAddress"
             android:paddingHorizontal="20dp"
             android:textColor="#9A9A9A"
             android:textSize="15sp" />
@@ -110,6 +113,7 @@
             android:background="#F0F0F0"
             android:fontFamily="@font/roboto_regular"
             android:hint="Password"
+            android:inputType="textPassword"
             android:paddingHorizontal="20dp"
             android:textColor="#9A9A9A"
             android:textSize="15sp" />
@@ -123,6 +127,7 @@
             android:background="#F0F0F0"
             android:fontFamily="@font/roboto_regular"
             android:hint="Phone Number"
+            android:inputType="phone"
             android:paddingHorizontal="20dp"
             android:textColor="#9A9A9A"
             android:textSize="15sp" />
