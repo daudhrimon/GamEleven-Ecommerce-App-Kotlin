@@ -1,17 +1,15 @@
 package com.daud.gamelevenecommerce.Fragment
 
-import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.fragment.app.Fragment
 import com.daud.gamelevenecommerce.Activity.MainActivity
 import com.daud.gamelevenecommerce.Helper.DbHelper
-import com.daud.gamelevenecommerce.Model.UserTableModel
+import com.daud.gamelevenecommerce.Model.UserModel
 import com.daud.gamelevenecommerce.R
 import com.daud.gamelevenecommerce.Util.Util
 
@@ -98,7 +96,7 @@ class FragSignUp : Fragment() {
             return
         }
 
-        val userModel = UserTableModel(-1, fNameEt?.text.toString().trim(), lNameEt?.text.toString().trim(),
+        val userModel = UserModel(-1, fNameEt?.text.toString().trim(), lNameEt?.text.toString().trim(),
             emailEt?.text.toString().trim(), passwordEt?.text.toString().trim(), phoneEt?.text.toString().trim(),"ddddd","ddddd")
 
 

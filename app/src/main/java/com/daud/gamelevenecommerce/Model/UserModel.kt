@@ -1,12 +1,12 @@
 package com.daud.gamelevenecommerce.Model
 
-data class UserTableModel(
+data class UserModel(
     val id:Int,
-    val first_name:String,
-    val last_name:String,
+    val firstName:String,
+    val lastName:String,
     val email:String,
     val password:String,
     val phone:String,
-    val birth_date:String,
+    val birthDate:String,
     val gender:String
 )
