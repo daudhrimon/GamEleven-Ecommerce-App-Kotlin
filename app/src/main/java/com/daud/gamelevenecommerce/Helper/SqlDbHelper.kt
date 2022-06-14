@@ -2,6 +2,7 @@ package com.daud.gamelevenecommerce.Helper
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.provider.SyncStateContract
@@ -102,8 +103,11 @@ class SqlDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, n
         db.close()
     }
 
-    fun checkEmailAndPass(email:String, password: String){
+    fun checkEmailAndPass(email:String, password: String): Boolean{
+        val db:SQLiteDatabase = this.readableDatabase
+        val cursor: Cursor = db.rawQuery("select * from "+ USER_TABLE +" where "+ USER_EMAIL + "=? and " + USER_PASSWORD + "=?", arrayOf(email,password))
 
+        return cursor.count > 0
     }
 
 
