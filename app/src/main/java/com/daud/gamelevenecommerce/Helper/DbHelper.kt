@@ -26,7 +26,7 @@ class DbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
 
         db?.execSQL(CREATE_USER_TABLE)
 
-        db?.execSQL(CREATE_ADDRESS_TABLE)
+        //db?.execSQL(CREATE_ADDRESS_TABLE)
 
     }
 
@@ -34,7 +34,7 @@ class DbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) { }
 
     // insert UserData To USER_TABLE
-    fun insertUserData (userTable:UserTableModel, context: Context) {
+    fun insertUserData (userTable: UserTableModel, context: Context) {
         val db: SQLiteDatabase = this.writableDatabase
         val cv = ContentValues()
         cv.put(USER_FIRST_NAME, userTable.first_name)
