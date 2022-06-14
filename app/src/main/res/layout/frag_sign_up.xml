@@ -63,6 +63,7 @@
 
 
         <EditText
+            android:id="@+id/fNameEt"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:layout_marginHorizontal="30dp"
@@ -75,6 +76,7 @@
             android:textSize="15sp" />
 
         <EditText
+            android:id="@+id/lNameEt"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:layout_marginHorizontal="30dp"
@@ -87,6 +89,7 @@
             android:textSize="15sp" />
 
         <EditText
+            android:id="@+id/emailEt"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:layout_marginHorizontal="30dp"
@@ -99,6 +102,7 @@
             android:textSize="15sp" />
 
         <EditText
+            android:id="@+id/passwordEt"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:layout_marginHorizontal="30dp"
@@ -111,6 +115,7 @@
             android:textSize="15sp" />
 
         <EditText
+            android:id="@+id/phoneEt"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:layout_marginHorizontal="30dp"
