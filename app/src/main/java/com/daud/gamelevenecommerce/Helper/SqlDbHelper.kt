@@ -4,6 +4,9 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.provider.SyncStateContract
+import com.daud.gamelevenecommerce.Helper.SqlDbHelper.Companion.USER_ID
+import com.daud.gamelevenecommerce.Model.UserTableModel
 
 class SqlDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -62,19 +65,45 @@ class SqlDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, n
     // upgrade! upgrade! upgrade!, i don't like upgrade, so i Avoid
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) { }
 
-    // insert UserData To Database
-    fun insertUserData(first_name: String, last_name: String, email: String, password: String, phone: String) {
+    // insert UserData To USER_TABLE
+    fun insertUserData (userTable:UserTableModel) {
         val db: SQLiteDatabase = this.writableDatabase
         val cv = ContentValues()
-        cv.put(USER_FIRST_NAME, first_name)
-        cv.put(USER_LAST_NAME, last_name)
-        cv.put(USER_EMAIL, email)
-        cv.put(USER_PASSWORD, password)
-        cv.put(USER_PHONE, phone)
-        cv.put(USER_BIRTH_DATE, "")
-        cv.put(USER_GENDER, "")
+        cv.put(USER_FIRST_NAME, userTable.first_name)
+        cv.put(USER_LAST_NAME, userTable.last_name)
+        cv.put(USER_EMAIL, userTable.email)
+        cv.put(USER_PASSWORD, userTable.password)
+        cv.put(USER_PHONE, userTable.phone)
+        cv.put(USER_BIRTH_DATE, userTable.birth_date)
+        cv.put(USER_GENDER, userTable.gender)
         db.insert(USER_TABLE, null, cv)
         db.close()
+    }
+
+    // update Personal Info to USER_TABLE
+    fun updatePersonalInfo (userTable: UserTableModel){
+        val db: SQLiteDatabase = this.writableDatabase
+        val cv = ContentValues()
+        cv.put(USER_FIRST_NAME, userTable.first_name)
+        cv.put(USER_LAST_NAME, userTable.last_name)
+        cv.put(USER_PHONE, userTable.phone)
+        cv.put(USER_BIRTH_DATE, userTable.birth_date)
+        cv.put(USER_GENDER, userTable.gender)
+        db.update(USER_TABLE, cv, USER_ID + " =? ", arrayOf(userTable.id.toString()))
+        db.close()
+    }
+
+    // update email to USER_TABLE
+    fun updateEmail(id: Int, email: String){
+        val db:SQLiteDatabase = this.writableDatabase
+        val cv = ContentValues()
+        cv.put(USER_EMAIL,email)
+        db.update(USER_TABLE, cv, USER_ID + " =? ", arrayOf(id.toString()))
+        db.close()
+    }
+
+    fun checkEmailAndPass(email:String, password: String){
+
     }
 
 
