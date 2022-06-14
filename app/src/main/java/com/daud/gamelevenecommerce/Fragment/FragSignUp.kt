@@ -62,31 +62,25 @@ class FragSignUp : Fragment() {
 
 
         if (fNameEt?.text.toString().isEmpty()){
-            fNameEt?.error="Empty"
+            fNameEt?.error="First Name is Empty"
             fNameEt?.requestFocus()
             return
         }
 
-        if (lNameEt?.text.toString().isEmpty()){
-            lNameEt?.error="Empty"
-            lNameEt?.requestFocus()
-            return
-        }
-
-        if (emailEt?.text.toString().isEmpty()){
-            emailEt?.error="Empty"
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(emailEt?.text.toString()).matches()){
+            emailEt?.error="Enter an email address"
             emailEt?.requestFocus()
             return
         }
 
-        if (passwordEt?.text.toString().isEmpty()){
-            passwordEt?.error="Empty"
+        if (passwordEt?.text.toString().length < 6){
+            passwordEt?.error="Password is too short"
             passwordEt?.requestFocus()
             return
         }
 
         if (phoneEt?.text.toString().isEmpty()){
-            phoneEt?.error="Empty"
+            phoneEt?.error="Phone is Empty"
             phoneEt?.requestFocus()
             return
         }

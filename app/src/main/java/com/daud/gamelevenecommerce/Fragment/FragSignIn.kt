@@ -51,16 +51,12 @@ class FragSignIn : Fragment() {
         val sInEmailEt: EditText = view.findViewById(R.id.sInEmailEt)
         val sInPassEt: EditText = view.findViewById(R.id.sInPassEt)
 
-        if (sInEmailEt.getText().toString().isEmpty()) {
-            sInEmailEt.setError("Empty")
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(sInEmailEt?.text.toString()).matches()) {
+            sInEmailEt.setError("Enter an email address")
             sInEmailEt.requestFocus()
             return
         }
-        if (sInPassEt.getText().toString().isEmpty()) {
-            sInPassEt.setError("Empty")
-            sInPassEt.requestFocus()
-            return
-        }
+
         if (sInPassEt.getText().toString().length < 6) {
             sInPassEt.setError("Password is too Short")
             sInPassEt.requestFocus()
