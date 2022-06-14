@@ -1,14 +1,19 @@
 package com.daud.gamelevenecommerce.Fragment
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.fragment.app.Fragment
 import com.daud.gamelevenecommerce.Activity.MainActivity
+import com.daud.gamelevenecommerce.Helper.DbHelper
+import com.daud.gamelevenecommerce.Model.UserTableModel
 import com.daud.gamelevenecommerce.R
+import com.daud.gamelevenecommerce.Util.Util
 
 class FragSignUp : Fragment() {
     private lateinit var backBtn: ImageButton
@@ -25,6 +30,7 @@ class FragSignUp : Fragment() {
         initial(view)
 
         backBtn.setOnClickListener(View.OnClickListener { view1: View? ->
+            context?.let { Util.hideSoftKeyBoard(it,view) }
             backBtnClickHandler()
         })
 
@@ -33,6 +39,7 @@ class FragSignUp : Fragment() {
         })
 
         createAcBtn.setOnClickListener(View.OnClickListener { view1: View? ->
+            context?.let { Util.hideSoftKeyBoard(it,view) }
             createAcBtnClickhandler(view)
         })
 
@@ -48,6 +55,7 @@ class FragSignUp : Fragment() {
     }
 
     private fun createAcBtnClickhandler(view: View?) {
+        val dbHelper = context?.let { DbHelper(it) }
         val fNameEt = view?.findViewById<EditText>(R.id.fNameEt)
         val lNameEt = view?.findViewById<EditText>(R.id.lNameEt)
         val emailEt = view?.findViewById<EditText>(R.id.emailEt)
@@ -89,6 +97,12 @@ class FragSignUp : Fragment() {
             agreeBox.setBackgroundColor(Color.parseColor("#D81D4C"))
             return
         }
+
+        val userModel = UserTableModel(-1, fNameEt?.text.toString().trim(), lNameEt?.text.toString().trim(),
+            emailEt?.text.toString().trim(), passwordEt?.text.toString().trim(), phoneEt?.text.toString().trim(),"","")
+
+
+        context?.let { dbHelper?.insertUserData(userModel, it) }
     }
 
     private fun backBtnClickHandler() {

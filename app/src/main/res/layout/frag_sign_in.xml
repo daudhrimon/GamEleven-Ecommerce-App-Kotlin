@@ -60,7 +60,7 @@
             android:src="@drawable/sp_img" />
 
         <EditText
-            android:id="@+id/sInPhnEt"
+            android:id="@+id/sInEmailEt"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:layout_marginHorizontal="30dp"
@@ -70,7 +70,7 @@
             android:drawablePadding="12dp"
             android:fontFamily="@font/roboto_regular"
             android:hint="Email Address"
-            android:inputType="phone"
+            android:inputType="textEmailAddress"
             android:paddingHorizontal="20dp"
             android:textColor="#9A9A9A"
             android:textSize="15sp" />

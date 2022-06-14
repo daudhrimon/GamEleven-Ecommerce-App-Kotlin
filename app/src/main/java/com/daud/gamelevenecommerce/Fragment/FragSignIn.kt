@@ -11,8 +11,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.FragmentTransaction.TRANSIT_FRAGMENT_OPEN
 import com.daud.gamelevenecommerce.Activity.MainActivity
+import com.daud.gamelevenecommerce.Helper.DbHelper
 import com.daud.gamelevenecommerce.R
 import com.daud.gamelevenecommerce.Util.SharedPref
+import com.daud.gamelevenecommerce.Util.Util
 
 class FragSignIn : Fragment() {
     private lateinit var sInBack: ImageButton
@@ -26,6 +28,7 @@ class FragSignIn : Fragment() {
         initial(view)
 
         sInBack.setOnClickListener(View.OnClickListener { view1: View? ->
+            context?.let { Util.hideSoftKeyBoard(it,view) }
             backClickHandler()
         })
 
@@ -36,6 +39,7 @@ class FragSignIn : Fragment() {
 
         val signInBtn: Button = view.findViewById(R.id.signInBtn)
         signInBtn.setOnClickListener(View.OnClickListener {view1: View? ->
+            context?.let { Util.hideSoftKeyBoard(it,view) }
             signInBtnClickHandler(view)
         })
 
@@ -43,12 +47,13 @@ class FragSignIn : Fragment() {
     }
 
     private fun signInBtnClickHandler(view: View) {
-        val sInPhnEt: EditText = view.findViewById(R.id.sInPhnEt)
+        val dbHelper = context?.let { DbHelper(it) }
+        val sInEmailEt: EditText = view.findViewById(R.id.sInEmailEt)
         val sInPassEt: EditText = view.findViewById(R.id.sInPassEt)
 
-        if (sInPhnEt.getText().toString().isEmpty()) {
-            sInPhnEt.setError("Empty")
-            sInPhnEt.requestFocus()
+        if (sInEmailEt.getText().toString().isEmpty()) {
+            sInEmailEt.setError("Empty")
+            sInEmailEt.requestFocus()
             return
         }
         if (sInPassEt.getText().toString().isEmpty()) {
@@ -61,9 +66,8 @@ class FragSignIn : Fragment() {
             sInPassEt.requestFocus()
             return
         }
-        if (sInPassEt.getText().toString() == "123456" && sInPassEt.getText()
-                .toString() == "123456"
-        ) {
+
+        if (dbHelper?.checkEmailAndPass(sInEmailEt.text.toString(), sInPassEt.text.toString()) == true) {
             val sharedPref = SharedPref()
             context?.let { sharedPref.init(it) }
             sharedPref.write("SIGNIN","OK")

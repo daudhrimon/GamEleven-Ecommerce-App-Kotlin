@@ -1,8 +1,11 @@
 package com.daud.gamelevenecommerce.Activity
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
@@ -14,11 +17,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationBarView
 
+
 class MainActivity : AppCompatActivity() {
     companion object{
         lateinit var btmNav: BottomNavigationView
         lateinit var fab: FloatingActionButton
         lateinit var btmCard: CardView
+
     }
     val sharedPref = SharedPref()
 
@@ -95,5 +100,4 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.popBackStack()
         }
     }
-
 }
