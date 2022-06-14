@@ -22,6 +22,8 @@ class DbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
                 + USER_ADDRESS + " TEXT," + USER_AREA + " TEXT," + USER_CITY + " TEXT," + USER_REGION + " TEXT"
                 + USER_COUNTRY + " TEXT" + USER_ZIP + " TEXT" + USER_COMPANY + " TEXT" + ")")
 
+    private val DROP_USER_TABLE = "DROP TABLE IF EXISTS $USER_TABLE"
+
     override fun onCreate(db: SQLiteDatabase?) {
 
         db?.execSQL(CREATE_USER_TABLE)
@@ -31,11 +33,14 @@ class DbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
     }
 
     // upgrade! upgrade! upgrade!, i don't like upgrade, so i Avoid
-    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) { }
+    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+        db?.execSQL(DROP_USER_TABLE)
+        onCreate(db)
+    }
 
     // insert UserData To USER_TABLE
-    fun insertUserData (userTable: UserTableModel, context: Context) {
-        val db: SQLiteDatabase = this.writableDatabase
+    fun insertUserData (userTable: UserTableModel) {
+        val db: SQLiteDatabase = writableDatabase
         val cv = ContentValues()
         cv.put(USER_FIRST_NAME, userTable.first_name)
         cv.put(USER_LAST_NAME, userTable.last_name)
@@ -46,7 +51,6 @@ class DbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         cv.put(USER_GENDER, userTable.gender)
         db.insert(USER_TABLE, null, cv)
         db.close()
-        Toast.makeText(context, "Insert Data Successfull",Toast.LENGTH_LONG).show();
     }
 
     // update Personal Info to USER_TABLE
@@ -86,18 +90,18 @@ class DbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         private val DATABASE_NAME = "UserManager.db"
 
         // User table name
-        private val USER_TABLE = "user_table"
-        private val ADDRESS_TABLE = "address_table"
+        private val USER_TABLE = "user"
+        private val ADDRESS_TABLE = "address"
 
         // User Table Columns names
-        private val USER_ID = "id"
+        private val USER_ID = "user_id"
         private val USER_FIRST_NAME = "first_name"
         private val USER_LAST_NAME = "last_name"
-        private val USER_EMAIL = "email"
-        private val USER_PASSWORD = "password"
-        private val USER_PHONE = "phone"
+        private val USER_EMAIL = "user_email"
+        private val USER_PASSWORD = "user_password"
+        private val USER_PHONE = "user_phone"
         private val USER_BIRTH_DATE = "birth_date"
-        private val USER_GENDER = "gender"
+        private const val USER_GENDER = "user_gender"
 
         // Address Table Columns names
         private val USER_ADDRESS = "address"

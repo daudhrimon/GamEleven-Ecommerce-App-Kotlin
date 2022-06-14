@@ -55,7 +55,7 @@ class FragSignUp : Fragment() {
     }
 
     private fun createAcBtnClickhandler(view: View?) {
-        val dbHelper = context?.let { DbHelper(it) }
+        val dbHelper = DbHelper(requireActivity())
         val fNameEt = view?.findViewById<EditText>(R.id.fNameEt)
         val lNameEt = view?.findViewById<EditText>(R.id.lNameEt)
         val emailEt = view?.findViewById<EditText>(R.id.emailEt)
@@ -99,10 +99,10 @@ class FragSignUp : Fragment() {
         }
 
         val userModel = UserTableModel(-1, fNameEt?.text.toString().trim(), lNameEt?.text.toString().trim(),
-            emailEt?.text.toString().trim(), passwordEt?.text.toString().trim(), phoneEt?.text.toString().trim(),"","")
+            emailEt?.text.toString().trim(), passwordEt?.text.toString().trim(), phoneEt?.text.toString().trim(),"ddddd","ddddd")
 
 
-        context?.let { dbHelper?.insertUserData(userModel, it) }
+        dbHelper.insertUserData(userModel)
     }
 
     private fun backBtnClickHandler() {
