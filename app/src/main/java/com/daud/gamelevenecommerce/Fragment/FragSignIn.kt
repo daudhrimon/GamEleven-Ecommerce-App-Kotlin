@@ -63,7 +63,7 @@ class FragSignIn : Fragment() {
             return
         }
 
-        if (dbHelper?.checkEmailAndPass(sInEmailEt.text.toString(), sInPassEt.text.toString()) == true) {
+        if (dbHelper?.checkEmailAndPass(sInEmailEt.text.toString(), sInPassEt.text.toString()) != -1) {
             val sharedPref = SharedPref()
             context?.let { sharedPref.init(it) }
             sharedPref.write("SIGNIN","OK")

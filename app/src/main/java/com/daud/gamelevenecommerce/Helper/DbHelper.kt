@@ -1,14 +1,16 @@
 package com.daud.gamelevenecommerce.Helper
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.widget.Toast
+import android.util.Log
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
+import com.daud.gamelevenecommerce.BuildConfig.DEBUG
 import com.daud.gamelevenecommerce.Model.UserModel
+import kotlin.math.log
 
 class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -106,10 +108,16 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
         db.close()
     }
 
-    fun checkEmailAndPass(email:String, password: String): Boolean{
+    @SuppressLint("Range")
+    fun checkEmailAndPass(email:String, password: String): Int {
         val db:SQLiteDatabase = this.readableDatabase
         val cursor: Cursor = db.rawQuery("select * from "+ USER_TABLE +" where "+ USER_EMAIL + "=? and " + USER_PASSWORD + "=?", arrayOf(email,password))
-
-        return cursor.count > 0
+        var ID: Int = -1
+        if (cursor.moveToFirst() && cursor.count > 0){
+            ID = cursor.getColumnIndex(USER_ID)
+        }
+        return ID
     }
+
+    //fun getUserData()
 }

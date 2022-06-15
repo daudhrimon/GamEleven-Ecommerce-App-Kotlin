@@ -12,6 +12,7 @@ import com.daud.gamelevenecommerce.Helper.DbHelper
 import com.daud.gamelevenecommerce.Model.UserModel
 import com.daud.gamelevenecommerce.R
 import com.daud.gamelevenecommerce.Util.Util
+import com.google.android.material.textfield.TextInputEditText
 
 class FragSignUp : Fragment() {
     private lateinit var backBtn: ImageButton
@@ -57,7 +58,7 @@ class FragSignUp : Fragment() {
         val fNameEt = view?.findViewById<EditText>(R.id.fNameEt)
         val lNameEt = view?.findViewById<EditText>(R.id.lNameEt)
         val emailEt = view?.findViewById<EditText>(R.id.emailEt)
-        val passwordEt = view?.findViewById<EditText>(R.id.passwordEt)
+        val passwordEt = view?.findViewById<TextInputEditText>(R.id.passwordEt)
         val phoneEt = view?.findViewById<EditText>(R.id.phoneEt)
 
 
@@ -91,7 +92,7 @@ class FragSignUp : Fragment() {
         }
 
         val userModel = UserModel(-1, fNameEt?.text.toString().trim(), lNameEt?.text.toString().trim(),
-            emailEt?.text.toString().trim(), passwordEt?.text.toString().trim(), phoneEt?.text.toString().trim(),"ddddd","ddddd")
+            emailEt?.text.toString().trim(), passwordEt?.text.toString().trim(), phoneEt?.text.toString().trim(),"","")
 
 
         dbHelper.insertUserData(userModel)
