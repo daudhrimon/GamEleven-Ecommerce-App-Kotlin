@@ -63,9 +63,13 @@ class FragSignIn : Fragment() {
             return
         }
 
-        if (dbHelper?.checkEmailAndPass(sInEmailEt.text.toString(), sInPassEt.text.toString()) != -1) {
+        // getting user id From Database
+        val ID: Int? = dbHelper?.checkEmailAndPass(sInEmailEt.text.toString(), sInPassEt.text.toString())
+        // checking the return value from database
+        if (ID != -1) {
             val sharedPref = SharedPref()
             context?.let { sharedPref.init(it) }
+            sharedPref.write("ID",ID.toString())
             sharedPref.write("SIGNIN","OK")
             parentFragmentManager.beginTransaction().setTransition(TRANSIT_FRAGMENT_OPEN)
                 .replace(R.id.mainFrame, FragAccount()).commit()

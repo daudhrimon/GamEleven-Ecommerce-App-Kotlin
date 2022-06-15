@@ -22,6 +22,10 @@ class SharedPref() {
         return mSharedPref!!.getString("WELCOME", "")
     }
 
+    fun ID(): String? {
+        return mSharedPref!!.getString("ID", "")
+    }
+
     fun SIGNIN(): String? {
         return mSharedPref!!.getString("SIGNIN", "") //OK
     }

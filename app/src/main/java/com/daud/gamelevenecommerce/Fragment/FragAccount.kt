@@ -12,10 +12,14 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.daud.gamelevenecommerce.Activity.MainActivity
+import com.daud.gamelevenecommerce.Helper.DbHelper
+import com.daud.gamelevenecommerce.Model.UserModel
 import com.daud.gamelevenecommerce.R
+import com.daud.gamelevenecommerce.Util.SharedPref
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class FragAccount : Fragment() {
+    private lateinit var userData: UserModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,6 +28,8 @@ class FragAccount : Fragment() {
         val view:View = inflater.inflate(R.layout.frag_account, container, false)
 
         initial()
+
+        getData()
 
         val backBtn: ImageButton = view.findViewById(R.id.accountBack)
         backBtn.setOnClickListener(View.OnClickListener { view1: View? ->
@@ -52,6 +58,15 @@ class FragAccount : Fragment() {
         })
 
         return view
+    }
+
+    private fun getData() {
+        val dbHelper = context?.let { DbHelper(it) }
+        val sharedPref = SharedPref()
+        context?.let { sharedPref.init(it) }
+        println("ID ==="+ sharedPref.ID())
+        /*userData = dbHelper?.getUserData(Integer.parseInt(sharedPref.ID()))!!
+        println("Email : ==="+sharedPref.ID())*/
     }
 
     private fun cngLanLayClickHandler() {

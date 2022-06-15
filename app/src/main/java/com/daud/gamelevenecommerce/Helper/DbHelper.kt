@@ -111,13 +111,24 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
     @SuppressLint("Range")
     fun checkEmailAndPass(email:String, password: String): Int {
         val db:SQLiteDatabase = this.readableDatabase
-        val cursor: Cursor = db.rawQuery("select * from "+ USER_TABLE +" where "+ USER_EMAIL + "=? and " + USER_PASSWORD + "=?", arrayOf(email,password))
+        val cursor: Cursor = db.rawQuery("select * from " + USER_TABLE + " where " + USER_EMAIL + "=? and " + USER_PASSWORD + "=?", arrayOf(email,password))
+        /*val cursor: Cursor = db.query(USER_TABLE, arrayOf(USER_ID),"$USER_EMAIL = ? AND $USER_PASSWORD = ?",
+            arrayOf(email,password),null,null,null)*/
         var ID: Int = -1
-        if (cursor.moveToFirst() && cursor.count > 0){
+        if (cursor.count > 0){
+            cursor.moveToPosition(cursor.position)
             ID = cursor.getColumnIndex(USER_ID)
         }
         return ID
     }
 
-    //fun getUserData()
+    /*fun getUserData(id: Int): UserModel{
+        val db = this.readableDatabase
+        val cursor = db.rawQuery("select * from " + USER_TABLE + " where " + USER_ID + "=?", arrayOf(id.toString()))
+        while (cursor.moveToFirst() && cursor.count > 0){
+            val userData = UserModel(cursor.getColumnIndex(USER_ID),cursor.getColumnIndex(USER_FIRST_NAME).toString(),
+            cursor.getColumnIndex(USER_LAST_NAME).toString(), cursor.getColumnIndex(USER_EMAIL).toString(), cursor.getColumnIndex(USER_PASSWORD).toString(),
+            cursor.getColumnIndex(USER_PHONE).toString(), cursor.getColumnIndex(USER_BIRTH_DATE).toString(), cursor.getColumnIndex(USER_GENDER).toString())
+        }
+    }*/
 }
