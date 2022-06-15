@@ -91,7 +91,7 @@ class FragSignUp : Fragment() {
             return
         }
 
-        val userModel = UserModel(-1, fNameEt?.text.toString().trim(), lNameEt?.text.toString().trim(),
+        val userModel = UserModel(fNameEt?.text.toString().trim(), lNameEt?.text.toString().trim(),
             emailEt?.text.toString().trim(), passwordEt?.text.toString().trim(), phoneEt?.text.toString().trim(),"","")
 
 

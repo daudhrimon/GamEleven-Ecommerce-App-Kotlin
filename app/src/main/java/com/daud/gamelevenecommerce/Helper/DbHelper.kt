@@ -83,7 +83,7 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
     }
 
     // update Personal Info to USER_TABLE
-    fun updatePersonalInfo (userTable: UserModel){
+    fun updatePersonalInfo (id: String,userTable: UserModel){
         val db: SQLiteDatabase = this.writableDatabase
         val cv = ContentValues()
         cv.put(USER_FIRST_NAME, userTable.firstName)
@@ -91,37 +91,41 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
         cv.put(USER_PHONE, userTable.phone)
         cv.put(USER_BIRTH_DATE, userTable.birthDate)
         cv.put(USER_GENDER, userTable.gender)
-        db.update(USER_TABLE, cv, USER_ID + " =? ", arrayOf(userTable.id.toString()))
+        db.update(USER_TABLE, cv, USER_ID + " =?", arrayOf(id))
     }
 
     // update email to USER_TABLE
-    fun updateEmail(id: Int, email: String){
+    fun updateEmail(id: String?, email: String?){
         val db:SQLiteDatabase = this.writableDatabase
         val cv = ContentValues()
         cv.put(USER_EMAIL,email)
-        db.update(USER_TABLE, cv, USER_ID + " =? ", arrayOf(id.toString()))
+        db.update(USER_TABLE, cv, USER_ID + " =?", arrayOf(id))
     }
 
     fun checkEmailAndPass(email:String, password: String): Int {
         val db:SQLiteDatabase = this.readableDatabase
-        val cursor: Cursor = db.rawQuery("select * from " + USER_TABLE + " where " + USER_EMAIL + "=? and " + USER_PASSWORD + "=?", arrayOf(email,password))
-        //val cursor: Cursor = db.query(USER_TABLE, arrayOf(USER_ID),"$USER_EMAIL = ? AND $USER_PASSWORD = ?",
-            //arrayOf(email,password),null,null,null)
+        val cursor: Cursor = db.rawQuery("select * from " + USER_TABLE + " where "
+                + USER_EMAIL + " =? and " + USER_PASSWORD + " =?", arrayOf(email,password))
 
-        while (cursor.count > 0){
+        while (cursor.moveToFirst()){
             @SuppressLint("Range") val id = cursor.getInt(cursor.getColumnIndex(USER_ID))
             return id
         }
         return -1
     }
 
-    /*fun getUserData(id: Int): UserModel{
+    @SuppressLint("Range")
+    fun getUserData(id: String?): UserModel?{
         val db = this.readableDatabase
-        val cursor = db.rawQuery("select * from " + USER_TABLE + " where " + USER_ID + "=?", arrayOf(id.toString()))
-        while (cursor.moveToFirst() && cursor.count > 0){
-            val userData = UserModel(cursor.getColumnIndex(USER_ID),cursor.getColumnIndex(USER_FIRST_NAME).toString(),
-            cursor.getColumnIndex(USER_LAST_NAME).toString(), cursor.getColumnIndex(USER_EMAIL).toString(), cursor.getColumnIndex(USER_PASSWORD).toString(),
-            cursor.getColumnIndex(USER_PHONE).toString(), cursor.getColumnIndex(USER_BIRTH_DATE).toString(), cursor.getColumnIndex(USER_GENDER).toString())
+        val cursor = db.rawQuery("select * from " + USER_TABLE + " where " + USER_ID + " =?", arrayOf(id))
+
+        while (cursor.moveToFirst()){
+            val userData = UserModel(cursor.getString(cursor.getColumnIndex(USER_FIRST_NAME)),
+                    cursor.getString(cursor.getColumnIndex(USER_LAST_NAME)), cursor.getString(cursor.getColumnIndex(USER_EMAIL)),
+                    cursor.getString(cursor.getColumnIndex(USER_PASSWORD)), cursor.getString(cursor.getColumnIndex(USER_PHONE)),
+                    cursor.getString(cursor.getColumnIndex(USER_BIRTH_DATE)), cursor.getString(cursor.getColumnIndex(USER_GENDER)))
+            return userData
         }
-    }*/
+        return null
+    }
 }

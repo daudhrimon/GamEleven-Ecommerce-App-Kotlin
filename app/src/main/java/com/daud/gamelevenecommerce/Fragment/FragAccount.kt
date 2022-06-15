@@ -64,9 +64,9 @@ class FragAccount : Fragment() {
         val dbHelper = context?.let { DbHelper(it) }
         val sharedPref = SharedPref()
         context?.let { sharedPref.init(it) }
-        println("ID ==="+ sharedPref.ID())
-        /*userData = dbHelper?.getUserData(Integer.parseInt(sharedPref.ID()))!!
-        println("Email : ==="+sharedPref.ID())*/
+        userData = dbHelper?.getUserData(sharedPref.ID())!!
+        /////////////////
+        println(userData)
     }
 
     private fun cngLanLayClickHandler() {
