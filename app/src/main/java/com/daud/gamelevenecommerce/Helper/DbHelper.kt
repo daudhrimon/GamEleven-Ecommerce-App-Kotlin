@@ -6,11 +6,8 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.util.Log
 import androidx.fragment.app.FragmentActivity
-import com.daud.gamelevenecommerce.BuildConfig.DEBUG
 import com.daud.gamelevenecommerce.Model.UserModel
-import kotlin.math.log
 
 class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -82,7 +79,6 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
         cv.put(USER_BIRTH_DATE, userTable.birthDate)
         cv.put(USER_GENDER, userTable.gender)
         db.insert(USER_TABLE, null, cv)
-        db.close()
         (context as FragmentActivity).supportFragmentManager.popBackStack()
     }
 
@@ -96,7 +92,6 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
         cv.put(USER_BIRTH_DATE, userTable.birthDate)
         cv.put(USER_GENDER, userTable.gender)
         db.update(USER_TABLE, cv, USER_ID + " =? ", arrayOf(userTable.id.toString()))
-        db.close()
     }
 
     // update email to USER_TABLE
@@ -105,21 +100,19 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
         val cv = ContentValues()
         cv.put(USER_EMAIL,email)
         db.update(USER_TABLE, cv, USER_ID + " =? ", arrayOf(id.toString()))
-        db.close()
     }
 
-    @SuppressLint("Range")
     fun checkEmailAndPass(email:String, password: String): Int {
         val db:SQLiteDatabase = this.readableDatabase
         val cursor: Cursor = db.rawQuery("select * from " + USER_TABLE + " where " + USER_EMAIL + "=? and " + USER_PASSWORD + "=?", arrayOf(email,password))
-        /*val cursor: Cursor = db.query(USER_TABLE, arrayOf(USER_ID),"$USER_EMAIL = ? AND $USER_PASSWORD = ?",
-            arrayOf(email,password),null,null,null)*/
-        var ID: Int = -1
-        if (cursor.count > 0){
-            cursor.moveToPosition(cursor.position)
-            ID = cursor.getColumnIndex(USER_ID)
+        //val cursor: Cursor = db.query(USER_TABLE, arrayOf(USER_ID),"$USER_EMAIL = ? AND $USER_PASSWORD = ?",
+            //arrayOf(email,password),null,null,null)
+
+        while (cursor.count > 0){
+            @SuppressLint("Range") val id = cursor.getInt(cursor.getColumnIndex(USER_ID))
+            return id
         }
-        return ID
+        return -1
     }
 
     /*fun getUserData(id: Int): UserModel{

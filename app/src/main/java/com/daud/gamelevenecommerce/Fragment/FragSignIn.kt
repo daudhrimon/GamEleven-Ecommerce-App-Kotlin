@@ -70,7 +70,7 @@ class FragSignIn : Fragment() {
             val sharedPref = SharedPref()
             context?.let { sharedPref.init(it) }
             sharedPref.write("ID",ID.toString())
-            sharedPref.write("SIGNIN","OK")
+            //sharedPref.write("SIGNIN","OK")
             parentFragmentManager.beginTransaction().setTransition(TRANSIT_FRAGMENT_OPEN)
                 .replace(R.id.mainFrame, FragAccount()).commit()
         }
