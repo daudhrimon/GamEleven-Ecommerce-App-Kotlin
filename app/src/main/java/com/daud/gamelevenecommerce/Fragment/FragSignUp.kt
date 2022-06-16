@@ -104,8 +104,7 @@ class FragSignUp : Fragment() {
         }
 
         val userModel = UserModel(fNameEt?.text.toString().trim(), lNameEt?.text.toString().trim(),
-            emailEt?.text.toString().trim(), passwordEt?.text.toString().trim(), phoneEt?.text.toString().trim(),"","")
-
+            emailEt?.text.toString().trim(), passwordEt?.text.toString().trim(), phoneEt?.text.toString().trim(),"","","")
 
         // sending data to
         dbHelper.insertUserData(userModel)

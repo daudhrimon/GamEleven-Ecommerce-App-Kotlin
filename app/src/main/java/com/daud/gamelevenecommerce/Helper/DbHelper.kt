@@ -31,7 +31,8 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
         private val USER_PASSWORD = "password"
         private val USER_PHONE = "phone"
         private val USER_BIRTH_DATE = "birthDate"
-        private const val USER_GENDER = "gender"
+        private val USER_GENDER = "gender"
+        private val USER_IMAGE = "image"
 
         // Address Table Columns names
         private val USER_ADDRESS = "address"
@@ -46,7 +47,7 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
     // create user table sql query
     private val CREATE_USER_TABLE = ("CREATE TABLE " + USER_TABLE + " (" + USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + USER_FIRST_NAME + " TEXT," + USER_LAST_NAME + " TEXT," + USER_EMAIL + " TEXT," + USER_PASSWORD + " TEXT,"
-                + USER_PHONE + " TEXT," + USER_BIRTH_DATE + " TEXT," + USER_GENDER + " TEXT)")
+                + USER_PHONE + " TEXT," + USER_BIRTH_DATE + " TEXT," + USER_GENDER + " TEXT," + USER_IMAGE + " TEXT)")
 
     // create address table sql query
     private val CREATE_ADDRESS_TABLE = ("CREATE TABLE " + ADDRESS_TABLE + " (" + USER_ID + " TEXT,"
@@ -75,6 +76,7 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
         cv.put(USER_PHONE, userTable.phone)
         cv.put(USER_BIRTH_DATE, userTable.birthDate)
         cv.put(USER_GENDER, userTable.gender)
+        cv.put(USER_IMAGE, userTable.image)
         db.insert(USER_TABLE, null, cv)
         (context as FragmentActivity).supportFragmentManager.popBackStack()
         Toast.makeText(context,"Create Account Successful",Toast.LENGTH_SHORT).show()
@@ -131,7 +133,8 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
             val userData = UserModel(cursor.getString(cursor.getColumnIndex(USER_FIRST_NAME)),
                     cursor.getString(cursor.getColumnIndex(USER_LAST_NAME)), cursor.getString(cursor.getColumnIndex(USER_EMAIL)),
                     cursor.getString(cursor.getColumnIndex(USER_PASSWORD)), cursor.getString(cursor.getColumnIndex(USER_PHONE)),
-                    cursor.getString(cursor.getColumnIndex(USER_BIRTH_DATE)), cursor.getString(cursor.getColumnIndex(USER_GENDER)))
+                    cursor.getString(cursor.getColumnIndex(USER_BIRTH_DATE)), cursor.getString(cursor.getColumnIndex(USER_GENDER)),
+                cursor.getString(cursor.getColumnIndex(USER_IMAGE)))
             db.close()
             cursor.close()
             return userData
@@ -140,4 +143,6 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
         cursor.close()
         return null
     }
+
+
 }

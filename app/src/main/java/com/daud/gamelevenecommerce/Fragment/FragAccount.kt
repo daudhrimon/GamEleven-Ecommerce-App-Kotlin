@@ -17,6 +17,7 @@ import com.daud.gamelevenecommerce.Model.UserModel
 import com.daud.gamelevenecommerce.R
 import com.daud.gamelevenecommerce.Util.SharedPref
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import de.hdodenhof.circleimageview.CircleImageView
 
 class FragAccount : Fragment() {
     private lateinit var userData: UserModel
@@ -70,13 +71,18 @@ class FragAccount : Fragment() {
 
     // set data to user layout
     private fun setUserData(view: View) {
+        val acProImage = view.findViewById<CircleImageView>(R.id.acProImage)
+        if (userData.image.isNotEmpty()){
+            ////////////////////////////////////////////////////////////////////////////////////////
+        }
+
         val userName = view.findViewById<TextView>(R.id.userName)
-        if (!userData.firstName.isEmpty()){
+        if (userData.firstName.isNotEmpty()){
             userName.text = userData.firstName + " " + userData.lastName
         }
 
         val userPhone = view.findViewById<TextView>(R.id.userPhone)
-        if (!userData.phone.isEmpty()){
+        if (userData.phone.isNotEmpty()){
             userPhone.text = userData.phone
         }
     }
@@ -87,8 +93,6 @@ class FragAccount : Fragment() {
         val sharedPref = SharedPref()
         context?.let { sharedPref.init(it) }
         userData = dbHelper?.getUserData(sharedPref.ID())!!
-        /////////////////
-        println(userData)
     }
 
     private fun logoutLayClickHandler() {

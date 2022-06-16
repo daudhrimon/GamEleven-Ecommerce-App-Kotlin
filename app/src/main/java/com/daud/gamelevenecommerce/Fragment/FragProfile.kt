@@ -17,6 +17,7 @@ import com.daud.gamelevenecommerce.R
 import com.daud.gamelevenecommerce.Util.SharedPref
 import com.daud.gamelevenecommerce.Util.Util
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import de.hdodenhof.circleimageview.CircleImageView
 import java.util.*
 
 class FragProfile : Fragment() {
@@ -56,8 +57,13 @@ class FragProfile : Fragment() {
 
     // set user info
     private fun setUserInfo(view: View?) {
+        val piProImage = view?.findViewById<CircleImageView>(R.id.piProImage)
         val pNameTv = view?.findViewById<TextView>(R.id.pNameTv)
         val piNameTv = view?.findViewById<TextView>(R.id.piNameTv)
+
+        if (userData.image.isNotEmpty()){
+            ////////////////////////////////////////////////////////////////////////////////////////
+        }
 
         if (userData.firstName.isNotEmpty()) {
             pNameTv?.text = userData.firstName + " " + userData.lastName
