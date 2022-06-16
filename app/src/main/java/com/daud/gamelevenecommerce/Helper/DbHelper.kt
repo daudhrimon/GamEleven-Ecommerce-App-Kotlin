@@ -44,12 +44,12 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
     }
 
     // create user table sql query
-    private val CREATE_USER_TABLE = ("CREATE TABLE " + USER_TABLE + " (" + USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+    private val CREATE_USER_TABLE = ("CREATE TABLE " + USER_TABLE + " (" + USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + USER_FIRST_NAME + " TEXT," + USER_LAST_NAME + " TEXT," + USER_EMAIL + " TEXT," + USER_PASSWORD + " TEXT,"
                 + USER_PHONE + " TEXT," + USER_BIRTH_DATE + " TEXT," + USER_GENDER + " TEXT)")
 
     // create address table sql query
-    private val CREATE_ADDRESS_TABLE = ("CREATE TABLE " + ADDRESS_TABLE + " (" + USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+    private val CREATE_ADDRESS_TABLE = ("CREATE TABLE " + ADDRESS_TABLE + " (" + USER_ID + " TEXT,"
                 + USER_ADDRESS + " TEXT," + USER_AREA + " TEXT," + USER_CITY + " TEXT," + USER_REGION + " TEXT,"
                 + USER_COUNTRY + " TEXT," + USER_ZIP + " TEXT," + USER_COMPANY + " TEXT)")
 

@@ -40,6 +40,7 @@
                 android:background="@drawable/edit_text_round_bg_outline"
                 android:fontFamily="@font/roboto_regular"
                 android:hint="email@example.com"
+                android:inputType="textEmailAddress"
                 android:paddingHorizontal="11dp"
                 android:paddingVertical="16dp"
                 android:textColor="#9A9A9A"
