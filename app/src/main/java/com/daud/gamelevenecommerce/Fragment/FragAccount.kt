@@ -60,6 +60,11 @@ class FragAccount : Fragment() {
             cngLanLayClickHandler()
         })
 
+        val logoutLay: RelativeLayout = view.findViewById(R.id.logoutLay)
+        logoutLay.setOnClickListener(View.OnClickListener { view1: View? ->
+            logoutLayClickHandler()
+        })
+
         return view
     }
 
@@ -84,6 +89,16 @@ class FragAccount : Fragment() {
         userData = dbHelper?.getUserData(sharedPref.ID())!!
         /////////////////
         println(userData)
+    }
+
+    private fun logoutLayClickHandler() {
+        val sharedPref = SharedPref()
+        context?.let { sharedPref.init(it) }
+        sharedPref.write("SIGNIN","")
+        sharedPref.write("ID","")
+        parentFragmentManager.beginTransaction()
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            .replace(R.id.mainFrame, FragSignIn()).commit()
     }
 
     private fun cngLanLayClickHandler() {
