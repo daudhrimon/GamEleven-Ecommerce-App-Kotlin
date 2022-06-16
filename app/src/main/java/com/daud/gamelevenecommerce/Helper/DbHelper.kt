@@ -53,7 +53,6 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
                 + USER_ADDRESS + " TEXT," + USER_AREA + " TEXT," + USER_CITY + " TEXT," + USER_REGION + " TEXT,"
                 + USER_COUNTRY + " TEXT," + USER_ZIP + " TEXT," + USER_COMPANY + " TEXT)")
 
-    //private val DROP_USER_TABLE = "DROP TABLE IF EXISTS $USER_TABLE"
 
     override fun onCreate(db: SQLiteDatabase?) {
 
@@ -63,10 +62,7 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
     }
 
     // upgrade! upgrade! upgrade!, i don't like upgrade, so i Avoid
-    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        /*db?.execSQL(DROP_USER_TABLE)
-        onCreate(db)*/
-    }
+    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {/**/}
 
     // insert UserData To USER_TABLE
     fun insertUserData (userTable: UserModel) {
