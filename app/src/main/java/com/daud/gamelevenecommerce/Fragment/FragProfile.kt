@@ -115,8 +115,11 @@ class FragProfile : Fragment() {
         val editBirthDate = sheetView.findViewById<EditText>(R.id.editBirthDate)
         val genderRadio = sheetView.findViewById<RadioGroup>(R.id.editGender)
         val editSaveBtn = sheetView.findViewById<AppCompatButton>(R.id.editSaveBtn)
+        // initial value of gender
         var gender: String = ""
+
         btmSheet.show()
+
         // set Old value
         editFName.setText(userData.firstName)
         editLName.setText(userData.lastName)
