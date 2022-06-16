@@ -106,6 +106,7 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
         val cv = ContentValues()
         cv.put(USER_EMAIL,email)
         db.update(USER_TABLE, cv, USER_ID + " =?", arrayOf(id))
+        Toast.makeText(context,"Update Email Successful",Toast.LENGTH_SHORT).show()
         db.close()
     }
 

@@ -101,8 +101,42 @@ class FragProfile : Fragment() {
 
     private fun emailEdClickHandler() {
         val btmSheet: BottomSheetDialog = BottomSheetDialog(requireContext(), R.style.AppBottomSheetDialogTheme)
-        btmSheet.setContentView(R.layout.btmsheet_email)
+        val sheetView = LayoutInflater.from(context).inflate(R.layout.btmsheet_email,null)
+        btmSheet.setContentView(sheetView)
+        val editEmail = sheetView.findViewById<EditText>(R.id.editEmail)
+        val saveEmailBtn = sheetView.findViewById<AppCompatButton>(R.id.saveEmailBtn)
         btmSheet.show()
+
+        sheetView.setOnClickListener(View.OnClickListener { view1: View? ->
+            Util.hideSoftKeyBoard(requireContext(),sheetView)
+        })
+
+        if (userData.email.isNotEmpty()){
+            editEmail.setText(userData.email)
+        }
+
+
+        saveEmailBtn.setOnClickListener(View.OnClickListener { view1: View? ->
+            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(editEmail?.text.toString()).matches()){
+                editEmail.error = "Empty"
+                editEmail.requestFocus()
+                return@OnClickListener
+            }
+
+            if (editEmail.text.toString() == userData.email){
+                Toast.makeText(requireContext(),"You changed nothing yet",Toast.LENGTH_SHORT).show()
+                return@OnClickListener
+            }
+
+            //updating email to database
+            val dbHelper = DbHelper(requireContext())
+            val sharedPref = SharedPref()
+            sharedPref.init(requireContext())
+            dbHelper.updateEmail(sharedPref.ID(),editEmail.text.toString().trim())
+
+            btmSheet.dismiss()
+            onResume()
+        })
     }
 
     private fun personalEdClickHandler() {
