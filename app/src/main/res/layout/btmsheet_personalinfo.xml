@@ -145,6 +145,8 @@
                 android:drawableEnd="@drawable/calendar"
                 android:fontFamily="@font/roboto_regular"
                 android:hint="Enter your date of birth"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 android:paddingHorizontal="11dp"
                 android:paddingVertical="16dp"
                 android:textColor="#9A9A9A"
@@ -169,11 +171,14 @@
                 android:textSize="15sp" />
 
             <RadioGroup
+                android:id="@+id/editGender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingHorizontal="5dp">
 
                 <RadioButton
+                    android:id="@+id/gnMale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_regular"
@@ -182,6 +187,7 @@
                     android:textSize="15sp" />
 
                 <RadioButton
+                    android:id="@+id/gnFemale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -190,11 +196,22 @@
                     android:textColor="#9A9A9A"
                     android:textSize="15sp" />
 
+                <RadioButton
+                    android:id="@+id/gnOther"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Other"
+                    android:textColor="#9A9A9A"
+                    android:textSize="15sp" />
+
             </RadioGroup>
 
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/editSaveBtn"
             android:layout_width="match_parent"
             android:layout_height="59dp"
             android:layout_marginVertical="15dp"

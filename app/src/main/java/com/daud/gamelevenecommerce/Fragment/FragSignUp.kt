@@ -19,6 +19,7 @@ class FragSignUp : Fragment() {
     private lateinit var signInBtn: Button
     private lateinit var createAcBtn: Button
     private lateinit var agreeBox: CheckBox
+    private lateinit var termConLay:RelativeLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,7 +61,7 @@ class FragSignUp : Fragment() {
     }
 
     private fun agreeBoxClickHandler() {
-        agreeBox.setBackgroundColor(Color.parseColor("#00000000"))
+        termConLay.setBackgroundColor(Color.parseColor("#00000000"))
     }
 
     private fun createAcBtnClickhandler(view: View?) {
@@ -97,7 +98,8 @@ class FragSignUp : Fragment() {
         }
 
         if (agreeBox.isChecked == false){
-            agreeBox.setBackgroundResource(R.drawable.selector_mycart)
+            termConLay.setBackgroundResource(R.drawable.selector_mycart)
+            Toast.makeText(context,"Terms & Conditions Unchecked",Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -121,5 +123,6 @@ class FragSignUp : Fragment() {
         signInBtn = view.findViewById(R.id.upSignInBtn)
         createAcBtn = view.findViewById(R.id.createAcBtn)
         agreeBox = view.findViewById(R.id.agreeBox)
+        termConLay = view.findViewById(R.id.termConLay)
     }
 }

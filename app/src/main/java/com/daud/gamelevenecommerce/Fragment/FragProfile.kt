@@ -1,18 +1,24 @@
 package com.daud.gamelevenecommerce.Fragment
 
+import android.app.DatePickerDialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.TextView
+import android.widget.*
+import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import com.daud.gamelevenecommerce.Activity.MainActivity
 import com.daud.gamelevenecommerce.Helper.DbHelper
 import com.daud.gamelevenecommerce.Model.UserModel
 import com.daud.gamelevenecommerce.R
 import com.daud.gamelevenecommerce.Util.SharedPref
+import com.daud.gamelevenecommerce.Util.Util
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import java.util.*
+
 
 class FragProfile : Fragment() {
     private lateinit var userData: UserModel
@@ -95,9 +101,89 @@ class FragProfile : Fragment() {
 
     private fun personalEdClickHandler() {
         val btmSheet: BottomSheetDialog = context?.let { BottomSheetDialog(it, R.style.AppBottomSheetDialogTheme) }!!
-        btmSheet.setContentView(R.layout.btmsheet_personalinfo)
-        
+        val sheetView = LayoutInflater.from(context).inflate(R.layout.btmsheet_personalinfo,null)
+        btmSheet.setContentView(sheetView)
+        val editFName = sheetView.findViewById<EditText>(R.id.editFName)
+        editFName.setText(userData.firstName)
+        val editLName = sheetView.findViewById<EditText>(R.id.editLName)
+        editLName.setText(userData.lastName)
+        val editContact = sheetView.findViewById<EditText>(R.id.editContact)
+        editContact.setText(userData.phone)
+        val editBirthDate = sheetView.findViewById<EditText>(R.id.editBirthDate)
+        val editGender = sheetView.findViewById<RadioGroup>(R.id.editGender)
+        val editSaveBtn = sheetView.findViewById<AppCompatButton>(R.id.editSaveBtn)
+        var gender: String = ""
         btmSheet.show()
+
+        sheetView.setOnClickListener(View.OnClickListener { view: View? -> Util.hideSoftKeyBoard(requireContext(),sheetView) })
+
+        editGender.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { group, checkedId ->
+            editGender.setBackgroundColor(Color.parseColor("#00000000"))
+            gender = getGender(checkedId)
+        })
+
+        editBirthDate.setOnClickListener(View.OnClickListener { view1 ->
+            datePickerDialog(editBirthDate)
+        })
+
+        editSaveBtn?.setOnClickListener(View.OnClickListener { view1: View? ->
+            if (editFName?.text.toString().isEmpty()){
+                editFName?.error = "Empty"
+                editFName?.requestFocus()
+                return@OnClickListener
+            }
+            if (editLName?.text.toString().isEmpty()){
+                editLName?.error = "Empty"
+                editLName?.requestFocus()
+                return@OnClickListener
+            }
+            if (editContact?.text.toString().isEmpty()){
+                editContact?.error = "Empty"
+                editContact?.requestFocus()
+                return@OnClickListener
+            }
+            if (editBirthDate?.text.toString().isEmpty()){
+                datePickerDialog(editBirthDate)
+                return@OnClickListener
+            }
+            if (gender.isEmpty()){
+                editGender.setBackgroundResource(R.drawable.selector_mycart)
+                Toast.makeText(context,"Gender Unselected",Toast.LENGTH_SHORT).show()
+                return@OnClickListener
+            }
+
+        })
+    }
+
+    private fun getGender(checkedId: Int): String {
+        when(checkedId){
+            R.id.gnMale-> return "Male"
+            R.id.gnFemale-> return "Female"
+            R.id.gnOther-> return "Other"
+        }
+        return ""
+    }
+
+    private fun datePickerDialog(editBirthDate: EditText) {
+        val calendar: Calendar = Calendar.getInstance()
+        val year: Int = calendar.get(Calendar.YEAR)
+        val month: Int = calendar.get(Calendar.MONTH)
+        val day: Int = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val datePicker = context?.let {
+            DatePickerDialog(
+                    it, android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                    { datePicker, year, month, day ->
+                        var month = month
+                        month = month + 1
+                        val Date = "$day / $month / $year"
+                        editBirthDate.setText(Date)
+                    }, year, month, day)
+            }
+        datePicker?.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        datePicker.setTitle("Select Date")
+        datePicker.setCancelable(false)
+        datePicker.show()
     }
 
     private fun backBtnClickHandler() {
