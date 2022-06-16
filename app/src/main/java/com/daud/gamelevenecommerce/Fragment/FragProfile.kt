@@ -19,7 +19,6 @@ import com.daud.gamelevenecommerce.Util.Util
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import java.util.*
 
-
 class FragProfile : Fragment() {
     private lateinit var userData: UserModel
 
@@ -55,32 +54,39 @@ class FragProfile : Fragment() {
         return view
     }
 
+    override fun onResume() {
+        super.onResume()
+        getData()
+        setUserInfo(requireView())
+    }
+
     // set user info
     private fun setUserInfo(view: View?) {
         val pNameTv = view?.findViewById<TextView>(R.id.pNameTv)
         val piNameTv = view?.findViewById<TextView>(R.id.piNameTv)
-        if (!userData.firstName.isEmpty()) {
+
+        if (userData.firstName.isNotEmpty()) {
             pNameTv?.text = userData.firstName + " " + userData.lastName
             piNameTv?.text = userData.firstName + " " + userData.lastName
         }
 
         val piContact = view?.findViewById<TextView>(R.id.piContact)
-        if (!userData.phone.isEmpty()){
+        if (userData.phone.isNotEmpty()){
             piContact?.text = userData.phone
         }
 
         val piGender = view?.findViewById<TextView>(R.id.piGender)
-        if (!userData.gender.isEmpty()){
+        if (userData.gender.isNotEmpty()){
             piGender?.text = userData.gender
         }
 
         val piBirthDate = view?.findViewById<TextView>(R.id.piBirthDate)
-        if (!userData.birthDate.isEmpty()){
+        if (userData.birthDate.isNotEmpty()){
             piBirthDate?.text = userData.birthDate
         }
 
         val piEmail = view?.findViewById<TextView>(R.id.piEmail)
-        if (!userData.email.isEmpty()){
+        if (userData.email.isNotEmpty()){
             piEmail?.text = userData.email
         }
     }
@@ -104,21 +110,37 @@ class FragProfile : Fragment() {
         val sheetView = LayoutInflater.from(context).inflate(R.layout.btmsheet_personalinfo,null)
         btmSheet.setContentView(sheetView)
         val editFName = sheetView.findViewById<EditText>(R.id.editFName)
-        editFName.setText(userData.firstName)
         val editLName = sheetView.findViewById<EditText>(R.id.editLName)
-        editLName.setText(userData.lastName)
         val editContact = sheetView.findViewById<EditText>(R.id.editContact)
-        editContact.setText(userData.phone)
         val editBirthDate = sheetView.findViewById<EditText>(R.id.editBirthDate)
-        val editGender = sheetView.findViewById<RadioGroup>(R.id.editGender)
+        val genderRadio = sheetView.findViewById<RadioGroup>(R.id.editGender)
         val editSaveBtn = sheetView.findViewById<AppCompatButton>(R.id.editSaveBtn)
         var gender: String = ""
         btmSheet.show()
+        // set Old value
+        editFName.setText(userData.firstName)
+        editLName.setText(userData.lastName)
+        editContact.setText(userData.phone)
 
+        // set user old birthdate
+        if (userData.birthDate.isNotEmpty()){
+            editBirthDate.setText(userData.birthDate)
+        }
+
+        // set user old Gender
+        if (userData.gender.isNotEmpty()){
+            val radioId = getGenderRadioId(userData.gender)
+            if (radioId != -1){
+                genderRadio.check(radioId)
+            }
+        }
+
+        // bottom sheet touch to hide KEYBOARD
         sheetView.setOnClickListener(View.OnClickListener { view: View? -> Util.hideSoftKeyBoard(requireContext(),sheetView) })
 
-        editGender.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { group, checkedId ->
-            editGender.setBackgroundColor(Color.parseColor("#00000000"))
+        // genderRadio click Handler
+        genderRadio.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { group, checkedId ->
+            genderRadio.setBackgroundColor(Color.parseColor("#00000000"))
             gender = getGender(checkedId)
         })
 
@@ -147,12 +169,29 @@ class FragProfile : Fragment() {
                 return@OnClickListener
             }
             if (gender.isEmpty()){
-                editGender.setBackgroundResource(R.drawable.selector_mycart)
+                genderRadio.setBackgroundResource(R.drawable.selector_mycart)
                 Toast.makeText(context,"Gender Unselected",Toast.LENGTH_SHORT).show()
                 return@OnClickListener
             }
 
+            val dbHelper = DbHelper(requireContext())
+            val sharedPref = SharedPref()
+            sharedPref.init(requireContext())
+            dbHelper.updatePersonalInfo(sharedPref.ID(), editFName?.text.toString(), editLName?.text.toString(),
+                editContact?.text.toString(), editBirthDate?.text.toString(),gender)
+
+            btmSheet.dismiss()
+            onResume()
         })
+    }
+
+    private fun getGenderRadioId(gender: String): Int {
+        when(gender){
+            "Male"-> return R.id.gnMale
+            "Female"-> return R.id.gnFemale
+            "Other"-> return R.id.gnOther
+        }
+        return -1
     }
 
     private fun getGender(checkedId: Int): String {

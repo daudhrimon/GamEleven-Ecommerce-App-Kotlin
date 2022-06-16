@@ -85,15 +85,17 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
     }
 
     // update Personal Info to USER_TABLE
-    fun updatePersonalInfo (id: String,userTable: UserModel){
+    fun updatePersonalInfo (id: String?, firstName: String?, lastName: String?,
+                            phone: String?, birthDate: String?, gender: String?){
         val db: SQLiteDatabase = this.writableDatabase
         val cv = ContentValues()
-        cv.put(USER_FIRST_NAME, userTable.firstName)
-        cv.put(USER_LAST_NAME, userTable.lastName)
-        cv.put(USER_PHONE, userTable.phone)
-        cv.put(USER_BIRTH_DATE, userTable.birthDate)
-        cv.put(USER_GENDER, userTable.gender)
+        cv.put(USER_FIRST_NAME, firstName)
+        cv.put(USER_LAST_NAME, lastName)
+        cv.put(USER_PHONE, phone)
+        cv.put(USER_BIRTH_DATE, birthDate)
+        cv.put(USER_GENDER, gender)
         db.update(USER_TABLE, cv, USER_ID + " =?", arrayOf(id))
+        Toast.makeText(context,"Update Information Successful",Toast.LENGTH_SHORT).show()
     }
 
     // update email to USER_TABLE
