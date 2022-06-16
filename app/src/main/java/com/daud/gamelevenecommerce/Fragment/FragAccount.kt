@@ -29,14 +29,15 @@ class FragAccount : Fragment() {
 
         initial()
 
+        // retrieve data from database
         getData()
 
+        // set data to user layout
         setUserData(view)
 
         val backBtn: ImageButton = view.findViewById(R.id.accountBack)
         backBtn.setOnClickListener(View.OnClickListener { view1: View? ->
             backBtnClickHandler()
-
         })
 
         val ordersLay: RelativeLayout = view.findViewById(R.id.ordersLay)
@@ -62,15 +63,20 @@ class FragAccount : Fragment() {
         return view
     }
 
+    // set data to user layout
     private fun setUserData(view: View) {
         val userName = view.findViewById<TextView>(R.id.userName)
-        userName.text = userData.firstName + " " + userData.lastName
+        if (!userData.firstName.isEmpty()){
+            userName.text = userData.firstName + " " + userData.lastName
+        }
 
         val userPhone = view.findViewById<TextView>(R.id.userPhone)
-        userPhone.text = userData.phone
+        if (!userData.phone.isEmpty()){
+            userPhone.text = userData.phone
+        }
     }
 
-    // getting all user data
+    // retrieve data from database
     private fun getData() {
         val dbHelper = context?.let { DbHelper(it) }
         val sharedPref = SharedPref()

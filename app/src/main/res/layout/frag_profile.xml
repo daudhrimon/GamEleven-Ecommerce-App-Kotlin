@@ -84,12 +84,13 @@
             </RelativeLayout>
 
             <TextView
+                android:id="@+id/pNameTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="18dp"
                 android:fontFamily="@font/roboto_bold"
-                android:text="Jonathan Smith"
+                android:text="@string/empty"
                 android:textAlignment="center"
                 android:textColor="#404040"
                 android:textSize="16sp" />
@@ -147,12 +148,13 @@
             android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/piNameTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="Jonathan Smith"
+            android:text="@string/empty"
             android:textColor="#404040"
             android:textSize="16sp" />
 
@@ -176,12 +178,13 @@
             android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/piContact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="01567383855"
+            android:text="@string/empty"
             android:textColor="#404040"
             android:textSize="16sp" />
 
@@ -204,12 +207,13 @@
             android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/piGender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="Male"
+            android:text="@string/empty"
             android:textColor="#404040"
             android:textSize="16sp" />
 
@@ -232,12 +236,13 @@
             android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/piBirthDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="1/1/1995"
+            android:text="@string/empty"
             android:textColor="#404040"
             android:textSize="16sp" />
 
@@ -293,12 +298,13 @@
             android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/piEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_regular"
-            android:text=" "
+            android:text="@string/empty"
             android:textColor="#404040"
             android:textSize="16sp"
             tools:ignore="SpeakableTextPresentCheck" />

@@ -78,7 +78,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="Jonathan Smith"
+                    android:text="@string/empty"
                     android:textAlignment="center"
                     android:textColor="#404040"
                     android:textSize="16sp" />
@@ -89,7 +89,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
                     android:fontFamily="@font/roboto_regular"
-                    android:text="018373636733"
+                    android:text="@string/empty"
                     android:textAlignment="center"
                     android:textColor="#9F9F9F"
                     android:textSize="16sp" />
