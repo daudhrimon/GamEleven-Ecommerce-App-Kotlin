@@ -82,6 +82,7 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
         db.insert(USER_TABLE, null, cv)
         (context as FragmentActivity).supportFragmentManager.popBackStack()
         Toast.makeText(context,"Create Account Successful",Toast.LENGTH_SHORT).show()
+        db.close()
     }
 
     // update Personal Info to USER_TABLE
@@ -96,6 +97,7 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
         cv.put(USER_GENDER, gender)
         db.update(USER_TABLE, cv, USER_ID + " =?", arrayOf(id))
         Toast.makeText(context,"Update Information Successful",Toast.LENGTH_SHORT).show()
+        db.close()
     }
 
     // update email to USER_TABLE
@@ -104,6 +106,7 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
         val cv = ContentValues()
         cv.put(USER_EMAIL,email)
         db.update(USER_TABLE, cv, USER_ID + " =?", arrayOf(id))
+        db.close()
     }
 
     fun checkEmailAndPass(email:String, password: String): Int {
@@ -113,8 +116,12 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
 
         while (cursor.moveToFirst()){
             @SuppressLint("Range") val id = cursor.getInt(cursor.getColumnIndex(USER_ID))
+            db.close()
+            cursor.close()
             return id
         }
+        db.close()
+        cursor.close()
         return -1
     }
 
@@ -128,8 +135,12 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
                     cursor.getString(cursor.getColumnIndex(USER_LAST_NAME)), cursor.getString(cursor.getColumnIndex(USER_EMAIL)),
                     cursor.getString(cursor.getColumnIndex(USER_PASSWORD)), cursor.getString(cursor.getColumnIndex(USER_PHONE)),
                     cursor.getString(cursor.getColumnIndex(USER_BIRTH_DATE)), cursor.getString(cursor.getColumnIndex(USER_GENDER)))
+            db.close()
+            cursor.close()
             return userData
         }
+        db.close()
+        cursor.close()
         return null
     }
 }

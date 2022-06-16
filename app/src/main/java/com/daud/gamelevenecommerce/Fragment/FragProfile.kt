@@ -116,7 +116,7 @@ class FragProfile : Fragment() {
         val genderRadio = sheetView.findViewById<RadioGroup>(R.id.editGender)
         val editSaveBtn = sheetView.findViewById<AppCompatButton>(R.id.editSaveBtn)
         // initial value of gender
-        var gender: String = ""
+        var gender: String = userData.gender
 
         btmSheet.show()
 
@@ -174,6 +174,13 @@ class FragProfile : Fragment() {
             if (gender.isEmpty()){
                 genderRadio.setBackgroundResource(R.drawable.selector_mycart)
                 Toast.makeText(context,"Gender Unselected",Toast.LENGTH_SHORT).show()
+                return@OnClickListener
+            }
+
+            // checking user changes data or not
+            if (editFName?.text.toString() == userData.firstName && editLName?.text.toString() == userData.lastName &&
+                editContact?.text.toString() == userData.phone && editBirthDate?.text.toString() == userData.birthDate && gender == userData.gender){
+                Toast.makeText(requireContext(),"You changed nothing yet",Toast.LENGTH_SHORT).show()
                 return@OnClickListener
             }
 
