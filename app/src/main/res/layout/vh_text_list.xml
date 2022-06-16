@@ -3,7 +3,7 @@
     android:id="@+id/textBtn"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/selector_cate_item"
+    android:background="@drawable/selector_list_item"
     android:clickable="true"
     android:orientation="vertical"
     android:padding="2.5dp">

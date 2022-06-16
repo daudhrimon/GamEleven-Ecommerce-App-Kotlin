@@ -46,7 +46,17 @@ class FragSignUp : Fragment() {
             agreeBoxClickHandler()
         })
 
+        // On Screen Click hide Keyboard
+        view.setOnClickListener(View.OnClickListener { view1: View? ->
+            onScreenClick(view)
+        })
+
         return view
+    }
+
+    // On Screen Click hide Keyboard
+    private fun onScreenClick(view: View) {
+        context?.let { Util.hideSoftKeyBoard(it,view) }
     }
 
     private fun agreeBoxClickHandler() {
@@ -95,6 +105,7 @@ class FragSignUp : Fragment() {
             emailEt?.text.toString().trim(), passwordEt?.text.toString().trim(), phoneEt?.text.toString().trim(),"","")
 
 
+        // sending data to
         dbHelper.insertUserData(userModel)
     }
 

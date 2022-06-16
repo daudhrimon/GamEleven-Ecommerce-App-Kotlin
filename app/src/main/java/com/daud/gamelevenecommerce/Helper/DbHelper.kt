@@ -6,6 +6,7 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import com.daud.gamelevenecommerce.Model.UserModel
 
@@ -80,6 +81,7 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
         cv.put(USER_GENDER, userTable.gender)
         db.insert(USER_TABLE, null, cv)
         (context as FragmentActivity).supportFragmentManager.popBackStack()
+        Toast.makeText(context,"Create Account Successful",Toast.LENGTH_SHORT).show()
     }
 
     // update Personal Info to USER_TABLE

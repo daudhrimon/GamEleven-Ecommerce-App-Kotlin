@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.FrameLayout
+import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
@@ -13,6 +15,7 @@ import androidx.fragment.app.FragmentTransaction
 import com.daud.gamelevenecommerce.Fragment.*
 import com.daud.gamelevenecommerce.R
 import com.daud.gamelevenecommerce.Util.SharedPref
+import com.daud.gamelevenecommerce.Util.Util
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationBarView

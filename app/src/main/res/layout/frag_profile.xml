@@ -67,7 +67,7 @@
                     android:layout_width="85dp"
                     android:layout_height="85dp"
                     android:layout_centerHorizontal="true"
-                    android:src="@drawable/demo_dp" />
+                    android:src="@drawable/ic_baseline_person_24" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:layout_width="wrap_content"
@@ -77,8 +77,8 @@
                     android:src="@drawable/pencil"
                     app:backgroundTint="@color/white"
                     app:borderWidth="0dp"
-                    app:fabCustomSize="30dp"
-                    app:maxImageSize="13dp"
+                    app:fabCustomSize="28dp"
+                    app:maxImageSize="12dp"
                     tools:ignore="SpeakableTextPresentCheck" />
 
             </RelativeLayout>
@@ -98,17 +98,16 @@
 
     </androidx.cardview.widget.CardView>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        android:orientation="horizontal"
-        android:padding="7dp">
+        android:background="#FFFFFF">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:layout_centerVertical="true"
             android:fontFamily="@font/roboto_bold"
             android:text="Personal Information"
             android:textColor="#404040"
@@ -116,16 +115,20 @@
 
         <TextView
             android:id="@+id/personalEd"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="25dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="22dp"
+            android:background="@drawable/selector_list_item"
+            android:clickable="true"
             android:fontFamily="@font/roboto_bold"
-            android:text="Edit"
+            android:padding="5dp"
+            android:text="  Edit  "
             android:textAlignment="textEnd"
             android:textColor="#FC6600"
             android:textSize="16sp" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -240,35 +243,38 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
-        android:background="#FFFFFF"
-        android:orientation="horizontal"
-        android:padding="8dp">
+        android:background="#FFFFFF">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:fontFamily="@font/roboto_bold"
+            android:layout_centerVertical="true"
             android:text="Email Address"
             android:textColor="#404040"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/emailEd"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="25dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="22dp"
+            android:background="@drawable/selector_list_item"
+            android:clickable="true"
             android:fontFamily="@font/roboto_bold"
-            android:text="Edit"
+            android:padding="5dp"
+            android:text="  Edit  "
             android:textAlignment="textEnd"
             android:textColor="#FC6600"
             android:textSize="16sp" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

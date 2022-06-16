@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/selector_cate_item"
+        android:background="@drawable/selector_list_item"
         android:clickable="true"
         android:fontFamily="@font/roboto_regular"
         android:padding="10dp"

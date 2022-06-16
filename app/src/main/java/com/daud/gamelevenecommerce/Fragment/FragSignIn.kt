@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.FragmentTransaction.TRANSIT_FRAGMENT_OPEN
@@ -17,7 +18,6 @@ import com.daud.gamelevenecommerce.Util.SharedPref
 import com.daud.gamelevenecommerce.Util.Util
 
 class FragSignIn : Fragment() {
-    private lateinit var sInBack: ImageButton
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +27,7 @@ class FragSignIn : Fragment() {
 
         initial(view)
 
+        val sInBack = view.findViewById<ImageButton>(R.id.sInBack)
         sInBack.setOnClickListener(View.OnClickListener { view1: View? ->
             context?.let { Util.hideSoftKeyBoard(it,view) }
             backClickHandler()
@@ -43,7 +44,17 @@ class FragSignIn : Fragment() {
             signInBtnClickHandler(view)
         })
 
+        // On Screen Click hide Keyboard
+        view.setOnClickListener(View.OnClickListener { view1: View? ->
+            onScreenClick(view)
+        })
+
         return view
+    }
+
+    // On Screen Click hide Keyboard
+    private fun onScreenClick(view: View) {
+        context?.let { Util.hideSoftKeyBoard(it,view) }
     }
 
     private fun signInBtnClickHandler(view: View) {
@@ -73,6 +84,8 @@ class FragSignIn : Fragment() {
             //sharedPref.write("SIGNIN","OK")
             parentFragmentManager.beginTransaction().setTransition(TRANSIT_FRAGMENT_OPEN)
                 .replace(R.id.mainFrame, FragAccount()).commit()
+        } else {
+            Toast.makeText(context,"Invalid Email or Password",Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -93,6 +106,5 @@ class FragSignIn : Fragment() {
         MainActivity.btmCard.visibility = View.GONE
         MainActivity.fab.visibility = View.GONE
         ////////////////////////////////////////
-        sInBack = view.findViewById(R.id.sInBack)
     }
 }

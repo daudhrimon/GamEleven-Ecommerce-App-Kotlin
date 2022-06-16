@@ -31,6 +31,8 @@ class FragAccount : Fragment() {
 
         getData()
 
+        setUserData(view)
+
         val backBtn: ImageButton = view.findViewById(R.id.accountBack)
         backBtn.setOnClickListener(View.OnClickListener { view1: View? ->
             backBtnClickHandler()
@@ -60,6 +62,15 @@ class FragAccount : Fragment() {
         return view
     }
 
+    private fun setUserData(view: View) {
+        val userName = view.findViewById<TextView>(R.id.userName)
+        userName.text = userData.firstName + " " + userData.lastName
+
+        val userPhone = view.findViewById<TextView>(R.id.userPhone)
+        userPhone.text = userData.phone
+    }
+
+    // getting all user data
     private fun getData() {
         val dbHelper = context?.let { DbHelper(it) }
         val sharedPref = SharedPref()
