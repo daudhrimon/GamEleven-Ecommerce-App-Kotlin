@@ -97,7 +97,7 @@ class FragSignUp : Fragment() {
         }
 
         if (agreeBox.isChecked == false){
-            agreeBox.setBackgroundColor(Color.parseColor("#D81D4C"))
+            agreeBox.setBackgroundResource(R.drawable.selector_mycart)
             return
         }
 

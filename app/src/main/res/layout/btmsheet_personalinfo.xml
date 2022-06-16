@@ -44,6 +44,7 @@
                     android:textSize="15sp" />
 
                 <EditText
+                    android:id="@+id/editFName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/edit_text_round_bg_outline"
@@ -74,6 +75,7 @@
                     android:textSize="15sp" />
 
                 <EditText
+                    android:id="@+id/editLName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/edit_text_round_bg_outline"
@@ -106,6 +108,7 @@
                 android:textSize="15sp" />
 
             <EditText
+                android:id="@+id/editContact"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edit_text_round_bg_outline"
@@ -135,6 +138,7 @@
                 android:textSize="15sp" />
 
             <EditText
+                android:id="@+id/editBirthDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edit_text_round_bg_outline"

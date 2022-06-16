@@ -96,6 +96,7 @@ class FragProfile : Fragment() {
     private fun personalEdClickHandler() {
         val btmSheet: BottomSheetDialog = context?.let { BottomSheetDialog(it, R.style.AppBottomSheetDialogTheme) }!!
         btmSheet.setContentView(R.layout.btmsheet_personalinfo)
+        
         btmSheet.show()
     }
 
