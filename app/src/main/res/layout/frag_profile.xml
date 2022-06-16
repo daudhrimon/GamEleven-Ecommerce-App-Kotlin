@@ -55,7 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginBottom="10dp"
-            android:layout_weight="1.1"
+            android:layout_weight="1"
             android:outlineSpotShadowColor="@color/trans">
 
             <LinearLayout
@@ -68,8 +68,8 @@
                     android:layout_width="115dp"
                     android:layout_height="0dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="24dp"
-                    android:layout_weight="4">
+                    android:layout_marginTop="22dp"
+                    android:layout_weight="4.5">
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/piProImage"
@@ -97,7 +97,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="2"
+                    android:layout_marginTop="4dp"
+                    android:layout_weight="1.5"
                     android:gravity="center">
 
                     <TextView
@@ -119,6 +120,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1.9"
+            android:layout_marginTop="3dp"
             android:orientation="vertical">
 
             <RelativeLayout
@@ -165,7 +167,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="2dp"
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:padding="7dp">
@@ -339,6 +341,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
+                    android:layout_marginTop="2dp"
                     android:fontFamily="@font/roboto_bold"
                     android:text="Email"
                     android:textColor="#404040"
