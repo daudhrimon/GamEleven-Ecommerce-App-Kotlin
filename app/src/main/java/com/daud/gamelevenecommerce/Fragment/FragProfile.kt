@@ -54,12 +54,6 @@ class FragProfile : Fragment() {
         return view
     }
 
-    override fun onResume() {
-        super.onResume()
-        getData()
-        setUserInfo(requireView())
-    }
-
     // set user info
     private fun setUserInfo(view: View?) {
         val pNameTv = view?.findViewById<TextView>(R.id.pNameTv)
@@ -135,7 +129,10 @@ class FragProfile : Fragment() {
             dbHelper.updateEmail(sharedPref.ID(),editEmail.text.toString().trim())
 
             btmSheet.dismiss()
-            onResume()
+
+            getData()
+
+            setUserInfo(requireView())
         })
     }
 
@@ -225,7 +222,10 @@ class FragProfile : Fragment() {
                 editContact?.text.toString(), editBirthDate?.text.toString(),gender)
 
             btmSheet.dismiss()
-            onResume()
+
+            getData()
+
+            setUserInfo(requireView())
         })
     }
 
