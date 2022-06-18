@@ -69,7 +69,7 @@ class FragSignUp : Fragment() {
         val fNameEt = view?.findViewById<EditText>(R.id.fNameEt)
         val lNameEt = view?.findViewById<EditText>(R.id.lNameEt)
         val emailEt = view?.findViewById<EditText>(R.id.emailEt)
-        val passwordEt = view?.findViewById<TextInputEditText>(R.id.passwordEt)
+        val passwordEt = view?.findViewById<EditText>(R.id.passwordEt)
         val phoneEt = view?.findViewById<EditText>(R.id.phoneEt)
 
 

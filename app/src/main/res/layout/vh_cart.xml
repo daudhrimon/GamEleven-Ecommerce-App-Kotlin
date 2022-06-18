@@ -17,7 +17,7 @@
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
         android:layout_marginHorizontal="22dp"
-        android:padding="7dp"
+        android:padding="9dp"
         android:scaleType="fitXY"
         android:src="@drawable/one" />
 

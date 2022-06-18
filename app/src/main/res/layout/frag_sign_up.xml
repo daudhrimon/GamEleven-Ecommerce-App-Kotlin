@@ -49,8 +49,9 @@
         android:layout_width="187dp"
         android:layout_height="0dp"
         android:layout_above="@+id/etLay"
-        android:layout_below="@+id/toolBar"
+        android:layout_below="@id/toolBar"
         android:layout_centerHorizontal="true"
+        android:layout_marginVertical="5dp"
         android:scaleType="fitCenter"
         android:src="@drawable/sp_img" />
 
@@ -62,105 +63,136 @@
         android:orientation="vertical">
 
 
-        <EditText
-            android:id="@+id/fNameEt"
-            android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginVertical="5dp"
-            android:background="#F0F0F0"
-            android:fontFamily="@font/roboto_regular"
-            android:hint="First Name"
-            android:inputType="textCapWords"
-            android:paddingHorizontal="20dp"
-            android:textColor="#9A9A9A"
-            android:textSize="15sp" />
-
-        <EditText
-            android:id="@+id/lNameEt"
-            android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginVertical="5dp"
-            android:background="#F0F0F0"
-            android:fontFamily="@font/roboto_regular"
-            android:hint="Last Name"
-            android:inputType="textCapWords"
-            android:paddingHorizontal="20dp"
-            android:textColor="#9A9A9A"
-            android:textSize="15sp" />
-
-        <EditText
-            android:id="@+id/emailEt"
-            android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginVertical="5dp"
-            android:background="#F0F0F0"
-            android:fontFamily="@font/roboto_regular"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:paddingHorizontal="20dp"
-            android:textColor="#9A9A9A"
-            android:textSize="15sp" />
-
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginVertical="8dp"
-            android:background="#F0F0F0"
-            android:gravity="center_vertical"
-            android:hint="Password"
-            android:textColorHint="#9A9A9A"
-            app:boxStrokeWidth="0dp"
-            app:boxStrokeWidthFocused="0dp"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleTint="#9A9A9A">
+            android:layout_marginHorizontal="26dp"
+            android:layout_marginBottom="5dp"
+            android:hint="First Name">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/passwordEt"
+            <EditText
+                android:id="@+id/fNameEt"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginHorizontal="4dp"
-                android:background="@color/trans"
+                android:background="@color/cateItems_bg"
                 android:fontFamily="@font/roboto_regular"
-                android:inputType="textPassword"
-                android:paddingVertical="0dp"
+                android:inputType="textCapWords"
+                android:paddingHorizontal="20dp"
                 android:textColor="#9A9A9A"
                 android:textSize="15sp"
                 tools:ignore="SpeakableTextPresentCheck" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/phoneEt"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            android:layout_marginHorizontal="30dp"
+            android:layout_marginHorizontal="26dp"
             android:layout_marginVertical="5dp"
-            android:background="#F0F0F0"
-            android:fontFamily="@font/roboto_regular"
+            android:hint="Last Name"
+            android:textColorHint="#9A9A9A">
+
+            <EditText
+                android:id="@+id/lNameEt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cateItems_bg"
+                android:fontFamily="@font/roboto_regular"
+                android:inputType="textCapWords"
+                android:paddingHorizontal="20dp"
+                android:textColor="#9A9A9A"
+                android:textSize="15sp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginHorizontal="26dp"
+            android:layout_marginVertical="5dp"
+            android:hint="Email"
+            android:textColorHint="#9A9A9A">
+
+            <EditText
+                android:id="@+id/emailEt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cateItems_bg"
+                android:fontFamily="@font/roboto_regular"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="20dp"
+                android:textColor="#9A9A9A"
+                android:textSize="15sp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginHorizontal="26dp"
+            android:layout_marginVertical="5dp"
+            android:hint="Password"
+            android:textColorHint="#9A9A9A"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="#9A9A9A">
+
+            <EditText
+                android:id="@+id/passwordEt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cateItems_bg"
+                android:fontFamily="@font/roboto_regular"
+                android:inputType="textPassword"
+                android:textColor="#9A9A9A"
+                android:textSize="15sp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginHorizontal="26dp"
+            android:layout_marginVertical="5dp"
             android:hint="Phone Number"
-            android:inputType="phone"
-            android:paddingHorizontal="20dp"
-            android:textColor="#9A9A9A"
-            android:textSize="15sp" />
+            android:textColorHint="#9A9A9A">
+
+            <EditText
+                android:id="@+id/phoneEt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cateItems_bg"
+                android:fontFamily="@font/roboto_regular"
+                android:inputType="phone"
+                android:paddingHorizontal="20dp"
+                android:textColor="#9A9A9A"
+                android:textSize="15sp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <RelativeLayout
             android:id="@+id/termConLay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="26dp"
+            android:layout_marginVertical="7dp"
             android:paddingTop="3dp">
 
             <CheckBox
                 android:id="@+id/agreeBox"
                 android:layout_width="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true" />
 
             <TextView
                 android:id="@+id/firstTv"
@@ -230,9 +262,9 @@
         android:id="@+id/createAcBtn"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="?actionBarSize"
         android:layout_below="@+id/etLay"
-        android:layout_marginHorizontal="28dp"
+        android:layout_marginHorizontal="23dp"
         android:layout_marginBottom="5dp"
         android:backgroundTint="@color/selector_clr"
         android:fontFamily="@font/roboto_med"
@@ -249,9 +281,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginVertical="10dp"
-        android:gravity="bottom"
-        android:orientation="horizontal"
-        android:paddingBottom="20dp">
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
