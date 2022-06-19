@@ -184,7 +184,6 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
     fun updateAddress(id:String?, userAddress: AddressModel){
         val db = this.writableDatabase
         val cv = ContentValues()
-        cv.put(USER_ID,id)
         cv.put(USER_ADDRESS, userAddress.address)
         cv.put(USER_AREA, userAddress.area)
         cv.put(USER_CITY, userAddress.city)

@@ -61,7 +61,7 @@ class FragAccount : Fragment() {
 
         val addressLay: RelativeLayout = view.findViewById(R.id.addressLay)
         addressLay.setOnClickListener(View.OnClickListener { view1: View? ->
-            addressNullBtmSheet()
+            addressBtmSheet()
         })
 
         val cngLanLay: RelativeLayout = view.findViewById(R.id.cngLanLay)
@@ -131,18 +131,19 @@ class FragAccount : Fragment() {
         cancelBtn.setOnClickListener { view1: View? -> dialog.dismiss() }
     }
 
-    private fun addressNullBtmSheet() {
+    private fun addressBtmSheet() {
         val btmSheet = context?.let { BottomSheetDialog(it, R.style.AppBottomSheetDialogTheme) }
         btmSheet?.setContentView(R.layout.btmsheet_no_address)
         val backBtn = btmSheet?.findViewById<ImageButton>(R.id.addressBack)
         val plusBtn = btmSheet?.findViewById<ImageButton>(R.id.addressPlus)
-        val noAddressLay = btmSheet?.findViewById<LinearLayout>(R.id.noAddressLay)
+        val noAddressTv = btmSheet?.findViewById<TextView>(R.id.noAddressTv)
         val addressLay = btmSheet?.findViewById<LinearLayout>(R.id.addressLay)
         btmSheet?.show()
 
+        // address show to address BottomSheet
         if (address.address.isNotEmpty()){
             plusBtn?.setImageResource(R.drawable.pencil)
-            noAddressLay?.visibility = View.GONE
+            noAddressTv?.visibility = View.GONE
             addressLay?.visibility = View.VISIBLE
 
             val addressTv = btmSheet?.findViewById<TextView>(R.id.addressTv)?.setText(address.address)
@@ -153,35 +154,21 @@ class FragAccount : Fragment() {
             val regionTv = btmSheet?.findViewById<TextView>(R.id.regionTv)?.setText(address.region)
         }
 
-
-
+        // back button Handler
         backBtn!!.setOnClickListener { view: View? -> btmSheet.dismiss() }
 
+        // PLUS or EDIT button Handler
         plusBtn!!.setOnClickListener { view: View? ->
             addressAddingBtmSheet()
             btmSheet.dismiss()
         }
     }
 
+    // address add or Edit BottomSheet
     private fun addressAddingBtmSheet() {
         val btmDialog = context?.let { BottomSheetDialog(it, R.style.AppBottomSheetDialogTheme) }
         val sheetView: View = LayoutInflater.from(context).inflate(R.layout.btmsheet_address_half,null, false)
 
-        val hSaveBtn = sheetView.findViewById<AppCompatButton>(R.id.hSaveBtn)
-
-        btmDialog?.setContentView(sheetView)
-        btmDialog?.show()
-
-        sheetView.setOnClickListener(View.OnClickListener { view1: View? ->
-            Util.hideSoftKeyBoard(requireContext(),sheetView)
-        })
-
-        hSaveBtn.setOnClickListener(View.OnClickListener { view1: View? ->
-            hSaveBtnClickHandler(sheetView, btmDialog)
-        })
-    }
-
-    private fun hSaveBtnClickHandler(sheetView: View, btmDialog: BottomSheetDialog?) {
         val hAddressEt = sheetView.findViewById<EditText>(R.id.hAddressEt)
         val hAreaEt = sheetView.findViewById<EditText>(R.id.hAreaEt)
         val hCityEt = sheetView.findViewById<EditText>(R.id.hCityEt)
@@ -190,6 +177,57 @@ class FragAccount : Fragment() {
         val hZipEt = sheetView.findViewById<EditText>(R.id.hZipEt)
         val hCompanyEt = sheetView.findViewById<EditText>(R.id.hCompanyEt)
 
+        val hSaveBtn = sheetView.findViewById<AppCompatButton>(R.id.hSaveBtn)
+        btmDialog?.setContentView(sheetView)
+        btmDialog?.show()
+
+        // this one for hide keyboard when touch on bottomSheet
+        sheetView.setOnClickListener(View.OnClickListener { view1: View? ->
+            Util.hideSoftKeyBoard(requireContext(),sheetView)
+        })
+
+        // if ADDRESS is avaiable then here will show
+        if (address.address.isNotEmpty()){
+            hAddressEt.setText(address.address)
+        }
+
+        if (address.area.isNotEmpty()){
+            hAreaEt.setText(address.address)
+        }
+
+        if (address.city.isNotEmpty()){
+            hCityEt.setText(address.area)
+        }
+
+        if (address.region.isNotEmpty()){
+            hRegionEt.setText(address.region)
+        }
+
+        if (address.country.isNotEmpty()){
+            hCountryEt.setText(address.country)
+        }
+
+        if (address.zip.isNotEmpty()){
+            hZipEt.setText(address.zip)
+        }
+
+        if (address.company.isNotEmpty()){
+            hCompanyEt.setText(address.company)
+        }
+
+        //ADDRESS Save Button Click handler
+        hSaveBtn.setOnClickListener(View.OnClickListener { view1: View? ->
+
+            saveBtnClickHander(btmDialog, hAddressEt, hAreaEt, hCityEt, hRegionEt, hCountryEt, hZipEt, hCompanyEt)
+
+        })
+    }
+
+    //ADDRESS Save Button Click handler
+    private fun saveBtnClickHander(btmDialog: BottomSheetDialog?, hAddressEt: EditText, hAreaEt: EditText,
+                                   hCityEt: EditText, hRegionEt: EditText, hCountryEt: EditText, hZipEt: EditText, hCompanyEt: EditText
+    ) {
+        // checking not empty or not
         if (hAddressEt.text.toString().isEmpty()){
             hAddressEt.setError("Empty")
             hAddressEt.requestFocus()
@@ -229,10 +267,37 @@ class FragAccount : Fragment() {
         val dbHelper = DbHelper(requireContext())
         val sharedPref = SharedPref()
         sharedPref.init(requireContext())
-        dbHelper.insertAddress(sharedPref.ID(), AddressModel(hAddressEt.text.toString(), hAreaEt.text.toString(), hCityEt.text.toString().trim(),
-            hRegionEt.text.toString(), hCountryEt.text.toString(),hZipEt.text.toString().trim(),hCompanyEt.text.toString()))
 
-        btmDialog?.dismiss()
+        // if address not avaiable in database then data will INSERT to database
+        if (address.address.isEmpty()){
+            dbHelper.insertAddress(sharedPref.ID(), AddressModel(hAddressEt.text.toString(), hAreaEt.text.toString(), hCityEt.text.toString(),
+                hRegionEt.text.toString(), hCountryEt.text.toString(),hZipEt.text.toString(),hCompanyEt.text.toString()))
+
+            btmDialog?.dismiss()
+
+            // if address avaiable in database then data will UPDATE to database
+        } else {
+
+            //checking user changes anything or not....cz i don't want to update databse with same data as old
+            if (hAddressEt.text.toString() == address.address
+                && hAreaEt.text.toString() == address.area
+                && hCityEt.text.toString() == address.city
+                &&  hRegionEt.text.toString() == address.region
+                && hCountryEt.text.toString() == address.country
+                && hZipEt.text.toString() == address.zip
+                && hCompanyEt.text.toString() == address.company){
+
+                Toast.makeText(requireContext(),"You changed nothing yet",Toast.LENGTH_SHORT).show()
+
+                // if data is not matches with old then it will be push to Database for UPDATE address
+            } else {
+
+                dbHelper.updateAddress(sharedPref.ID(), AddressModel(hAddressEt.text.toString(), hAreaEt.text.toString(), hCityEt.text.toString(),
+                    hRegionEt.text.toString(), hCountryEt.text.toString(),hZipEt.text.toString(),hCompanyEt.text.toString()))
+
+                btmDialog?.dismiss()
+            }
+        }
     }
 
     private fun profileLayClickHandler() {

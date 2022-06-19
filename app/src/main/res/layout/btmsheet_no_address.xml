@@ -64,7 +64,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/noAddressLay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -77,6 +76,7 @@
             android:src="@drawable/pro_address" />
 
         <TextView
+            android:id="@+id/noAddressTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_regular"
@@ -86,141 +86,141 @@
             android:textColor="@color/frag_name_clr"
             android:textSize="14sp" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/addressLay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingVertical="55dp"
-        android:visibility="gone">
-
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:id="@+id/addressLay"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginVertical="2dp">
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingVertical="22dp"
+            android:visibility="gone">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Address : "
-                android:fontFamily="@font/roboto_bold"
-                android:textColor="@color/frag_name_clr"
-                android:textSize="16sp" />
+                android:orientation="horizontal"
+                android:layout_marginVertical="2dp">
 
-            <TextView
-                android:id="@+id/addressTv"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address : "
+                    android:fontFamily="@font/roboto_bold"
+                    android:textColor="@color/frag_name_clr"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/addressTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_med"
+                    android:textColor="@color/selector_clr"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_med"
-                android:textColor="@color/selector_clr"
-                android:textSize="16sp" />
+                android:orientation="horizontal"
+                android:layout_marginVertical="2dp">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Area : "
+                    android:textColor="@color/frag_name_clr"
+                    android:textSize="16sp" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginVertical="2dp">
+                <TextView
+                    android:id="@+id/areaTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_med"
+                    android:textColor="@color/selector_clr"
+                    android:textSize="16sp" />
 
-            <TextView
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text=" , Zip : "
+                    android:textColor="@color/frag_name_clr"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/zipTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_med"
+                    android:textColor="@color/selector_clr"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_bold"
-                android:text="Area : "
-                android:textColor="@color/frag_name_clr"
-                android:textSize="16sp" />
+                android:orientation="horizontal"
+                android:layout_marginVertical="2dp">
 
-            <TextView
-                android:id="@+id/areaTv"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="City : "
+                    android:textColor="@color/frag_name_clr"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/cityTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_med"
+                    android:textColor="@color/selector_clr"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text=" , Country : "
+                    android:textColor="@color/frag_name_clr"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/countryTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/selector_clr"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_med"
-                android:textColor="@color/selector_clr"
-                android:textSize="16sp" />
+                android:orientation="horizontal"
+                android:layout_marginVertical="2dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_bold"
-                android:text=" , Zip : "
-                android:textColor="@color/frag_name_clr"
-                android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Region : "
+                    android:textColor="@color/frag_name_clr"
+                    android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/zipTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_med"
-                android:textColor="@color/selector_clr"
-                android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/regionTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_med"
+                    android:textColor="@color/selector_clr"
+                    android:textSize="16sp" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginVertical="2dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_bold"
-                android:text="City : "
-                android:textColor="@color/frag_name_clr"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/cityTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_med"
-                android:textColor="@color/selector_clr"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_bold"
-                android:text=" , Country : "
-                android:textColor="@color/frag_name_clr"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/countryTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/selector_clr"
-                android:textSize="16sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginVertical="2dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_bold"
-                android:text="Region : "
-                android:textColor="@color/frag_name_clr"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/regionTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_med"
-                android:textColor="@color/selector_clr"
-                android:textSize="16sp" />
+            </LinearLayout>
 
         </LinearLayout>
 
