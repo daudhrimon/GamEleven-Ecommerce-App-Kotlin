@@ -69,7 +69,8 @@
             android:layout_height="?actionBarSize"
             android:layout_marginHorizontal="26dp"
             android:layout_marginBottom="5dp"
-            android:hint="First Name">
+            android:hint="First Name"
+            android:textColorHint="#9A9A9A">
 
             <EditText
                 android:id="@+id/fNameEt"
