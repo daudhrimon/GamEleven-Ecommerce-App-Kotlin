@@ -22,13 +22,20 @@
         <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/frag_profile.xml" value="0.25" />
         <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/frag_sign_in.xml" value="0.25" />
         <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/frag_sign_up.xml" value="0.2638888888888889" />
+        <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/vh_ads.xml" value="0.371875" />
+        <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/vh_brands.xml" value="0.371875" />
+        <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/vh_cart.xml" value="0.371875" />
         <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/vh_cate_item.xml" value="0.371875" />
         <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/vh_cate_list.xml" value="0.371875" />
+        <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/vh_daily_features.xml" value="0.371875" />
+        <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/vh_flash_deals.xml" value="0.371875" />
+        <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/vh_hot_categories.xml" value="0.371875" />
         <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/vh_order.xml" value="0.371875" />
         <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/vh_order_cancel.xml" value="0.371875" />
         <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/vh_order_delivered.xml" value="0.371875" />
         <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/vh_order_pending.xml" value="0.371875" />
         <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/vh_text_list.xml" value="0.371875" />
+        <entry key="..\:/Users/Admin/StudioProjects/GamEleven-Ecommerce-App-Kotlin/app/src/main/res/layout/vh_wishlist.xml" value="0.371875" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/drawable/category_item_check.xml" value="0.1095" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/drawable/selector_cate_item.xml" value="0.1095" />
         <entry key="..\:/Users/Daud Hoshen Rimon/AndroidStudioProjects/GamElevenEcommerce/app/src/main/res/drawable/selector_deals_item.xml" value="0.1095" />

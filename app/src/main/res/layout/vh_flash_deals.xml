@@ -9,7 +9,7 @@
         android:layout_height="77dp"
         android:layout_alignParentTop="true"
         android:layout_marginHorizontal="3.5dp"
-        app:cardCornerRadius="5dp">
+        app:cardCornerRadius="7dp">
 
         <ImageView
             android:id="@+id/fdImage"
