@@ -1,6 +1,8 @@
 package com.daud.gamelevenecommerce.Fragment
 
+import android.app.Activity
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -8,6 +10,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import com.daud.gamelevenecommerce.Activity.MainActivity
@@ -17,11 +22,13 @@ import com.daud.gamelevenecommerce.R
 import com.daud.gamelevenecommerce.Util.SharedPref
 import com.daud.gamelevenecommerce.Util.Util
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import de.hdodenhof.circleimageview.CircleImageView
 import java.util.*
 
 class FragProfile : Fragment() {
     private lateinit var userData: UserModel
+    //private lateinit var startForProfileImageResult: ActivityResultLauncher<Intent>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,23 +44,54 @@ class FragProfile : Fragment() {
         // set user info
         setUserInfo(view)
 
-        val backBtn: ImageButton = view.findViewById(R.id.profileBack)
+        val pImagePen = view.findViewById<FloatingActionButton>(R.id.pImagePen)
+        pImagePen.setOnClickListener(View.OnClickListener { view1: View? ->
+            //pImagePenClickHandler()
+        })
+
+        val backBtn = view.findViewById<ImageButton>(R.id.profileBack)
         backBtn.setOnClickListener(View.OnClickListener { view1: View? ->
             backBtnClickHandler()
         })
 
-        val personalEd: TextView = view.findViewById(R.id.personalEd)
+        val personalEd = view.findViewById<TextView>(R.id.personalEd)
         personalEd.setOnClickListener(View.OnClickListener { view1: View? ->
             personalEdClickHandler()
         })
 
-        val emailEd: TextView = view.findViewById(R.id.emailEd)
+        val emailEd = view.findViewById<TextView>(R.id.emailEd)
         emailEd.setOnClickListener(View.OnClickListener { view1: View? ->
             emailEdClickHandler()
         })
 
+        /*val startForProfileImageResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+                val resultCode = result.resultCode
+                val data = result.data
+
+                if (resultCode == Activity.RESULT_OK) {
+                    //Image Uri will not be null for RESULT_OK
+                    val fileUri = data?.data!!
+
+                    //mProfileUri = fileUri
+                    //imgProfile.setImageURI(fileUri)
+                } else if (resultCode == ImagePicker.RESULT_ERROR) {
+                    Toast.makeText(requireContext(), ImagePicker.getError(data), Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(requireContext(), "Task Cancelled", Toast.LENGTH_SHORT).show()
+                }
+            }*/
+
         return view
     }
+
+    /*private fun pImagePenClickHandler() {
+        ImagePicker.with(this)
+            .compress(1024)         //Final image size will be less than 1 MB(Optional)
+            .maxResultSize(1080, 1080)  //Final image resolution will be less than 1080 x 1080(Optional)
+            .createIntent { intent ->
+                startForProfileImageResult.launch(intent)
+            }
+    }*/
 
     // set user info
     private fun setUserInfo(view: View?) {
