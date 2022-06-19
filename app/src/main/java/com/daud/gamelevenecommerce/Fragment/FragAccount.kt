@@ -42,6 +42,7 @@ class FragAccount : Fragment() {
         // set data to user layout
         setUserData(view)
 
+        // get address from database
         getAddress()
 
         val backBtn: ImageButton = view.findViewById(R.id.accountBack)
@@ -192,11 +193,11 @@ class FragAccount : Fragment() {
         }
 
         if (address.area.isNotEmpty()){
-            hAreaEt.setText(address.address)
+            hAreaEt.setText(address.area)
         }
 
         if (address.city.isNotEmpty()){
-            hCityEt.setText(address.area)
+            hCityEt.setText(address.city)
         }
 
         if (address.region.isNotEmpty()){
@@ -219,7 +220,6 @@ class FragAccount : Fragment() {
         hSaveBtn.setOnClickListener(View.OnClickListener { view1: View? ->
 
             saveBtnClickHander(btmDialog, hAddressEt, hAreaEt, hCityEt, hRegionEt, hCountryEt, hZipEt, hCompanyEt)
-
         })
     }
 
@@ -258,11 +258,6 @@ class FragAccount : Fragment() {
             hZipEt.requestFocus()
             return
         }
-        if (hCompanyEt.text.toString().isEmpty()){
-            hCompanyEt.setError("Empty")
-            hCompanyEt.requestFocus()
-            return
-        }
 
         val dbHelper = DbHelper(requireContext())
         val sharedPref = SharedPref()
@@ -275,6 +270,7 @@ class FragAccount : Fragment() {
 
             btmDialog?.dismiss()
 
+            getAddress()
             // if address avaiable in database then data will UPDATE to database
         } else {
 
@@ -296,6 +292,8 @@ class FragAccount : Fragment() {
                     hRegionEt.text.toString(), hCountryEt.text.toString(),hZipEt.text.toString(),hCompanyEt.text.toString()))
 
                 btmDialog?.dismiss()
+
+                getAddress()
             }
         }
     }

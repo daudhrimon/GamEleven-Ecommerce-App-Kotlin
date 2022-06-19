@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:paddingVertical="22dp"
+            android:paddingTop="22dp"
             android:visibility="gone">
 
             <LinearLayout
@@ -115,7 +115,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_med"
                     android:textColor="@color/selector_clr"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
 
             </LinearLayout>
 
@@ -139,13 +139,21 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_med"
                     android:textColor="@color/selector_clr"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginVertical="4dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_bold"
-                    android:text=" , Zip : "
+                    android:text="Zip : "
                     android:textColor="@color/frag_name_clr"
                     android:textSize="16sp" />
 
@@ -155,7 +163,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_med"
                     android:textColor="@color/selector_clr"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
 
             </LinearLayout>
 
@@ -179,13 +187,21 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_med"
                     android:textColor="@color/selector_clr"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginVertical="4dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_bold"
-                    android:text=" , Country : "
+                    android:text="Country : "
                     android:textColor="@color/frag_name_clr"
                     android:textSize="16sp" />
 
@@ -193,8 +209,9 @@
                     android:id="@+id/countryTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_med"
                     android:textColor="@color/selector_clr"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
 
             </LinearLayout>
 
@@ -218,7 +235,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_med"
                     android:textColor="@color/selector_clr"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
 
             </LinearLayout>
 
