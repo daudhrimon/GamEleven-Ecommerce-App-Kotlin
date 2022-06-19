@@ -15,7 +15,8 @@
         android:layout_alignParentTop="true"
         android:clickable="true"
         android:focusable="true"
-        android:focusableInTouchMode="true"/>
+        android:focusableInTouchMode="true"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -28,8 +29,8 @@
         android:backgroundTint="@color/selector_clr"
         android:src="@drawable/geleven_icon"
         app:borderWidth="0dp"
-        app:fabCustomSize="64dp"
-        app:maxImageSize="46dp"
+        app:fabCustomSize="@dimen/_51sdp"
+        app:maxImageSize="@dimen/_35sdp"
         app:tint="@color/white"
         tools:ignore="SpeakableTextPresentCheck" />
 

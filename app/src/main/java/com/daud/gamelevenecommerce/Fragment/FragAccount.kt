@@ -1,4 +1,4 @@
-package com.daud.gamelevenecommerce.Fragment
+package com.daud.gamelevenecomme.Fragment
 
 import android.app.AlertDialog
 import android.app.Dialog
@@ -6,21 +6,27 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.RelativeLayout
-import android.widget.TextView
+import android.widget.*
+import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.daud.gamelevenecommerce.Activity.MainActivity
+import com.daud.gamelevenecommerce.Fragment.FragHome
+import com.daud.gamelevenecommerce.Fragment.FragOrderList
+import com.daud.gamelevenecommerce.Fragment.FragProfile
+import com.daud.gamelevenecommerce.Fragment.FragSignIn
 import com.daud.gamelevenecommerce.Helper.DbHelper
+import com.daud.gamelevenecommerce.Model.AddressModel
 import com.daud.gamelevenecommerce.Model.UserModel
 import com.daud.gamelevenecommerce.R
 import com.daud.gamelevenecommerce.Util.SharedPref
+import com.daud.gamelevenecommerce.Util.Util
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import de.hdodenhof.circleimageview.CircleImageView
 
 class FragAccount : Fragment() {
     private lateinit var userData: UserModel
+    private lateinit var address: AddressModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +41,8 @@ class FragAccount : Fragment() {
 
         // set data to user layout
         setUserData(view)
+
+        getAddress()
 
         val backBtn: ImageButton = view.findViewById(R.id.accountBack)
         backBtn.setOnClickListener(View.OnClickListener { view1: View? ->
@@ -67,6 +75,14 @@ class FragAccount : Fragment() {
         })
 
         return view
+    }
+
+    // retrieve address Data to AddressModel from database
+    private fun getAddress() {
+        val dbHelper = DbHelper(requireContext())
+        val sharedPref = SharedPref()
+        sharedPref.init(requireContext())
+        address = dbHelper.getAddress(sharedPref.ID())!!
     }
 
     // set data to user layout
@@ -120,8 +136,27 @@ class FragAccount : Fragment() {
         btmSheet?.setContentView(R.layout.btmsheet_no_address)
         val backBtn = btmSheet?.findViewById<ImageButton>(R.id.addressBack)
         val plusBtn = btmSheet?.findViewById<ImageButton>(R.id.addressPlus)
+        val noAddressLay = btmSheet?.findViewById<LinearLayout>(R.id.noAddressLay)
+        val addressLay = btmSheet?.findViewById<LinearLayout>(R.id.addressLay)
         btmSheet?.show()
+
+        if (address.address.isNotEmpty()){
+            plusBtn?.setImageResource(R.drawable.pencil)
+            noAddressLay?.visibility = View.GONE
+            addressLay?.visibility = View.VISIBLE
+
+            val addressTv = btmSheet?.findViewById<TextView>(R.id.addressTv)?.setText(address.address)
+            val areaTv = btmSheet?.findViewById<TextView>(R.id.areaTv)?.setText(address.area)
+            val zipTv = btmSheet?.findViewById<TextView>(R.id.zipTv)?.setText(address.zip)
+            val cityTv = btmSheet?.findViewById<TextView>(R.id.cityTv)?.setText(address.city)
+            val countryTv = btmSheet?.findViewById<TextView>(R.id.countryTv)?.setText(address.country)
+            val regionTv = btmSheet?.findViewById<TextView>(R.id.regionTv)?.setText(address.region)
+        }
+
+
+
         backBtn!!.setOnClickListener { view: View? -> btmSheet.dismiss() }
+
         plusBtn!!.setOnClickListener { view: View? ->
             addressAddingBtmSheet()
             btmSheet.dismiss()
@@ -130,8 +165,74 @@ class FragAccount : Fragment() {
 
     private fun addressAddingBtmSheet() {
         val btmDialog = context?.let { BottomSheetDialog(it, R.style.AppBottomSheetDialogTheme) }
-        btmDialog?.setContentView(R.layout.btmsheet_address_full)
+        val sheetView: View = LayoutInflater.from(context).inflate(R.layout.btmsheet_address_half,null, false)
+
+        val hSaveBtn = sheetView.findViewById<AppCompatButton>(R.id.hSaveBtn)
+
+        btmDialog?.setContentView(sheetView)
         btmDialog?.show()
+
+        sheetView.setOnClickListener(View.OnClickListener { view1: View? ->
+            Util.hideSoftKeyBoard(requireContext(),sheetView)
+        })
+
+        hSaveBtn.setOnClickListener(View.OnClickListener { view1: View? ->
+            hSaveBtnClickHandler(sheetView, btmDialog)
+        })
+    }
+
+    private fun hSaveBtnClickHandler(sheetView: View, btmDialog: BottomSheetDialog?) {
+        val hAddressEt = sheetView.findViewById<EditText>(R.id.hAddressEt)
+        val hAreaEt = sheetView.findViewById<EditText>(R.id.hAreaEt)
+        val hCityEt = sheetView.findViewById<EditText>(R.id.hCityEt)
+        val hRegionEt = sheetView.findViewById<EditText>(R.id.hRegionEt)
+        val hCountryEt = sheetView.findViewById<EditText>(R.id.hCountryEt)
+        val hZipEt = sheetView.findViewById<EditText>(R.id.hZipEt)
+        val hCompanyEt = sheetView.findViewById<EditText>(R.id.hCompanyEt)
+
+        if (hAddressEt.text.toString().isEmpty()){
+            hAddressEt.setError("Empty")
+            hAddressEt.requestFocus()
+            return
+        }
+        if (hAreaEt.text.toString().isEmpty()){
+            hAreaEt.setError("Empty")
+            hAreaEt.requestFocus()
+            return
+        }
+        if (hCityEt.text.toString().isEmpty()){
+            hCityEt.setError("Empty")
+            hCityEt.requestFocus()
+            return
+        }
+        if (hRegionEt.text.toString().isEmpty()){
+            hRegionEt.setError("Empty")
+            hRegionEt.requestFocus()
+            return
+        }
+        if (hCountryEt.text.toString().isEmpty()){
+            hCountryEt.setError("Empty")
+            hCountryEt.requestFocus()
+            return
+        }
+        if (hZipEt.text.toString().isEmpty()){
+            hZipEt.setError("Empty")
+            hZipEt.requestFocus()
+            return
+        }
+        if (hCompanyEt.text.toString().isEmpty()){
+            hCompanyEt.setError("Empty")
+            hCompanyEt.requestFocus()
+            return
+        }
+
+        val dbHelper = DbHelper(requireContext())
+        val sharedPref = SharedPref()
+        sharedPref.init(requireContext())
+        dbHelper.insertAddress(sharedPref.ID(), AddressModel(hAddressEt.text.toString(), hAreaEt.text.toString(), hCityEt.text.toString().trim(),
+            hRegionEt.text.toString(), hCountryEt.text.toString(),hZipEt.text.toString().trim(),hCompanyEt.text.toString()))
+
+        btmDialog?.dismiss()
     }
 
     private fun profileLayClickHandler() {

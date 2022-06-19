@@ -224,7 +224,7 @@ class FragProfile : Fragment() {
             val dbHelper = DbHelper(requireContext())
             val sharedPref = SharedPref()
             sharedPref.init(requireContext())
-            dbHelper.updatePersonalInfo(sharedPref.ID(), editFName?.text.toString(), editLName?.text.toString(),
+            dbHelper.updateUserInfo(sharedPref.ID(), editFName?.text.toString(), editLName?.text.toString(),
                 editContact?.text.toString(), editBirthDate?.text.toString(),gender)
 
             btmSheet.dismiss()

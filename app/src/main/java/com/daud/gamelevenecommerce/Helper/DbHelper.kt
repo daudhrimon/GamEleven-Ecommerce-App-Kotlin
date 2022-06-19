@@ -6,8 +6,10 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.location.Address
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
+import com.daud.gamelevenecommerce.Model.AddressModel
 import com.daud.gamelevenecommerce.Model.UserModel
 
 class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
@@ -84,8 +86,8 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
     }
 
     // update Personal Info to USER_TABLE
-    fun updatePersonalInfo (id: String?, firstName: String?, lastName: String?,
-                            phone: String?, birthDate: String?, gender: String?){
+    fun updateUserInfo (id: String?, firstName: String?, lastName: String?,
+                        phone: String?, birthDate: String?, gender: String?){
         val db: SQLiteDatabase = this.writableDatabase
         val cv = ContentValues()
         cv.put(USER_FIRST_NAME, firstName)
@@ -144,6 +146,55 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
         return null
     }
 
+    fun insertAddress(id:String?, userAddress: AddressModel){
+        val db = this.writableDatabase
+        val cv = ContentValues()
+        cv.put(USER_ID,id)
+        cv.put(USER_ADDRESS, userAddress.address)
+        cv.put(USER_AREA, userAddress.area)
+        cv.put(USER_CITY, userAddress.city)
+        cv.put(USER_REGION, userAddress.region)
+        cv.put(USER_COUNTRY, userAddress.country)
+        cv.put(USER_ZIP, userAddress.zip)
+        cv.put(USER_COMPANY, userAddress.company)
+        db.insert(ADDRESS_TABLE, null, cv)
+        Toast.makeText(context,"Save Address Successful",Toast.LENGTH_SHORT).show()
+        db.close()
+    }
 
+    @SuppressLint("Range")
+    fun getAddress(id: String?): AddressModel?{
+        val db = this.readableDatabase
+        val cursor = db.rawQuery("select * from " + ADDRESS_TABLE + " where " + USER_ID + " =?", arrayOf(id))
+
+        while (cursor.moveToFirst()){
+            val userAddress = AddressModel(cursor.getString(cursor.getColumnIndex(USER_ADDRESS)), cursor.getString(cursor.getColumnIndex(USER_AREA)),
+                cursor.getString(cursor.getColumnIndex(USER_CITY)), cursor.getString(cursor.getColumnIndex(USER_REGION)),
+                    cursor.getString(cursor.getColumnIndex(USER_COUNTRY)), cursor.getString(cursor.getColumnIndex(USER_ZIP)),
+                        cursor.getString(cursor.getColumnIndex(USER_COMPANY)))
+            db.close()
+            cursor.close()
+            return userAddress
+        }
+        db.close()
+        cursor.close()
+        return null
+    }
+
+    fun updateAddress(id:String?, userAddress: AddressModel){
+        val db = this.writableDatabase
+        val cv = ContentValues()
+        cv.put(USER_ID,id)
+        cv.put(USER_ADDRESS, userAddress.address)
+        cv.put(USER_AREA, userAddress.area)
+        cv.put(USER_CITY, userAddress.city)
+        cv.put(USER_REGION, userAddress.region)
+        cv.put(USER_COUNTRY, userAddress.country)
+        cv.put(USER_ZIP, userAddress.zip)
+        cv.put(USER_COMPANY, userAddress.company)
+        db.update(ADDRESS_TABLE,cv,USER_ID + " =?", arrayOf(id))
+        Toast.makeText(context,"Update Address Successful",Toast.LENGTH_SHORT).show()
+        db.close()
+    }
 
 }

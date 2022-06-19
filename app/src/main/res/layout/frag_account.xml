@@ -114,6 +114,7 @@
             android:id="@+id/btnsCard"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:minHeight="500dp"
             android:layout_weight="1.6">
 
             <LinearLayout
@@ -134,8 +135,8 @@
 
                     <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/ordersFab"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/_39sdp"
+                        android:layout_height="@dimen/_39sdp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="15dp"
@@ -144,7 +145,7 @@
                         android:src="@drawable/home"
                         app:borderWidth="0dp"
                         app:elevation="3dp"
-                        app:fabCustomSize="50dp"
+                        app:fabCustomSize="@dimen/_39sdp"
                         app:tint="@null"
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
@@ -157,7 +158,7 @@
                         android:fontFamily="@font/roboto_regular"
                         android:text="Orders"
                         android:textColor="@color/selector_clr"
-                        android:textSize="18sp" />
+                        android:textSize="@dimen/_14sdp" />
 
                     <View
                         android:layout_width="match_parent"
@@ -180,8 +181,8 @@
 
                     <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/profileFab"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/_39sdp"
+                        android:layout_height="@dimen/_39sdp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="15dp"
@@ -190,7 +191,7 @@
                         android:src="@drawable/user"
                         app:borderWidth="0dp"
                         app:elevation="3dp"
-                        app:fabCustomSize="50dp"
+                        app:fabCustomSize="@dimen/_39sdp"
                         app:tint="@null"
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
@@ -203,7 +204,7 @@
                         android:fontFamily="@font/roboto_regular"
                         android:text="Profile"
                         android:textColor="@color/frag_name_clr"
-                        android:textSize="18sp" />
+                        android:textSize="@dimen/_14sdp" />
 
                     <View
                         android:layout_width="match_parent"
@@ -226,8 +227,8 @@
 
                     <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/addressFab"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/_39sdp"
+                        android:layout_height="@dimen/_39sdp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="15dp"
@@ -236,7 +237,7 @@
                         android:src="@drawable/address"
                         app:borderWidth="0dp"
                         app:elevation="3dp"
-                        app:fabCustomSize="50dp"
+                        app:fabCustomSize="@dimen/_39sdp"
                         app:tint="@null"
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
@@ -249,7 +250,7 @@
                         android:fontFamily="@font/roboto_regular"
                         android:text="Address"
                         android:textColor="@color/frag_name_clr"
-                        android:textSize="18sp" />
+                        android:textSize="@dimen/_14sdp" />
 
                     <View
                         android:layout_width="match_parent"
@@ -272,8 +273,8 @@
 
                     <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/cngLanFab"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/_39sdp"
+                        android:layout_height="@dimen/_39sdp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="15dp"
@@ -282,7 +283,7 @@
                         android:src="@drawable/translate"
                         app:borderWidth="0dp"
                         app:elevation="3dp"
-                        app:fabCustomSize="50dp"
+                        app:fabCustomSize="@dimen/_39sdp"
                         app:tint="@null"
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
@@ -295,7 +296,7 @@
                         android:fontFamily="@font/roboto_regular"
                         android:text="Change Language"
                         android:textColor="@color/frag_name_clr"
-                        android:textSize="18sp" />
+                        android:textSize="@dimen/_14sdp" />
 
                     <View
                         android:layout_width="match_parent"
@@ -323,8 +324,8 @@
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/logoutFab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/_39sdp"
+                android:layout_height="@dimen/_39sdp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="15dp"
@@ -333,7 +334,7 @@
                 android:src="@drawable/exit"
                 app:borderWidth="0dp"
                 app:elevation="3dp"
-                app:fabCustomSize="50dp"
+                app:fabCustomSize="@dimen/_39sdp"
                 app:tint="@null"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
@@ -346,7 +347,7 @@
                 android:fontFamily="@font/roboto_regular"
                 android:text="Logout"
                 android:textColor="@color/frag_name_clr"
-                android:textSize="18sp" />
+                android:textSize="@dimen/_14sdp" />
 
             <View
                 android:layout_width="match_parent"
