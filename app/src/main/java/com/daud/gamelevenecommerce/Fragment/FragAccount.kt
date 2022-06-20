@@ -73,9 +73,9 @@ class FragAccount : Fragment() {
             cngLanLayClickHandler()
         })
 
-        val logoutLay = view.findViewById<RelativeLayout>(R.id.logoutLay)
-        logoutLay.setOnClickListener(View.OnClickListener { view1: View? ->
-            logoutLayClickHandler()
+        val signOutLay = view.findViewById<RelativeLayout>(R.id.signOutLay)
+        signOutLay.setOnClickListener(View.OnClickListener { view1: View? ->
+            signOutLayClickHandler()
         })
 
         return view
@@ -115,14 +115,32 @@ class FragAccount : Fragment() {
         userData = dbHelper?.getUserData(sharedPref.ID())!!
     }
 
-    private fun logoutLayClickHandler() {
-        val sharedPref = SharedPref()
-        context?.let { sharedPref.init(it) }
-        sharedPref.write("SIGNIN","")
-        sharedPref.write("ID","")
-        parentFragmentManager.beginTransaction()
-            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-            .replace(R.id.mainFrame, FragSignIn()).commit()
+    private fun signOutLayClickHandler() {
+        val builder: AlertDialog.Builder = AlertDialog.Builder(context)
+        val view = LayoutInflater.from(context).inflate(R.layout.aleartdialog_delete, null)
+        val alertTv: TextView = view.findViewById(R.id.alertTv)
+
+        alertTv.setText(R.string.alert_signout)
+        builder.setView(view)
+        val dialog: Dialog = builder.create()
+        dialog.show()
+
+        val cancelBtn: Button = view.findViewById(R.id.cancelBtn)
+        cancelBtn.setOnClickListener { view1: View? ->
+            dialog.dismiss()
+        }
+
+        val okBtn: Button = view.findViewById(R.id.okBtn)
+        okBtn.setOnClickListener { view1: View? ->
+            val sharedPref = SharedPref()
+            context?.let { sharedPref.init(it) }
+            sharedPref.write("SIGNIN","")
+            sharedPref.write("ID","")
+            parentFragmentManager.beginTransaction()
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .replace(R.id.mainFrame, FragSignIn()).commit()
+            dialog.dismiss()
+        }
     }
 
     private fun cngLanLayClickHandler() {

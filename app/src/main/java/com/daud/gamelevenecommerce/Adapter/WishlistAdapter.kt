@@ -63,16 +63,19 @@ class WishlistAdapter(private val context: Context, private var list: MutableLis
         val builder: AlertDialog.Builder = AlertDialog.Builder(context)
         val view = LayoutInflater.from(context).inflate(R.layout.aleartdialog_delete, null)
         val alertTv: TextView = view.findViewById(R.id.alertTv)
-        val cancelBtn: Button = view.findViewById(R.id.cancelBtn)
-        val okBtn: Button = view.findViewById(R.id.okBtn)
+
         alertTv.setText(R.string.alertDlt_wishlist)
         builder.setView(view)
         val dialog: Dialog = builder.create()
         dialog.show()
+
+        val cancelBtn: Button = view.findViewById(R.id.cancelBtn)
         cancelBtn.setOnClickListener { view1: View? ->
             holder.wishDlt.setBackgroundResource(R.drawable.wd_unselect)
             dialog.dismiss()
         }
+
+        val okBtn: Button = view.findViewById(R.id.okBtn)
         okBtn.setOnClickListener { view1: View? ->
             holder.wishDlt.setBackgroundResource(R.drawable.wd_unselect)
             dialog.dismiss()
