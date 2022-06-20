@@ -178,7 +178,7 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
         }
         db.close()
         cursor.close()
-        return null
+        return AddressModel("","","","","","","")
     }
 
     fun updateAddress(id:String?, userAddress: AddressModel){

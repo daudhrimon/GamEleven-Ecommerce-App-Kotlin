@@ -1,4 +1,4 @@
-package com.daud.gamelevenecomme.Fragment
+package com.daud.gamelevenecommerce.Fragment
 
 import android.app.AlertDialog
 import android.app.Dialog
@@ -45,9 +45,14 @@ class FragAccount : Fragment() {
         // get address from database
         getAddress()
 
-        val backBtn: ImageButton = view.findViewById(R.id.accountBack)
+        val backBtn = view.findViewById<ImageButton>(R.id.accountBack)
         backBtn.setOnClickListener(View.OnClickListener { view1: View? ->
             backBtnClickHandler()
+        })
+
+        val acProImage = view.findViewById<CircleImageView>(R.id.acProImage)
+        acProImage.setOnClickListener(View.OnClickListener { view1: View? ->
+            profileLayClickHandler()
         })
 
         val ordersLay: RelativeLayout = view.findViewById(R.id.ordersLay)
@@ -55,22 +60,22 @@ class FragAccount : Fragment() {
             ordersLayClickHandler()
         })
 
-        val profileLay: RelativeLayout = view.findViewById(R.id.profileLay)
+        val profileLay = view.findViewById<RelativeLayout>(R.id.profileLay)
         profileLay.setOnClickListener(View.OnClickListener { view1: View? ->
             profileLayClickHandler()
         })
 
-        val addressLay: RelativeLayout = view.findViewById(R.id.addressLay)
+        val addressLay = view.findViewById<RelativeLayout>(R.id.addressLay)
         addressLay.setOnClickListener(View.OnClickListener { view1: View? ->
             addressBtmSheet()
         })
 
-        val cngLanLay: RelativeLayout = view.findViewById(R.id.cngLanLay)
+        val cngLanLay = view.findViewById<RelativeLayout>(R.id.cngLanLay)
         cngLanLay.setOnClickListener(View.OnClickListener { view1: View? ->
             cngLanLayClickHandler()
         })
 
-        val logoutLay: RelativeLayout = view.findViewById(R.id.logoutLay)
+        val logoutLay = view.findViewById<RelativeLayout>(R.id.logoutLay)
         logoutLay.setOnClickListener(View.OnClickListener { view1: View? ->
             logoutLayClickHandler()
         })

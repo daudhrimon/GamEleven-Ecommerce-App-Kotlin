@@ -2,7 +2,6 @@ package com.daud.gamelevenecommerce.Fragment
 
 import android.app.Activity
 import android.app.DatePickerDialog
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -21,14 +20,17 @@ import com.daud.gamelevenecommerce.Model.UserModel
 import com.daud.gamelevenecommerce.R
 import com.daud.gamelevenecommerce.Util.SharedPref
 import com.daud.gamelevenecommerce.Util.Util
+import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import de.hdodenhof.circleimageview.CircleImageView
 import java.util.*
+import android.content.Intent as Intent
 
 class FragProfile : Fragment() {
     private lateinit var userData: UserModel
-    //private lateinit var startForProfileImageResult: ActivityResultLauncher<Intent>
+    private lateinit var startForProfileImageResult: ActivityResultLauncher<Intent>
+    private lateinit var pProImage: CircleImageView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,14 +41,14 @@ class FragProfile : Fragment() {
         initial(view)
 
         // user info getting from database
-        getData()
+        getUserData()
 
         // set user info
         setUserInfo(view)
 
         val pImagePen = view.findViewById<FloatingActionButton>(R.id.pImagePen)
         pImagePen.setOnClickListener(View.OnClickListener { view1: View? ->
-            //pImagePenClickHandler()
+            pImagePenClickHandler()
         })
 
         val backBtn = view.findViewById<ImageButton>(R.id.profileBack)
@@ -64,7 +66,7 @@ class FragProfile : Fragment() {
             emailEdClickHandler()
         })
 
-        /*val startForProfileImageResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+        startForProfileImageResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
                 val resultCode = result.resultCode
                 val data = result.data
 
@@ -72,30 +74,30 @@ class FragProfile : Fragment() {
                     //Image Uri will not be null for RESULT_OK
                     val fileUri = data?.data!!
 
-                    //mProfileUri = fileUri
-                    //imgProfile.setImageURI(fileUri)
+                    var mProfileUri = fileUri
+                    pProImage.setImageURI(fileUri)
                 } else if (resultCode == ImagePicker.RESULT_ERROR) {
                     Toast.makeText(requireContext(), ImagePicker.getError(data), Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(requireContext(), "Task Cancelled", Toast.LENGTH_SHORT).show()
                 }
-            }*/
+            }
 
         return view
     }
 
-    /*private fun pImagePenClickHandler() {
+    private fun pImagePenClickHandler() {
         ImagePicker.with(this)
             .compress(1024)         //Final image size will be less than 1 MB(Optional)
-            .maxResultSize(1080, 1080)  //Final image resolution will be less than 1080 x 1080(Optional)
+            .maxResultSize(1080, 1080) //Final image resolution will be less than 1080 x 1080(Optional)
+            .crop(1f, 1f)
             .createIntent { intent ->
                 startForProfileImageResult.launch(intent)
             }
-    }*/
+    }
 
     // set user info
     private fun setUserInfo(view: View?) {
-        val piProImage = view?.findViewById<CircleImageView>(R.id.piProImage)
         val pNameTv = view?.findViewById<TextView>(R.id.pNameTv)
         val piNameTv = view?.findViewById<TextView>(R.id.piNameTv)
 
@@ -130,7 +132,7 @@ class FragProfile : Fragment() {
     }
 
     // get user data from database
-    private fun getData() {
+    private fun getUserData() {
         val dbHelper = context?.let { DbHelper(it) }
         val sharedPref = SharedPref()
         context?.let { sharedPref.init(it) }
@@ -174,7 +176,7 @@ class FragProfile : Fragment() {
 
             btmSheet.dismiss()
 
-            getData()
+            getUserData()
 
             setUserInfo(requireView())
         })
@@ -267,7 +269,7 @@ class FragProfile : Fragment() {
 
             btmSheet.dismiss()
 
-            getData()
+            getUserData()
 
             setUserInfo(requireView())
         })
@@ -320,6 +322,6 @@ class FragProfile : Fragment() {
     private fun initial(view: View?) {
         MainActivity.fab.visibility = View.GONE
         MainActivity.btmCard.visibility = View.GONE
-        ///////////////////////////////////////////
+        pProImage = view?.findViewById(R.id.pProImage)!!
     }
 }

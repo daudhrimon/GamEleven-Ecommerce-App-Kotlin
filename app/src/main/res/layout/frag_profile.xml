@@ -72,7 +72,7 @@
                     android:layout_weight="4.5">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/piProImage"
+                        android:id="@+id/pProImage"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_centerHorizontal="true"
