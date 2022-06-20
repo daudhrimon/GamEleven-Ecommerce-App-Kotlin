@@ -85,8 +85,30 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
         db.close()
     }
 
+    //
+
+    @SuppressLint("Range")
+    fun getUserData(id: String?): UserModel?{
+        val db = this.readableDatabase
+        val cursor = db.rawQuery("select * from " + USER_TABLE + " where " + USER_ID + " =?", arrayOf(id))
+
+        while (cursor.moveToFirst()){
+            val userData = UserModel(cursor.getString(cursor.getColumnIndex(USER_FIRST_NAME)),
+                cursor.getString(cursor.getColumnIndex(USER_LAST_NAME)), cursor.getString(cursor.getColumnIndex(USER_EMAIL)),
+                cursor.getString(cursor.getColumnIndex(USER_PASSWORD)), cursor.getString(cursor.getColumnIndex(USER_PHONE)),
+                cursor.getString(cursor.getColumnIndex(USER_BIRTH_DATE)), cursor.getString(cursor.getColumnIndex(USER_GENDER)),
+                cursor.getString(cursor.getColumnIndex(USER_IMAGE)))
+            db.close()
+            cursor.close()
+            return userData
+        }
+        db.close()
+        cursor.close()
+        return null
+    }
+
     // update Personal Info to USER_TABLE
-    fun updateUserInfo (id: String?, firstName: String?, lastName: String?,
+    fun updateUserData (id: String?, firstName: String?, lastName: String?,
                         phone: String?, birthDate: String?, gender: String?){
         val db: SQLiteDatabase = this.writableDatabase
         val cv = ContentValues()
@@ -97,16 +119,6 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
         cv.put(USER_GENDER, gender)
         db.update(USER_TABLE, cv, USER_ID + " =?", arrayOf(id))
         Toast.makeText(context,"Update Information Successful",Toast.LENGTH_SHORT).show()
-        db.close()
-    }
-
-    // update email to USER_TABLE
-    fun updateEmail(id: String?, email: String?){
-        val db:SQLiteDatabase = this.writableDatabase
-        val cv = ContentValues()
-        cv.put(USER_EMAIL,email)
-        db.update(USER_TABLE, cv, USER_ID + " =?", arrayOf(id))
-        Toast.makeText(context,"Update Email Successful",Toast.LENGTH_SHORT).show()
         db.close()
     }
 
@@ -126,24 +138,14 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
         return -1
     }
 
-    @SuppressLint("Range")
-    fun getUserData(id: String?): UserModel?{
-        val db = this.readableDatabase
-        val cursor = db.rawQuery("select * from " + USER_TABLE + " where " + USER_ID + " =?", arrayOf(id))
-
-        while (cursor.moveToFirst()){
-            val userData = UserModel(cursor.getString(cursor.getColumnIndex(USER_FIRST_NAME)),
-                    cursor.getString(cursor.getColumnIndex(USER_LAST_NAME)), cursor.getString(cursor.getColumnIndex(USER_EMAIL)),
-                    cursor.getString(cursor.getColumnIndex(USER_PASSWORD)), cursor.getString(cursor.getColumnIndex(USER_PHONE)),
-                    cursor.getString(cursor.getColumnIndex(USER_BIRTH_DATE)), cursor.getString(cursor.getColumnIndex(USER_GENDER)),
-                cursor.getString(cursor.getColumnIndex(USER_IMAGE)))
-            db.close()
-            cursor.close()
-            return userData
-        }
+    // update email to USER_TABLE
+    fun updateEmail(id: String?, email: String?){
+        val db:SQLiteDatabase = this.writableDatabase
+        val cv = ContentValues()
+        cv.put(USER_EMAIL,email)
+        db.update(USER_TABLE, cv, USER_ID + " =?", arrayOf(id))
+        Toast.makeText(context,"Update Email Successful",Toast.LENGTH_SHORT).show()
         db.close()
-        cursor.close()
-        return null
     }
 
     fun insertAddress(id:String?, userAddress: AddressModel){

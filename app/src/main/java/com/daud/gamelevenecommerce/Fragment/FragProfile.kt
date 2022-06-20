@@ -46,14 +46,14 @@ class FragProfile : Fragment() {
         // set user info
         setUserInfo(view)
 
-        val pImagePen = view.findViewById<FloatingActionButton>(R.id.pImagePen)
-        pImagePen.setOnClickListener(View.OnClickListener { view1: View? ->
-            pImagePenClickHandler()
-        })
-
         val backBtn = view.findViewById<ImageButton>(R.id.profileBack)
         backBtn.setOnClickListener(View.OnClickListener { view1: View? ->
             backBtnClickHandler()
+        })
+
+        val pImagePen = view.findViewById<FloatingActionButton>(R.id.pImagePen)
+        pImagePen.setOnClickListener(View.OnClickListener { view1: View? ->
+            pImagePenClickHandler()
         })
 
         val personalEd = view.findViewById<TextView>(R.id.personalEd)
@@ -102,7 +102,7 @@ class FragProfile : Fragment() {
         val piNameTv = view?.findViewById<TextView>(R.id.piNameTv)
 
         if (userData.image.isNotEmpty()){
-            ////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////
         }
 
         if (userData.firstName.isNotEmpty()) {
@@ -264,7 +264,7 @@ class FragProfile : Fragment() {
             val dbHelper = DbHelper(requireContext())
             val sharedPref = SharedPref()
             sharedPref.init(requireContext())
-            dbHelper.updateUserInfo(sharedPref.ID(), editFName?.text.toString(), editLName?.text.toString(),
+            dbHelper.updateUserData(sharedPref.ID(), editFName?.text.toString(), editLName?.text.toString(),
                 editContact?.text.toString(), editBirthDate?.text.toString(),gender)
 
             btmSheet.dismiss()
