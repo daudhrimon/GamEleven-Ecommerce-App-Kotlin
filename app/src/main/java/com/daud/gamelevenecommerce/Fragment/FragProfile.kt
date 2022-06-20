@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.DatePickerDialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import com.daud.gamelevenecommerce.Activity.MainActivity
 import com.daud.gamelevenecommerce.Helper.DbHelper
@@ -29,7 +31,6 @@ import android.content.Intent as Intent
 
 class FragProfile : Fragment() {
     private lateinit var userData: UserModel
-    private lateinit var startForProfileImageResult: ActivityResultLauncher<Intent>
     private lateinit var pProImage: CircleImageView
 
     override fun onCreateView(
@@ -66,31 +67,14 @@ class FragProfile : Fragment() {
             emailEdClickHandler()
         })
 
-        startForProfileImageResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
-                val resultCode = result.resultCode
-                val data = result.data
-
-                if (resultCode == Activity.RESULT_OK) {
-                    //Image Uri will not be null for RESULT_OK
-                    val fileUri = data?.data!!
-
-                    var mProfileUri = fileUri
-                    pProImage.setImageURI(fileUri)
-                } else if (resultCode == ImagePicker.RESULT_ERROR) {
-                    Toast.makeText(requireContext(), ImagePicker.getError(data), Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(requireContext(), "Task Cancelled", Toast.LENGTH_SHORT).show()
-                }
-            }
-
         return view
     }
 
     private fun pImagePenClickHandler() {
         ImagePicker.with(this)
+            .crop(1f, 1f)
             .compress(1024)         //Final image size will be less than 1 MB(Optional)
             .maxResultSize(1080, 1080) //Final image resolution will be less than 1080 x 1080(Optional)
-            .crop(1f, 1f)
             .createIntent { intent ->
                 startForProfileImageResult.launch(intent)
             }
@@ -102,7 +86,7 @@ class FragProfile : Fragment() {
         val piNameTv = view?.findViewById<TextView>(R.id.piNameTv)
 
         if (userData.image.isNotEmpty()){
-        ////////////////////////////
+            pProImage.setImageURI(userData.image.toUri())
         }
 
         if (userData.firstName.isNotEmpty()) {
@@ -133,9 +117,9 @@ class FragProfile : Fragment() {
 
     // get user data from database
     private fun getUserData() {
-        val dbHelper = context?.let { DbHelper(it) }
+        val dbHelper = DbHelper(requireContext())
         val sharedPref = SharedPref()
-        context?.let { sharedPref.init(it) }
+        sharedPref.init(requireContext())
         userData = dbHelper?.getUserData(sharedPref.ID())!!
     }
 
@@ -216,7 +200,9 @@ class FragProfile : Fragment() {
         }
 
         // bottom sheet touch to hide KEYBOARD
-        sheetView.setOnClickListener(View.OnClickListener { view: View? -> Util.hideSoftKeyBoard(requireContext(),sheetView) })
+        sheetView.setOnClickListener(View.OnClickListener { view: View? ->
+            Util.hideSoftKeyBoard(requireContext(),sheetView)
+        })
 
         // genderRadio click Handler
         genderRadio.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { group, checkedId ->
@@ -317,6 +303,33 @@ class FragProfile : Fragment() {
 
     private fun backBtnClickHandler() {
         parentFragmentManager.popBackStack()
+    }
+
+    // for getting image from camera or gallery
+    private val startForProfileImageResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+        val resultCode = result.resultCode
+        val data = result.data
+
+        if (resultCode == Activity.RESULT_OK) {
+            //Image Uri will not be null for RESULT_OK
+            val imageUri = data?.data!!
+            //this method will insert IMAGE to databse
+            insertImageToDatabse(imageUri)
+            // set image to ImageView
+            pProImage.setImageURI(imageUri)
+
+        } else if (resultCode == ImagePicker.RESULT_ERROR) {
+            Toast.makeText(requireContext(), ImagePicker.getError(data), Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(requireContext(), "Cancelled", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun insertImageToDatabse(imageUri: Uri) {
+        val dbHelper = DbHelper(requireContext())
+        val sharedPref = SharedPref()
+        sharedPref.init(requireContext())
+        dbHelper.insertImage(sharedPref.ID(),imageUri.toString())
     }
 
     private fun initial(view: View?) {

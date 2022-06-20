@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 
 class SharedPref() {
     private var mSharedPref: SharedPreferences? = null
-    val NAME = "com.bdtask.sebaghar_nurse"
+    val NAME = "com.daud.gamelevenecommerce"
 
     private fun SharedPref() {}
 

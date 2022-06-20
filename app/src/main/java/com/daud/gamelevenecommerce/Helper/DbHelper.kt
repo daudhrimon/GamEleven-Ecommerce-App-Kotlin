@@ -85,7 +85,14 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
         db.close()
     }
 
-    //
+    fun insertImage(id: String?, image: String?){
+        val db = this.writableDatabase
+        val cv = ContentValues()
+        cv.put(USER_IMAGE, image)
+        db.update(USER_TABLE, cv, USER_ID + " =?", arrayOf(id))
+        Toast.makeText(context,"Insert Image Successful",Toast.LENGTH_SHORT).show()
+        db.close()
+    }
 
     @SuppressLint("Range")
     fun getUserData(id: String?): UserModel?{

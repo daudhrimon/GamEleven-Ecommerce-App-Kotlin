@@ -8,13 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.daud.gamelevenecommerce.Activity.MainActivity
-import com.daud.gamelevenecommerce.Fragment.FragHome
-import com.daud.gamelevenecommerce.Fragment.FragOrderList
-import com.daud.gamelevenecommerce.Fragment.FragProfile
-import com.daud.gamelevenecommerce.Fragment.FragSignIn
 import com.daud.gamelevenecommerce.Helper.DbHelper
 import com.daud.gamelevenecommerce.Model.AddressModel
 import com.daud.gamelevenecommerce.Model.UserModel
@@ -27,6 +24,7 @@ import de.hdodenhof.circleimageview.CircleImageView
 class FragAccount : Fragment() {
     private lateinit var userData: UserModel
     private lateinit var address: AddressModel
+    private lateinit var acProImage: CircleImageView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,7 +35,7 @@ class FragAccount : Fragment() {
         initial()
 
         // retrieve data from database
-        getData()
+        getUserData()
 
         // set data to user layout
         setUserData(view)
@@ -50,7 +48,7 @@ class FragAccount : Fragment() {
             backBtnClickHandler()
         })
 
-        val acProImage = view.findViewById<CircleImageView>(R.id.acProImage)
+        acProImage = view.findViewById(R.id.acProImage)
         acProImage.setOnClickListener(View.OnClickListener { view1: View? ->
             profileLayClickHandler()
         })
@@ -95,7 +93,7 @@ class FragAccount : Fragment() {
     private fun setUserData(view: View) {
         val acProImage = view.findViewById<CircleImageView>(R.id.acProImage)
         if (userData.image.isNotEmpty()){
-            ////////////////////////////////////////////////////////////////////////////////////////
+            acProImage.setImageURI(userData.image.toUri())
         }
 
         val userName = view.findViewById<TextView>(R.id.userName)
@@ -110,10 +108,10 @@ class FragAccount : Fragment() {
     }
 
     // retrieve data from database
-    private fun getData() {
-        val dbHelper = context?.let { DbHelper(it) }
+    private fun getUserData() {
+        val dbHelper = DbHelper(requireContext())
         val sharedPref = SharedPref()
-        context?.let { sharedPref.init(it) }
+        sharedPref.init(requireContext())
         userData = dbHelper?.getUserData(sharedPref.ID())!!
     }
 
