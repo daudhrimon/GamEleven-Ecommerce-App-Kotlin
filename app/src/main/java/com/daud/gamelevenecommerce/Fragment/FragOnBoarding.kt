@@ -72,12 +72,10 @@ class FragOnBoarding : Fragment() {
         if (Position < 2) {
             onbViewPager2.currentItem = Position+1
         } else {
-            /*val spActivity = SplashActivity()
-            spActivity.editor.putInt("WELCOME", 1).commit()*/
             val sharedPref = SharedPref()
-            context?.let { sharedPref.init(it) }
+            sharedPref.init(requireContext())
             sharedPref.write("WELCOME","DONE")
-            startActivity(Intent(context, MainActivity::class.java))
+            startActivity(Intent(requireContext(), MainActivity::class.java))
             activity?.finish()
         }
     }
