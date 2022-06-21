@@ -111,7 +111,7 @@ class DbHelper(private val context: Context) : SQLiteOpenHelper(context, DATABAS
         }
         db.close()
         cursor.close()
-        return null
+        return UserModel("","","","","","","","")
     }
 
     // update Personal Info to USER_TABLE
